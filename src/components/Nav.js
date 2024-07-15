@@ -13,7 +13,7 @@ const navItems = [
 
 const Nav = () => {
   return (
-    <nav className="flex items-center justify-between bg-beige h-20 pr-20 font-sans">
+    <nav className="flex items-center justify-between bg-beige h-20 pr-20 font-sans bg-navyblue">
       <div className="font-bold text-xl flex flex-row items-center">
         <Image
           src="/logo.png"
@@ -22,8 +22,8 @@ const Nav = () => {
           height={100}
           className="h-min w-40 pl-5 bg-transparent"
         />
-        <h1 className="text-purp">
-          ChangeSpark<span className="text-gren"> Foundation</span>
+        <h1 className="text-white">
+          ChangeSpark<span className="text-white"> Foundation</span>
         </h1>
       </div>
       <ul className="flex space-x-20">
@@ -31,7 +31,7 @@ const Nav = () => {
           <li className="list-none" key={index}>
             <a
               href={item.href}
-              className="text-base font-medium text-gray-900 capitalize hover:after:content-[''] hover:after:block hover:after:w-full hover:after:h-0.5 hover:after:bg-black hover:after:m-auto"
+              className="text-base font-medium text-white capitalize hover:after:content-[''] hover:after:block hover:after:w-full hover:after:h-0.5 hover:after:bg-white hover:after:m-auto"
             >
               {item.label}
             </a>
