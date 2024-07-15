@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Nav from "@/components/nav";
+import Nav from "@/components/Nav";
+import AboutUs from "@/components/Aboutus";
 
 export default function Home() {
   return (
@@ -30,23 +31,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <div class="bg-rose text-center p-10 rounded-md shadow-md w-screen  mx-auto">
-        <h2 class="text-3xl font-bold text-purple-900 mb-6">About Us</h2>
-        <p class="text-lg text-gray-700 mb-4">
-          We are an organization committed to providing a high-quality education
-          for every child in India. We believe that every child, regardless of
-          their socio-economic status, location or circumstances, deserves an
-          opportunity to reach their full potential.
-        </p>
-        <p class="text-lg text-gray-700">
-          We exist to enable government schools in India to provide quality
-          education to every child. We believe that a good ‘quality’ education
-          is the foundation of a child’s future, and we are dedicated to
-          supporting the government in delivering this to all children in India.
-          
-        </p>
-      </div>
+        <AboutUs />
+      
     </main>
   );
 }
