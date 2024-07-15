@@ -20,7 +20,9 @@ module.exports = {
           light: "#8E68A5",
           dark: "#623B7A", // added missing #
         },
-        blue: "#1A3641", // added missing #
+        blue: "#1A3641",
+        lavender: "#FFF0F5", // added missing #
+        rose : "#FFE4E1",
       },
     },
   },
