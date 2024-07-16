@@ -24,6 +24,7 @@ module.exports = {
         lavender: "#FFF0F5", // added missing #
         rose : "#FFE4E1",
         navyblue : "#4A0E4E",
+        'beige': '#FFFBEA',
       },
     },
   },
