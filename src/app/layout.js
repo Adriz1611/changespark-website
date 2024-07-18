@@ -1,7 +1,19 @@
-import { Inter } from "next/font/google";
+import { Inter, Rampart_One, Inika } from "next/font/google";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inika = Inika({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-inika",
+});
+const rampart = Rampart_One({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-rampartone",
+});
 
 export const metadata = {
   title: "ChangeSpark",
@@ -11,7 +23,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${inter.variable} ${rampart.variable} ${inika.variable}`}
+      >
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
