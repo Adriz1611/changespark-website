@@ -1,12 +1,11 @@
 import Image from "next/image";
-import Nav from "@/components/Nav";
 import AboutUs from "@/components/Aboutus";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
-      <Nav />
+
 
       <div className="flex flex-col md:flex-row items-stretch p-8 bg-lavender h-screen">
         <div className="md:flex-shrink-0 mb-8 md:mb-0 md:mr-8 flex flex-col justify-center">
