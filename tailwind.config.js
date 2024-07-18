@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        subheading: ["var(--font-inter)"],
+        heading: ["var(--font-rampartone)"],
+        paragraph: ["var(--font-inika)"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
