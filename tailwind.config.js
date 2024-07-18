@@ -8,8 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        subheading: ["var(--font-inter)"],
-        heading: ["var(--font-rampartone)"],
+        heading: ["var(--font-tauri)"],
         paragraph: ["var(--font-inika)"],
       },
       backgroundImage: {
