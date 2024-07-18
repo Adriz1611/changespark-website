@@ -1,6 +1,6 @@
 "use client";
-
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const navItems = [
@@ -10,7 +10,7 @@ const navItems = [
   { href: "/projects", label: "PROJECTS" },
 ];
 
-const Nav = () => {
+export default function Nav() {
   const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
@@ -48,15 +48,13 @@ const Nav = () => {
       <div className="flex flex-row gap-10 items-center justify-center">
         <ul className="flex flex-row gap-5 ">
           {navItems.map((item, index) => (
-            <li className="list-none" key={index}>
-              <a
-                href={item.href}
-                className={`text-base font-medium font-paragraph capitalize ${
-                  scroll ? "text-text-200" : "text-text-800"
-                }`}
-              >
-                {item.label}
-              </a>
+            <li
+              className={`text-base font-medium font-paragraph capitalize ${
+                scroll ? "text-text-200" : "text-text-800"
+              }`}
+              key={index}
+            >
+              <Link href={item.href}>{item.label}</Link>
             </li>
           ))}
         </ul>
@@ -68,4 +66,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+
