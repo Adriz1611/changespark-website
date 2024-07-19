@@ -24,8 +24,7 @@ export default function Home() {
         <div className="">
           <div className="">
             <iframe
-              width="800"
-              height="450"
+              className="w-[90vw] h-[40vh] md:w-[40vw]"
               src="https://www.youtube.com/embed/Sqqj_14wBxU?si=gvouxtwpb9pqEbyc"
               title="YouTube video player"
               frameBorder="0"
@@ -57,7 +56,7 @@ export default function Home() {
               delivering this to all children in India.
             </p>
           </div>
-          <div className="flex justify-between space-x-4">
+          <div className="flex flex-col md:flex-row justify-between space-x-4">
             {images.map((img, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div className="w-[330px] h-[300px] relative">
