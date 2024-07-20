@@ -1,5 +1,6 @@
 import Image from "next/image";
-
+import { MoveUpRight } from "lucide-react";
+ 
 const Projects = () => {
   const images = [
     {
@@ -27,8 +28,9 @@ const Projects = () => {
         {images.map((img, index) => (
           <div
             key={index}
-            className="flex flex-col items-start text-start w-[450px]"
+            className=" relative flex flex-col items-start text-start w-[450px] bg-background-200 px-4 py-4 rounded-md shadow-md cursor-pointer"
           >
+            <MoveUpRight size={32} className="text-green-300 absolute top-5 right-5" />
             <Image
               src={img.src}
               alt={img.alt}
@@ -40,7 +42,9 @@ const Projects = () => {
             <h2 className="mt-4 uppercase font-bold text-xl font-paragraph text-green-700 text-center">
               {img.caption}
             </h2>
-            <p className="text-wrap">{img.description}</p>
+            <p className="text-wrap font-paragraph text-secondary-700">
+              {img.description}
+            </p>
           </div>
         ))}
       </div>
