@@ -17,7 +17,7 @@ export default function Nav() {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 80) {
         setScroll(true);
       } else {
         setScroll(false);
@@ -27,9 +27,9 @@ export default function Nav() {
 
   return (
     <nav
-      className={`z-10 fixed w-full flex flex-col md:flex-row items-start md:items-center justify-between py-5 px-5 md:px-10 font-sans ${
-        scroll ? `md:bg-background-800` : `md:bg-transparent`
-      } ${open ? `bg-background-800` : `bg-transparent`}`}
+      className={`z-10 fixed w-full flex flex-col md:flex-row items-start md:items-center justify-between py-5 px-5  md:gap-0 md:px-10 font-sans ${
+        scroll ? `bg-background-800` : `md:bg-transparent`
+      } ${open ? `bg-background-800 gap-10` : ``}`}
     >
       <div className="font-bold md:text-xl flex flex-row items-center">
         {/* <Image
@@ -41,13 +41,13 @@ export default function Nav() {
         /> */}
         <h1
           className={`font-paragraph ${
-            scroll ? "md:text-text-200" : "md:text-text-800"
-          } ${open ? `text-text-200 ` : `text-text-800`}`}
+            scroll ? "text-text-200" : "md:text-text-800"
+          } ${open ? `text-text-200 ` : ``}`}
         >
           ChangeSpark Foundation
         </h1>
       </div>
-      <div className="flex flex-col md:flex-row gap-10 items-center justify-center md:my-0 my-10">
+      <div className="flex flex-col md:flex-row gap-10 items-center justify-center">
         <ul className="flex flex-col md:flex-row gap-5 ">
           {navItems.map((item, index) => (
             <li
