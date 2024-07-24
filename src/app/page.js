@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Home() {
     const images = [
-      { src: "/1.jpg", alt: "Education", caption: "Quality Education" },
-      { src: "/3.jpg", alt: "Children", caption: "Every Child Matters" },
-      { src: "/2.jpg", alt: "School", caption: "Empowering Schools" },
+      { src: "/1.avif", alt: "Education", caption: "Quality Education" },
+      { src: "/3.avif", alt: "Children", caption: "Every Child Matters" },
+      { src: "/2.avif", alt: "School", caption: "Empowering Schools" },
     ];
   return (
     <main className="bg-background-100 min-h-screen">
@@ -52,7 +52,7 @@ export default function Home() {
               delivering this to all children in India.
             </p>
           </div>
-          <div className="flex flex-col md:flex-row justify-between space-x-4 space-y-7">
+          <div className="flex flex-col md:flex-row justify-between space-x-4 space-y-7 md:space-y-0">
             {images.map((img, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div className="w-[330px] h-[300px] relative">

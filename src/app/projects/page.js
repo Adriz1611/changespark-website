@@ -5,7 +5,7 @@ import Link from "next/link";
 const Projects = () => {
   const images = [
     {
-      src: "/bhadreswar.jpg",
+      src: "/bhadreswar.avif",
       url: "/projects/bhadreswar",
       alt: "Women at Tailoring",
       caption: "Women at Tailoring",
@@ -13,7 +13,7 @@ const Projects = () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
-      src: "/goghat.jpg",
+      src: "/goghat.avif",
       alt: "Children at School",
       url: "/projects/goghat",
       caption: "Children at School",
