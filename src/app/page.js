@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 export default function Home() {
@@ -10,7 +9,7 @@ export default function Home() {
   return (
     <main className="bg-background-100 min-h-screen">
       <section className="flex flex-col md:flex-row items-center justify-between px-8 py-36">
-        <div className=" flex-col">
+        <div className="flex-col">
           <h1 className="text-6xl font-heading font-bold text-purple-900 dark:font-semibold mb-4">
             Changespark Foundation
           </h1>
@@ -21,18 +20,15 @@ export default function Home() {
             Join Us
           </button>
         </div>
-        <div className="">
-          <div className="">
-            <iframe
-              className="w-[90vw] h-[40vh] md:w-[40vw]"
-              src="https://www.youtube.com/embed/Sqqj_14wBxU?si=gvouxtwpb9pqEbyc"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
-          </div>
+        <div>
+          <iframe
+            className="w-[90vw] h-[40vh] md:w-[40vw]"
+            src="https://www.youtube.com/embed/Sqqj_14wBxU?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&si=gvouxtwpb9pqEbyc"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
         </div>
       </section>
       <div className="bg-background-200 min-h-screen p-10">
