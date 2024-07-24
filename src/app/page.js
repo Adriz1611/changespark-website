@@ -52,7 +52,7 @@ export default function Home() {
               delivering this to all children in India.
             </p>
           </div>
-          <div className="flex flex-col md:flex-row justify-between space-x-4">
+          <div className="flex flex-col md:flex-row justify-between space-x-4 space-y-7">
             {images.map((img, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div className="w-[330px] h-[300px] relative">
@@ -64,7 +64,7 @@ export default function Home() {
                     className="rounded-md shadow-md"
                   />
                 </div>
-                <p className="mt-2 uppercase font-bold text-xl font-paragraph text-center text-gray-600">{img.caption}</p>
+                <p className="mt-4 uppercase font-bold text-xl font-paragraph text-center text-gray-600">{img.caption}</p>
               </div>
             ))}
           </div>

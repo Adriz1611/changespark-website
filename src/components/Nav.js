@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const navItems = [
   { href: "/", label: "HOME" },
@@ -14,16 +15,27 @@ const navItems = [
 export default function Nav() {
   const [scroll, setScroll] = useState(false);
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
       if (window.scrollY > 80) {
         setScroll(true);
       } else {
         setScroll(false);
       }
-    });
-  });
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleDonateClick = () => {
+    router.push("/donate");
+  };
 
   return (
     <nav
@@ -64,13 +76,14 @@ export default function Nav() {
           className={`bg-accent-700 text-white font-medium px-5 py-2 md:block ${
             open ? "" : "hidden"
           }`}
+          onClick={handleDonateClick}
         >
           Donate
         </button>
       </div>
       {open ? (
         <X
-          className="md:hidden  cursor-pointer absolute right-5"
+          className="md:hidden cursor-pointer absolute right-5"
           onClick={() => setOpen(false)}
         />
       ) : (

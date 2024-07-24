@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 14,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1721826624521,
@@ -64,6 +64,30 @@
                 {
                     "date": 1721830026517,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         </div>\n         <div>\n           <iframe\n             className=\"w-[90vw] h-[40vh] md:w-[40vw]\"\n-            src=\"https://www.youtube.com/embed/Sqqj_14wBxU?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&iv_load_policy=3&si=gvouxtwpb9pqEbyc\"\n+            src=\"https://www.youtube.com/embed/Sqqj_14wBxU?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&si=gvouxtwpb9pqEbyc\"\n             title=\"YouTube video player\"\n             allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"\n             referrerPolicy=\"strict-origin-when-cross-origin\"\n             allowFullScreen\n"
+                },
+                {
+                    "date": 1721835862674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   return (\n     <main className=\"bg-background-100 min-h-screen\">\n       <section className=\"flex flex-col md:flex-row items-center justify-between px-8 py-36\">\n         <div className=\"flex-col\">\n-          <h1 className=\"text-6xl font-heading font-bold text-purple-900 dark:font-semibold mb-4\">\n+          <h1 className=\"text-6xl font-heading font-bold text-purple-900 dark:font-semibold mb-\">\n             Changespark Foundation\n           </h1>\n           <p className=\"text-2xl text-green-700 font-paragraph font-bold px-2\">\n             EMPOWERING POWER IGNITING CHANGE\n"
+                },
+                {
+                    "date": 1721835877504,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   return (\n     <main className=\"bg-background-100 min-h-screen\">\n       <section className=\"flex flex-col md:flex-row items-center justify-between px-8 py-36\">\n         <div className=\"flex-col\">\n-          <h1 className=\"text-6xl font-heading font-bold text-purple-900 dark:font-semibold mb-\">\n+          <h1 className=\"text-6xl font-heading font-bold text-purple-900 dark:font-semibold mb-10\">\n             Changespark Foundation\n           </h1>\n           <p className=\"text-2xl text-green-700 font-paragraph font-bold px-2\">\n             EMPOWERING POWER IGNITING CHANGE\n"
+                },
+                {
+                    "date": 1721835885753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   return (\n     <main className=\"bg-background-100 min-h-screen\">\n       <section className=\"flex flex-col md:flex-row items-center justify-between px-8 py-36\">\n         <div className=\"flex-col\">\n-          <h1 className=\"text-6xl font-heading font-bold text-purple-900 dark:font-semibold mb-10\">\n+          <h1 className=\"text-6xl font-heading font-bold text-purple-900 dark:font-semibold mb-4\">\n             Changespark Foundation\n           </h1>\n           <p className=\"text-2xl text-green-700 font-paragraph font-bold px-2\">\n             EMPOWERING POWER IGNITING CHANGE\n"
+                },
+                {
+                    "date": 1721835927171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     <main className=\"bg-background-100 min-h-screen\">\n       <section className=\"flex flex-col md:flex-row items-center justify-between px-8 py-36\">\n         <div className=\"flex-col\">\n           <h1 className=\"text-6xl font-heading font-bold text-purple-900 dark:font-semibold mb-4\">\n-            Changespark Foundation\n+            Changespark <Foundation\n           </h1>\n           <p className=\"text-2xl text-green-700 font-paragraph font-bold px-2\">\n             EMPOWERING POWER IGNITING CHANGE\n           </p>\n"
+                },
+                {
+                    "date": 1721836000734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,5 +69,7 @@\n             ))}\n           </div>\n         </div>\n       </div>\n-    </mai\n\\ No newline at end of file\n+    </main>\n+  );\n+}\n"
+                },
+                {
+                    "date": 1721836152667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     <main className=\"bg-background-100 min-h-screen\">\n       <section className=\"flex flex-col md:flex-row items-center justify-between px-8 py-36\">\n         <div className=\"flex-col\">\n           <h1 className=\"text-6xl font-heading font-bold text-purple-900 dark:font-semibold mb-4\">\n-            Changespark <span> className=Foundation </span>\n+            Changespark <span className=\"\">Foundation </span>\n           </h1>\n           <p className=\"text-2xl text-green-700 font-paragraph font-bold px-2\">\n             EMPOWERING POWER IGNITING CHANGE\n           </p>\n"
                 }
             ],
             "date": 1721826624521,

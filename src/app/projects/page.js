@@ -8,7 +8,7 @@ const Projects = () => {
       src: "/bhadreswar.jpg",
       url: "/projects/bhadreswar",
       alt: "Women at Tailoring",
-      caption: "Women at Tailoringg",
+      caption: "Women at Tailoring",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
