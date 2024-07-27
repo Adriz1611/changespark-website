@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 export default function Home() {
-    const images = [
-      { src: "/1.avif", alt: "Education", caption: "Quality Education" },
-      { src: "/3.avif", alt: "Children", caption: "Every Child Matters" },
-      { src: "/2.avif", alt: "School", caption: "Empowering Schools" },
-    ];
+  const images = [
+    { src: "/1.avif", alt: "Education", caption: "Quality Education" },
+    { src: "/3.avif", alt: "Children", caption: "Every Child Matters" },
+    { src: "/2.avif", alt: "School", caption: "Empowering Schools" },
+  ];
   return (
     <main className="bg-background-100 min-h-screen">
       <section className="flex flex-col md:flex-row items-center justify-between px-8 py-36">
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         <div>
           <iframe
-            className="w-[90vw] h-[40vh] md:w-[40vw]"
+            className="w-[89vw] h-[49vh] md:w-[40vw]"
             src="https://www.youtube.com/embed/Sqqj_14wBxU?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&si=gvouxtwpb9pqEbyc"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -64,7 +64,9 @@ export default function Home() {
                     className="rounded-md shadow-md"
                   />
                 </div>
-                <p className="mt-4 uppercase font-bold text-xl font-paragraph text-center text-gray-600">{img.caption}</p>
+                <p className="mt-4 uppercase font-bold text-xl font-paragraph text-center text-gray-600">
+                  {img.caption}
+                </p>
               </div>
             ))}
           </div>

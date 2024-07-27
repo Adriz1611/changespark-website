@@ -14,7 +14,6 @@ const tauri = Tauri({
   variable: "--font-tauri",
 });
 
-
 export const metadata = {
   title: "ChangeSpark",
   description: "new budding NGO about women empowerment and child education",
@@ -23,9 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${inika.variable} ${tauri.variable}`}
-      >
+      <body className={`${inika.variable} ${tauri.variable}`}>
         <Nav />
         {children}
         <Footer />
