@@ -25,9 +25,8 @@ export default function Home() {
             className="w-[89vw] h-[49vh] md:w-[40vw]"
             src="https://www.youtube.com/embed/Sqqj_14wBxU?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&si=gvouxtwpb9pqEbyc"
             title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
+            loading="lazy"
           ></iframe>
         </div>
       </section>
