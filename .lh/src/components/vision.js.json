@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/vision.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1722165117864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1722165128434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n           <h2 className=\"text-5xl font-bold mb-2 text-purple-900 px-32 border border-r-black\">\n             Vision\n           </h2>\n         </div>\n-        <p className=\"text-text-700 text-lg px-12 \">\n+        <p className=\"text-text-700 text-lg px-12 border-r-\">\n           Changespark Foundation envisions a world empowered by education and\n           livelihood development. Changespark sees a future where individuals\n           have the tools and opportunities to break barriers, thrive, and build\n           brighter tomorrows for themselves and their communities.\n"
+                },
+                {
+                    "date": 1722165143202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n           <h2 className=\"text-5xl font-bold mb-2 text-purple-900 px-32 border border-r-black\">\n             Vision\n           </h2>\n         </div>\n-        <p className=\"text-text-700 text-lg px-12 border-l\">\n+        <p className=\"text-text-700 text-lg px-12 border-l-b\">\n           Changespark Foundation envisions a world empowered by education and\n           livelihood development. Changespark sees a future where individuals\n           have the tools and opportunities to break barriers, thrive, and build\n           brighter tomorrows for themselves and their communities.\n"
+                },
+                {
+                    "date": 1722165147662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n           <h2 className=\"text-5xl font-bold mb-2 text-purple-900 px-32 border border-r-black\">\n             Vision\n           </h2>\n         </div>\n-        <p className=\"text-text-700 text-lg px-12 border-l-b\">\n+        <p className=\"text-text-700 text-lg px-12 border-l-black\">\n           Changespark Foundation envisions a world empowered by education and\n           livelihood development. Changespark sees a future where individuals\n           have the tools and opportunities to break barriers, thrive, and build\n           brighter tomorrows for themselves and their communities.\n"
+                }
+            ],
+            "date": 1722165117863,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\n\nconst Vision = () => {\n  return (\n    <div className=\"flex items-center min-h-screen bg-background-100 p-4\">\n      <div className=\"flex flex-row items-center justify-center w-full\">\n        <div className=\"p-4\">\n          <h2 className=\"text-5xl font-bold mb-2 text-purple-900 px-32 border border-r-black\">\n            Vision\n          </h2>\n        </div>\n        <p className=\"text-text-700 text-lg px-12 \">\n          Changespark Foundation envisions a world empowered by education and\n          livelihood development. Changespark sees a future where individuals\n          have the tools and opportunities to break barriers, thrive, and build\n          brighter tomorrows for themselves and their communities.\n        </p>\n      </div>\n    </div>\n  );\n};\n\nexport default Vision;\n"
+        }
+    ]
+}
