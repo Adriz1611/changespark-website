@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Vision from "@/components/vision";
-import Misson from "@/components/mission";
 
 export default function Home() {
   const images = [
@@ -73,8 +71,46 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Vision />
-      <Misson />
+      <section className="mx-4 pb-10 grid md:grid-cols-4  md:grid-rows-2 grid-cols-1 grid-rows-4 min-h-screen items-center justify-center">
+        <div className="flex flex-col items-center ">
+          <h1 className="font-heading text-5xl">Vision</h1>
+        </div>
+        <div className="md:col-span-3">
+          <p className="font-paragraph">
+            {" "}
+            Changespark Foundation envisions a world where every individual is
+            empowered through education and sustainable livelihood development.
+            We foresee a future where all people, regardless of their background
+            or circumstances, have access to the necessary tools, resources, and
+            opportunities to overcome barriers, realize their potential, and
+            thrive. Through our dedicated efforts, we aim to build brighter
+            tomorrows, fostering communities where individuals are equipped to
+            lead fulfilling lives, contribute positively to society, and drive
+            transformative change.
+          </p>
+        </div>
+        <div className="flex flex-col  md:col-start-4 md:row-start-2 items-center ">
+          <h1 className="font-heading text-5xl">Mission</h1>
+        </div>
+        <div className="md:col-span-3 md:col-start-1 md:row-start-2">
+          <p className="font-paragraph">
+            {" "}
+            Changespark Foundation is dedicated to igniting sustainable progress
+            in rural communities by unlocking individual potential through
+            transformative education and fostering a vibrant culture of
+            entrepreneurship. Our mission is to empower individuals with the
+            knowledge, skills, and resources needed to overcome challenges,
+            innovate, and create lasting positive change. By providing access to
+            quality education and encouraging entrepreneurial spirit, we aim to
+            build self-reliant communities where every person has the
+            opportunity to achieve their dreams, improve their quality of life,
+            and contribute to the overall development of their region. Through
+            our comprehensive programs and initiatives, we strive to create an
+            inclusive environment where growth, learning, and prosperity are
+            within everyone&apos;s reach.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

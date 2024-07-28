@@ -27,10 +27,10 @@ const Projects = () => {
       <h1 className="text-5xl uppercase font-bold font-heading text-purple-900 mb-12">
         Projects
       </h1>
-      <div className="flex flex-col md:flex-row gap-10 md:gap-40 ">
+      <div className="flex flex-col md:flex-row gap-5 md:gap-40 items-center justify-center w-full">
         {images.map((img, index) => (
           <Link href={img.url} key={index}>
-            <div className="group relative flex flex-col items-start text-start md:mx-0 mx-2 bg-background-200 px-4 py-4 rounded-md shadow-md cursor-pointer">
+            <div className="group relative flex flex-col items-start max-w-96 text-start md:mx-0 mx-2 bg-background-200 px-4 py-4 rounded-md shadow-md cursor-pointer">
               <MoveUpRight
                 size={32}
                 className="text-green-300 absolute top-5 right-5 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500"
