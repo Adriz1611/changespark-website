@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Vision from "@/components/vision";
+import Misson from "@/components/mission";
 
 export default function Home() {
   const images = [
@@ -72,6 +74,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Vision />
+      <Misson />
     </main>
   );
 }
