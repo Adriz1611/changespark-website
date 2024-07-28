@@ -73,10 +73,10 @@ export default function Home() {
       </div>
       <section className="mx-4 pb-10 grid md:grid-cols-4  md:grid-rows-2 grid-cols-1 grid-rows-4 min-h-screen items-center justify-center">
         <div className="flex flex-col items-center ">
-          <h1 className="font-heading text-5xl">Vision</h1>
+          <h1 className="font-heading text-5xl font-bold text-secondary-700">Vision</h1>
         </div>
         <div className="md:col-span-3">
-          <p className="font-paragraph">
+          <p className="font-paragraph text-lg text-text-700 px-10">
             {" "}
             Changespark Foundation envisions a world where every individual is
             empowered through education and sustainable livelihood development.
@@ -90,10 +90,10 @@ export default function Home() {
           </p>
         </div>
         <div className="flex flex-col  md:col-start-4 md:row-start-2 items-center ">
-          <h1 className="font-heading text-5xl">Mission</h1>
+          <h1 className="font-heading text-5xl font-bold text-secondary-700">Mission</h1>
         </div>
         <div className="md:col-span-3 md:col-start-1 md:row-start-2">
-          <p className="font-paragraph">
+          <p className="font-paragraph text-lg text-text-700 px-10 pb-8 md:pb-0">
             {" "}
             Changespark Foundation is dedicated to igniting sustainable progress
             in rural communities by unlocking individual potential through
