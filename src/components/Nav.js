@@ -73,7 +73,7 @@ export default function Nav() {
           ))}
         </ul>
         <button
-          className={`bg-accent-700 text-white font-medium px-5 py-2 md:block ${
+          className={`bg-accent-700 text-white font-medium px-5 py-2 md:block rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 ${
             open ? "" : "hidden"
           }`}
           onClick={handleDonateClick}

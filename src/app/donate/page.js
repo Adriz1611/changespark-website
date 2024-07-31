@@ -10,7 +10,7 @@ export default function Donate() {
   const handleCopy = (text, setter) => {
     navigator.clipboard.writeText(text);
     setter(true);
-    setTimeout(() => setter(false), 1500);
+    setTimeout(() => setter(false), 1000);
   };
 
   const CopyButton = ({ text, copied, onClick }) => (
@@ -39,16 +39,16 @@ export default function Donate() {
 
         <div className="space-y-6">
           <h2 className="font-heading text-2xl font-bold uppercase text-green-700 mb-4">
-            Bank Transfer Details
+            Bank Transfer
           </h2>
 
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-secondary-700 mb-1">
+              <label className="block text-sm font-medium text-secondary-700">
                 Account Number
               </label>
-              <div className="mt-1 flex rounded-md shadow-sm">
-                <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-secondary-300 bg-background-100 text-secondary-700 text-sm">
+              <div className="mt-1 flex rounded-md ">
+                <span className="inline-flex items-center px-3 rounded-l-md  bg-background-100 text-secondary-700 text-sm">
                   20200055762126
                 </span>
                 <CopyButton
@@ -65,8 +65,8 @@ export default function Donate() {
               <label className="block text-sm font-medium text-secondary-700 mb-1">
                 IFSC Code
               </label>
-              <div className="mt-1 flex rounded-md shadow-sm">
-                <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-secondary-300 bg-background-100 text-secondary-700 text-sm">
+              <div className="mt-1 flex rounded-md ">
+                <span className="inline-flex items-center px-3 rounded-l-md bg-background-100 text-secondary-700 text-sm">
                   BDBL0001674
                 </span>
                 <CopyButton

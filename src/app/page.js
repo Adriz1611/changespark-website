@@ -1,3 +1,4 @@
+import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
           <p className="text-2xl text-green-700 font-paragraph font-bold px-2">
             EMPOWERING POWER IGNITING CHANGE
           </p>
-          <button className="mx-2 mt-7 mb-10 text-2xl font-bold py-2 px-8 font-paragraph text-white bg-background-600">
+          <button className="mx-2 mt-7 mb-10 text-2xl py-2 px-8 font-medium text-white bg-background-600 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
             Join Us
           </button>
         </div>
@@ -73,7 +74,9 @@ export default function Home() {
       </div>
       <section className="mx-4 pb-10 grid md:grid-cols-4  md:grid-rows-2 grid-cols-1 grid-rows-4 min-h-screen items-center justify-center">
         <div className="flex flex-col items-center ">
-          <h1 className="font-heading text-5xl font-bold text-secondary-700">Vision</h1>
+          <h1 className="font-heading text-5xl font-bold text-secondary-700">
+            Vision
+          </h1>
         </div>
         <div className="md:col-span-3">
           <p className="font-paragraph text-lg text-text-700 px-10">
@@ -90,7 +93,9 @@ export default function Home() {
           </p>
         </div>
         <div className="flex flex-col  md:col-start-4 md:row-start-2 items-center ">
-          <h1 className="font-heading text-5xl font-bold text-secondary-700">Mission</h1>
+          <h1 className="font-heading text-5xl font-bold text-secondary-700">
+            Mission
+          </h1>
         </div>
         <div className="md:col-span-3 md:col-start-1 md:row-start-2">
           <p className="font-paragraph text-lg text-text-700 px-10 pb-8 md:pb-0">
@@ -111,6 +116,7 @@ export default function Home() {
           </p>
         </div>
       </section>
+      <Testimonials />
     </main>
   );
 }
