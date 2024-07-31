@@ -48,7 +48,7 @@ export default function Donate() {
                 Account Number
               </label>
               <div className="mt-1 flex rounded-md ">
-                <span className="inline-flex items-center px-3 rounded-l-md  bg-background-100 text-secondary-700 text-sm">
+                <span className="inline-flex items-center px-3 rounded-md  bg-background-100 text-secondary-700 text-sm">
                   20200055762126
                 </span>
                 <CopyButton
@@ -66,7 +66,7 @@ export default function Donate() {
                 IFSC Code
               </label>
               <div className="mt-1 flex rounded-md ">
-                <span className="inline-flex items-center px-3 rounded-l-md bg-background-100 text-secondary-700 text-sm">
+                <span className="inline-flex items-center px-3 rounded-md bg-background-100 text-secondary-700 text-sm">
                   BDBL0001674
                 </span>
                 <CopyButton
