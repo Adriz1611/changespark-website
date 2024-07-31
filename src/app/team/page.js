@@ -53,25 +53,18 @@ const members = [
     linkedinLink: "https://linkedin.com/in/priyabratanandy",
   },
   {
-    img: "/priyanshu.jpg",
-    name: "Priyanshu Debnath",
-    title: "Web Developer",
-    twitterLink: "https://twitter.com/priyanshudebnath",
-    linkedinLink: "https://linkedin.com/in/priyanshudebnath",
-  },
-  {
-    img: "/priyanshu.jpg",
-    name: "Priyanshu Debnath",
-    title: "Web Developer",
-    twitterLink: "https://twitter.com/priyanshudebnath",
-    linkedinLink: "https://linkedin.com/in/priyanshudebnath",
-  },
-  {
     img: "/adrij.avif",
     name: "Adrij Bhadra",
     title: "Web Developer",
     twitterLink: "https://twitter.com/adrijbhadra",
     linkedinLink: "https://linkedin.com/in/adrijbhadra",
+  },
+  {
+    img: "/priyanshu.jpg",
+    name: "Priyanshu Debnath",
+    title: "Web Developer",
+    twitterLink: "https://twitter.com/priyanshudebnath",
+    linkedinLink: "https://linkedin.com/in/priyanshudebnath",
   },
   {
     img: "/monodeep.jpg",
