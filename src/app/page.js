@@ -30,9 +30,9 @@ export default function Home() {
           ></iframe>
         </div>
       </section>
-      <div className="bg-background-200 min-h-screen p-10">
+      <div id="about" className="bg-background-200 min-h-screen p-10">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-5xl font-bold font-heading text-secondary-700 text-center pt-8 mb-6">
+          <h2 className="text-5xl font-bold font-heading text-secondary-700 text-center pt-14 mb-6">
             About Us
           </h2>
           <div className="font-paragraph text-lg text-text-700 mb-8 pb-6">

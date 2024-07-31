@@ -1,13 +1,14 @@
 "use client";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { Link as ScrollLink } from "react-scroll";
+import Link from "next/link";
 
 const navItems = [
   { href: "/", label: "HOME" },
-  { href: "#about", label: "ABOUT US" },
+  { href: "about", label: "ABOUT US" },
   { href: "/team", label: "TEAM" },
   { href: "/projects", label: "PROJECTS" },
 ];
@@ -25,9 +26,9 @@ export default function Nav() {
         setScroll(false);
       }
     };
-    
+
     window.addEventListener("scroll", handleScroll);
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -44,13 +45,6 @@ export default function Nav() {
       } ${open ? `bg-background-800 gap-10` : ``}`}
     >
       <div className="font-bold md:text-xl flex flex-row items-center">
-        {/* <Image
-          src="/logo.png"
-          alt="ChangeSpark Foundation logo"
-          width={100}
-          height={100}
-          className="h-min w-40 pl-5 bg-transparent"
-        /> */}
         <h1
           className={`font-paragraph ${
             scroll ? "text-text-200" : "md:text-text-800"
@@ -68,7 +62,13 @@ export default function Nav() {
               } ${open ? `text-text-200 ` : `text-text-800 hidden`}`}
               key={index}
             >
-              <Link href={item.href}>{item.label}</Link>
+              {item.href.startsWith("/") ? (
+                <Link href={item.href}>{item.label}</Link>
+              ) : (
+                <ScrollLink to={item.href} smooth={true} duration={500}>
+                  {item.label}
+                </ScrollLink>
+              )}
             </li>
           ))}
         </ul>
