@@ -53,7 +53,7 @@ const members = [
     linkedinLink: "https://linkedin.com/in/priyabratanandy",
   },
   {
-    img: "/adrij.JPG",
+    img: "/adrij.avif",
     name: "Adrij Bhadra",
     title: "Web Developer",
     twitterLink: "https://twitter.com/adrijbhadra",
