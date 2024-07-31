@@ -53,6 +53,13 @@ const members = [
     linkedinLink: "https://linkedin.com/in/priyabratanandy",
   },
   {
+    img: "/priyanshu.jpg",
+    name: "Priyanshu Debnath",
+    title: "Web Developer",
+    twitterLink: "https://twitter.com/priyanshudebnath",
+    linkedinLink: "https://linkedin.com/in/priyanshudebnath",
+  },
+  {
     img: "/adrij.JPG",
     name: "Adrij Bhadra",
     title: "Web Developer",
@@ -65,13 +72,6 @@ const members = [
     title: "Web Developer",
     twitterLink: "https://twitter.com/monodeepdas",
     linkedinLink: "https://linkedin.com/in/monodeepdas",
-  },
-  {
-    img: "/priyanshu.jpg",
-    name: "Priyanshu Debnath",
-    title: "Web Developer",
-    twitterLink: "https://twitter.com/priyanshudebnath",
-    linkedinLink: "https://linkedin.com/in/priyanshudebnath",
   },
   // ... add more team members as needed
 ];
