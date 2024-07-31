@@ -10,6 +10,9 @@ export default withMT({
   ],
   theme: {
     extend: {
+      boxShadow: {
+        "4xl": "1px -114px 43px 1px rgba(214,245,232,1) inset",
+      },
       fontFamily: {
         heading: ["var(--font-tauri)"],
         paragraph: ["var(--font-inika)"],
