@@ -1,0 +1,38 @@
+{
+    "sourceFile": "tailwind.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1722443817220,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1722443865353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n   content: [\n     \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/components/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/app/**/*.{js,ts,jsx,tsx,mdx}\",\n+    \n   ],\n   theme: {\n     extend: {\n       fontFamily: {\n"
+                },
+                {
+                    "date": 1722443880924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n /** @type {import('tailwindcss').Config} */\n module.exports = {\n   content: [\n+    \"./node_modules/flowbite-react/lib/**/*.js\",\n     \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/components/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/app/**/*.{js,ts,jsx,tsx,mdx}\",\n-    \n   ],\n   theme: {\n     extend: {\n       fontFamily: {\n"
+                },
+                {
+                    "date": 1722445576483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n /** @type {import('tailwindcss').Config} */\n module.exports = {\n   content: [\n-    \"./node_modules/flowbite-react/lib/**/*.js\",\n     \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/components/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/app/**/*.{js,ts,jsx,tsx,mdx}\",\n   ],\n"
+                },
+                {
+                    "date": 1722445584402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,7 +98,6 @@\n       },\n     },\n   },\n   plugins: [\n-    require(\"flowbite/plugin\")\n   ],\n };\n"
+                },
+                {
+                    "date": 1722445597434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,6 +98,6 @@\n       },\n     },\n   },\n   plugins: [\n-  ],\n+  ,\n };\n"
+                }
+            ],
+            "date": 1722443817220,
+            "name": "Commit-0",
+            "content": "/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  content: [\n    \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./src/components/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./src/app/**/*.{js,ts,jsx,tsx,mdx}\",\n  ],\n  theme: {\n    extend: {\n      fontFamily: {\n        heading: [\"var(--font-tauri)\"],\n        paragraph: [\"var(--font-inika)\"],\n      },\n      backgroundImage: {\n        \"gradient-radial\": \"radial-gradient(var(--tw-gradient-stops))\",\n        \"gradient-conic\":\n          \"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))\",\n      },\n      colors: {\n        green1: {\n          light: \"#5EA384\",\n          dark: \"#0E6E44\", // added missing #\n        },\n        purple1: {\n          light: \"#8E68A5\",\n          dark: \"#623B7A\", // added missing #\n        },\n        blue: \"#1A3641\",\n        lavender: \"#FFF0F5\", // added missing #\n        rose: \"#FFE4E1\",\n        navyblue: \"#4A0E4E\",\n\n        text: {\n          50: \"var(--text-50)\",\n          100: \"var(--text-100)\",\n          200: \"var(--text-200)\",\n          300: \"var(--text-300)\",\n          400: \"var(--text-400)\",\n          500: \"var(--text-500)\",\n          600: \"var(--text-600)\",\n          700: \"var(--text-700)\",\n          800: \"var(--text-800)\",\n          900: \"var(--text-900)\",\n          950: \"var(--text-950)\",\n        },\n        background: {\n          50: \"var(--background-50)\",\n          100: \"var(--background-100)\",\n          200: \"var(--background-200)\",\n          300: \"var(--background-300)\",\n          400: \"var(--background-400)\",\n          500: \"var(--background-500)\",\n          600: \"var(--background-600)\",\n          700: \"var(--background-700)\",\n          800: \"var(--background-800)\",\n          900: \"var(--background-900)\",\n          950: \"var(--background-950)\",\n        },\n        primary: {\n          50: \"var(--primary-50)\",\n          100: \"var(--primary-100)\",\n          200: \"var(--primary-200)\",\n          300: \"var(--primary-300)\",\n          400: \"var(--primary-400)\",\n          500: \"var(--primary-500)\",\n          600: \"var(--primary-600)\",\n          700: \"var(--primary-700)\",\n          800: \"var(--primary-800)\",\n          900: \"var(--primary-900)\",\n          950: \"var(--primary-950)\",\n        },\n        secondary: {\n          50: \"var(--secondary-50)\",\n          100: \"var(--secondary-100)\",\n          200: \"var(--secondary-200)\",\n          300: \"var(--secondary-300)\",\n          400: \"var(--secondary-400)\",\n          500: \"var(--secondary-500)\",\n          600: \"var(--secondary-600)\",\n          700: \"var(--secondary-700)\",\n          800: \"var(--secondary-800)\",\n          900: \"var(--secondary-900)\",\n          950: \"var(--secondary-950)\",\n        },\n        accent: {\n          50: \"var(--accent-50)\",\n          100: \"var(--accent-100)\",\n          200: \"var(--accent-200)\",\n          300: \"var(--accent-300)\",\n          400: \"var(--accent-400)\",\n          500: \"var(--accent-500)\",\n          600: \"var(--accent-600)\",\n          700: \"var(--accent-700)\",\n          800: \"var(--accent-800)\",\n          900: \"var(--accent-900)\",\n          950: \"var(--accent-950)\",\n        },\n      },\n    },\n  },\n  plugins: [\n    require(\"flowbite/plugin\")\n  ],\n};\n"
+        }
+    ]
+}
