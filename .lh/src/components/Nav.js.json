@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1721830965042,
@@ -16,6 +16,18 @@
                 {
                     "date": 1721831048323,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import Image from \"next/image\";\n import { Menu, X } from \"lucide-react\";\n import Link from \"next/link\";\n import { useState, useEffect } from \"react\";\n-import { useRouter } from \"next/\";\n+import { useRouter } from \"next/navigation\";\n \n const navItems = [\n   { href: \"/\", label: \"HOME\" },\n   { href: \"#about\", label: \"ABOUT US\" },\n"
+                },
+                {
+                    "date": 1722442794184,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,15 @@\n \"use client\";\n import Image from \"next/image\";\n import { Menu, X } from \"lucide-react\";\n-import Link from \"next/link\";\n import { useState, useEffect } from \"react\";\n import { useRouter } from \"next/navigation\";\n+import { Link as ScrollLink } from \"react-scroll\";\n+import Link from \"next/link\";\n \n const navItems = [\n   { href: \"/\", label: \"HOME\" },\n-  { href: \"#about\", label: \"ABOUT US\" },\n+  { href: \"about\", label: \"ABOUT US\" },\n   { href: \"/team\", label: \"TEAM\" },\n   { href: \"/projects\", label: \"PROJECTS\" },\n ];\n \n@@ -24,11 +25,11 @@\n       } else {\n         setScroll(false);\n       }\n     };\n-    \n+\n     window.addEventListener(\"scroll\", handleScroll);\n-    \n+\n     return () => {\n       window.removeEventListener(\"scroll\", handleScroll);\n     };\n   }, []);\n@@ -43,15 +44,8 @@\n         scroll ? `bg-background-800` : `md:bg-transparent`\n       } ${open ? `bg-background-800 gap-10` : ``}`}\n     >\n       <div className=\"font-bold md:text-xl flex flex-row items-center\">\n-        {/* <Image\n-          src=\"/logo.png\"\n-          alt=\"ChangeSpark Foundation logo\"\n-          width={100}\n-          height={100}\n-          className=\"h-min w-40 pl-5 bg-transparent\"\n-        /> */}\n         <h1\n           className={`font-paragraph ${\n             scroll ? \"text-text-200\" : \"md:text-text-800\"\n           } ${open ? `text-text-200 ` : ``}`}\n@@ -59,22 +53,28 @@\n           ChangeSpark Foundation\n         </h1>\n       </div>\n       <div className=\"flex flex-col md:flex-row gap-10 items-center justify-center\">\n-        <ul className=\"flex flex-col md:flex-row gap-5 \">\n+        <ul className=\"flex flex-col md:flex-row gap-5 cursor\">\n           {navItems.map((item, index) => (\n             <li\n               className={`text-base md:block font-medium font-paragraph capitalize ${\n                 scroll ? \"md:text-text-200\" : \"md:text-text-800\"\n               } ${open ? `text-text-200 ` : `text-text-800 hidden`}`}\n               key={index}\n             >\n-              <Link href={item.href}>{item.label}</Link>\n+              {item.href.startsWith(\"/\") ? (\n+                <Link href={item.href}>{item.label}</Link>\n+              ) : (\n+                <ScrollLink to={item.href} smooth={true} duration={500}>\n+                  {item.label}\n+                </ScrollLink>\n+              )}\n             </li>\n           ))}\n         </ul>\n         <button\n-          className={`bg-accent-700 text-white font-medium px-5 py-2 md:block ${\n+          className={`bg-accent-700 text-white font-medium px-5 py-2 md:block rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 ${\n             open ? \"\" : \"hidden\"\n           }`}\n           onClick={handleDonateClick}\n         >\n"
+                },
+                {
+                    "date": 1722442834139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n           ChangeSpark Foundation\n         </h1>\n       </div>\n       <div className=\"flex flex-col md:flex-row gap-10 items-center justify-center\">\n-        <ul className=\"flex flex-col md:flex-row gap-5 cursor\">\n+        <ul className=\"flex flex-col md:flex-row gap-5\">\n           {navItems.map((item, index) => (\n             <li\n               className={`text-base md:block font-medium font-paragraph capitalize ${\n                 scroll ? \"md:text-text-200\" : \"md:text-text-800\"\n"
+                },
+                {
+                    "date": 1722442849311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -92,5 +92,6 @@\n           onClick={() => setOpen(true)}\n         />\n       )}\n     </nav>\n- \n\\ No newline at end of file\n+  );\n+}\n"
                 }
             ],
             "date": 1721830965042,

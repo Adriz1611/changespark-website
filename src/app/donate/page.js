@@ -14,15 +14,19 @@ export default function Donate() {
   };
 
   const CopyButton = ({ text, copied, onClick }) => (
-    <button
-      onClick={onClick}
-      className="ml-2 p-1 text-green-700 hover:text-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-md"
-    >
-      <ClipboardCopy size={18} />
+    <div className="relative flex items-center">
+      <button
+        onClick={onClick}
+        className="ml-2 p-1 text-green-700 hover:text-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-md"
+      >
+        <ClipboardCopy size={18} />
+      </button>
       {copied && (
-        <span className="absolute ml-2 text-sm text-green-600">Copied!</span>
+        <span className="absolute left-full ml-2 text-sm text-green-600">
+          Copied!
+        </span>
       )}
-    </button>
+    </div>
   );
 
   return (
@@ -48,7 +52,7 @@ export default function Donate() {
                 Account Number
               </label>
               <div className="mt-1 flex rounded-md ">
-                <span className="inline-flex items-center px-3 rounded-md  bg-background-100 text-secondary-700 text-sm">
+                <span className="inline-flex items-center px-3 rounded-l-md  bg-background-100 text-secondary-700 text-sm">
                   20200055762126
                 </span>
                 <CopyButton
@@ -66,7 +70,7 @@ export default function Donate() {
                 IFSC Code
               </label>
               <div className="mt-1 flex rounded-md ">
-                <span className="inline-flex items-center px-3 rounded-md bg-background-100 text-secondary-700 text-sm">
+                <span className="inline-flex items-center px-3 rounded-l-md bg-background-100 text-secondary-700 text-sm">
                   BDBL0001674
                 </span>
                 <CopyButton

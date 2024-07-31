@@ -54,7 +54,7 @@ export default function Nav() {
         </h1>
       </div>
       <div className="flex flex-col md:flex-row gap-10 items-center justify-center">
-        <ul className="flex flex-col md:flex-row gap-5 ">
+        <ul className="flex flex-col md:flex-row gap-5 cursor-pointer">
           {navItems.map((item, index) => (
             <li
               className={`text-base md:block font-medium font-paragraph capitalize ${
