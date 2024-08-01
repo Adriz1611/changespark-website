@@ -24,18 +24,13 @@ export default withMT({
       },
       colors: {
         green1: {
-          light: "#5EA384",
-          dark: "#0E6E44", // added missing #
+          light: "#d6f5e8",
+          dark: "#5bd7a1", // added missing #
         },
         purple1: {
           light: "#8E68A5",
           dark: "#623B7A", // added missing #
         },
-        blue: "#1A3641",
-        lavender: "#FFF0F5", // added missing #
-        rose: "#FFE4E1",
-        navyblue: "#4A0E4E",
-
         text: {
           50: "var(--text-50)",
           100: "var(--text-100)",
