@@ -19,6 +19,7 @@ export default function Nav() {
   const router = useRouter();
   const menuRef = useRef(null);
 
+  // Handle clicks outside the menu to close it
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -37,16 +38,20 @@ export default function Nav() {
     };
   }, [open]);
 
+  // Handle scrolling to change the navbar style and close the menu
   useEffect(() => {
     const handleScroll = () => {
-      setScroll(window.scrollY > 80);
+      setScroll(window.scrollY > 170);
+      if (window.scrollY > 170 && open) {
+        setOpen(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [open]);
 
   const handleDonateClick = () => {
     router.push("/donate");
