@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Link as ScrollLink } from "react-scroll";
 import Link from "next/link";
@@ -17,18 +17,32 @@ export default function Nav() {
   const [scroll, setScroll] = useState(false);
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  const menuRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setScroll(true);
-      } else {
-        setScroll(false);
+    const handleOutsideClick = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setOpen(false);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    if (open) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    }
 
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScroll(window.scrollY > 80);
+    };
+
+    window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -40,15 +54,16 @@ export default function Nav() {
 
   return (
     <nav
-      className={`z-50 fixed w-full flex flex-col md:flex-row items-start md:items-center justify-between py-5 px-5  md:gap-0 md:px-10 font-sans ${
-        scroll ? `bg-background-800` : `md:bg-transparent`
-      } ${open ? `bg-background-800 gap-10` : ``}`}
+      className={`z-50 fixed w-full flex flex-col md:flex-row items-start md:items-center justify-between py-5 px-5 md:gap-0 md:px-10 font-sans ${
+        scroll ? "bg-background-800" : "md:bg-transparent"
+      } ${open ? "bg-background-800 gap-10" : ""}`}
+      ref={menuRef}
     >
       <div className="font-bold md:text-xl flex flex-row items-center">
         <h1
           className={`font-paragraph ${
             scroll ? "text-text-200" : "md:text-text-800"
-          } ${open ? `text-text-200 ` : ``}`}
+          } ${open ? "text-text-200" : ""}`}
         >
           ChangeSpark Foundation
         </h1>
@@ -59,7 +74,7 @@ export default function Nav() {
             <li
               className={`text-base md:block font-medium font-paragraph capitalize ${
                 scroll ? "md:text-text-200" : "md:text-text-800"
-              } ${open ? `text-text-200 ` : `text-text-800 hidden`}`}
+              } ${open ? "text-text-200" : "text-text-800 hidden"}`}
               key={index}
             >
               {item.href.startsWith("/") ? (

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1721830965042,
@@ -28,6 +28,10 @@
                 {
                     "date": 1722442849311,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -92,5 +92,6 @@\n           onClick={() => setOpen(true)}\n         />\n       )}\n     </nav>\n- \n\\ No newline at end of file\n+  );\n+}\n"
+                },
+                {
+                    "date": 1722512466503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n   const [scroll, setScroll] = useState(false);\n   const [open, setOpen] = useState(false);\n   const router = useRouter();\n \n-  useEffe\n+  useEffec\n \n   useEffect(() => {\n     const handleScroll = () => {\n       if (window.scrollY > 80) {\n@@ -93,5 +93,7 @@\n           className=\"md:hidden cursor-pointer absolute right-5\"\n           onClick={() => setOpen(true)}\n         />\n       )}\n-    </n\n\\ No newline at end of file\n+    </nav>\n+  );\n+}\n"
                 }
             ],
             "date": 1721830965042,
