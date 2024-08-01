@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { ClipboardCopy, Heart } from "lucide-react";
 
@@ -13,11 +13,42 @@ const bankDetails = [
 
 export default function Donate() {
   const [copiedField, setCopiedField] = useState(null);
+  const textAreaRef = useRef(null);
 
   const handleCopy = (text, field) => {
-    navigator.clipboard.writeText(text);
-    setCopiedField(field);
-    setTimeout(() => setCopiedField(null), 2000);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      // For modern browsers
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          setCopiedField(field);
+          setTimeout(() => setCopiedField(null), 2000);
+        })
+        .catch((err) => {
+          console.error("Failed to copy: ", err);
+        });
+    } else {
+      // Fallback for older browsers and some mobile devices
+      const textArea = textAreaRef.current;
+      textArea.value = text;
+      textArea.focus();
+      textArea.select();
+
+      try {
+        const successful = document.execCommand("copy");
+        if (successful) {
+          setCopiedField(field);
+          setTimeout(() => setCopiedField(null), 2000);
+        } else {
+          console.error("Fallback: Copying text command was unsuccessful");
+        }
+      } catch (err) {
+        console.error("Fallback: Oops, unable to copy", err);
+      }
+
+      // Restore the focus
+      textArea.blur();
+    }
   };
 
   const CopyButton = ({ text, field }) => (
@@ -88,6 +119,8 @@ export default function Donate() {
           </div>
         </div>
       </div>
+      {/* Hidden textarea for fallback copy functionality */}
+      <textarea ref={textAreaRef} style={{ position: "absolute", left: "-9999px" }} />
     </main>
   );
 }
