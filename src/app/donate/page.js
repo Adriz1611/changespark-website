@@ -39,6 +39,7 @@ export default function Donate() {
 
       <section className="bg-background-300 flex flex-col rounded-lg z-10 py-10 px-10 font-paragraph w-[80%]">
         <h1 className="font-heading text-5xl mb-10">Bank Details</h1>
+        
       </section>
     </main>
   );
