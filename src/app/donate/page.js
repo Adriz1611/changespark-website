@@ -16,7 +16,7 @@ export default function Donate() {
   const [count, setCount] = useState(0);
   return (
     <main className="flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24">
-      <section className="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1  bg-background-200 rounded-lg py-3 px-6 w-full  md:w-5/6">
+      <section className="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1  bg-background-200 rounded-lg p-20 w-full md:w-5/6">
         <div className="flex flex-col col-start-1 row-start-2 md:col-auto md:row-auto justify-between">
           <h1 className="text-5xl font-heading mb-4 text-secondary-600 hidden md:block">
             Donation
@@ -25,7 +25,7 @@ export default function Donate() {
             {bankDetails.map((detail, index) => (
               <div
                 key={index}
-                className="flex flex-col items-start justify-center rounded-lg"
+                className="flex flex-col items-start justify-center rounded-lg font-paragraph"
               >
                 <span className="text-lg font-bold font-heading">
                   {detail.label}
@@ -55,7 +55,6 @@ export default function Donate() {
             className="rounded-lg  shadow-md"
             alt="img"
             onClick={
-              // add +1 to count on every click and when count becomes 3, reset it to 0
               () => setCount((count) => (count === 3 ? 0 : count + 1))
             }
           />
