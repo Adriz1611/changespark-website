@@ -14,7 +14,7 @@ const bankDetails = [
 export default function Donate() {
   return (
     <main className="flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24">
-      <section className="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-4 bg-background-200 rounded-lg py-3 px-6 w-full  md:w-5/6">
+      <section className="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1  bg-background-200 rounded-lg py-3 px-6 w-full  md:w-5/6">
         <div className="flex flex-col col-start-1 row-start-2 md:col-auto md:row-auto justify-between">
           <h1 className="text-5xl font-heading mb-4 text-secondary-600 hidden md:block">
             Donation
@@ -44,7 +44,7 @@ export default function Donate() {
             </button>
           </div>
         </div>
-        <div className="col-start-1 row-start-1 text-center md:col-auto md:row-auto">
+        <div className="col-start-1 row-start-1 text-center md:col-auto md:row-auto md:items-end md:flex md:justify-end">
           <h1 className="text-5xl font-heading mb-4 text-secondary-600 block md:hidden">
             Donation
           </h1>

@@ -41,8 +41,8 @@ export default function Nav() {
   // Handle scrolling to change the navbar style and close the menu
   useEffect(() => {
     const handleScroll = () => {
-      setScroll(window.scrollY > 170);
-      if (window.scrollY > 170 && open) {
+      setScroll(window.scrollY > 80);
+      if (window.scrollY > 80 && open) {
         setOpen(false);
       }
     };
