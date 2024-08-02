@@ -13,6 +13,7 @@ const bankDetails = [
 ];
 
 export default function Donate() {
+  const [count, setCount] = useState(0);
   return (
     <main className="flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24">
       <section className="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1  bg-background-200 rounded-lg py-3 px-6 w-full  md:w-5/6">
@@ -47,12 +48,16 @@ export default function Donate() {
             Donation
           </h1>
           <Image
-            src="/donate.jpg"
+            src={count === 3 ? "/monodeep.jpg" : "/donate.jpg"}
             // fill
             width={700}
             height={700}
             className="rounded-lg  shadow-md"
             alt="img"
+            onClick={
+              // add +1 to count on every click and when count becomes 3, reset it to 0
+              () => setCount((count) => (count === 3 ? 0 : count + 1))
+            }
           />
         </div>
       </section>
