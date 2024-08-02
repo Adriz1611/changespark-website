@@ -4,6 +4,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { ClipboardCopy, Heart } from "lucide-react";
 import { CopytoClip } from "@/components/ui/copytoclipboard";
+import { useRouter } from "next/navigation";
 
 const bankDetails = [
   { label: "Account Number", value: "20200055762126" },
@@ -14,6 +15,7 @@ const bankDetails = [
 
 export default function Donate() {
   const [count, setCount] = useState(0);
+  const router = useRouter();
   return (
     <main className="flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24">
       <section className="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1  bg-background-200 rounded-lg p-20 w-full md:w-5/6">
@@ -38,7 +40,13 @@ export default function Donate() {
             <p className=" text-purple1-dark font-paragraph font-bold">
               Or just use UPI, NetBanking, Credit/Debit Card
             </p>
-            <button className="flex flex-row w-full  items-center justify-center text-center py-3 rounded-lg gap-2  bg-secondary-600 text-white">
+            <button
+              onClick={() =>
+                (window.location.href =
+                  "https://test.payumoney.com/url/GICTTkiCkJSd")
+              }
+              className="flex flex-row w-full  items-center justify-center text-center py-3 rounded-lg gap-2  bg-secondary-600 text-white"
+            >
               Donate Now <Heart size={24} />
             </button>
           </div>
@@ -54,9 +62,7 @@ export default function Donate() {
             height={700}
             className="rounded-lg  shadow-md"
             alt="img"
-            onClick={
-              () => setCount((count) => (count === 3 ? 0 : count + 1))
-            }
+            onClick={() => setCount((count) => (count === 3 ? 0 : count + 1))}
           />
         </div>
       </section>
