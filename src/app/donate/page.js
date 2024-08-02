@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { ClipboardCopy, Heart } from "lucide-react";
+import { CopytoClip } from "@/components/ui/copytoclipboard";
 
 const bankDetails = [
   { label: "Account Number", value: "20200055762126" },
@@ -28,10 +29,7 @@ export default function Donate() {
                 <span className="text-lg font-bold font-heading">
                   {detail.label}
                 </span>
-                <div className="bg-background-300 px-2 py-2 flex flex-row gap-5 justify-between rounded-lg w-full">
-                  <span className="text-lg">{detail.value}</span>
-                  <ClipboardCopy className="cursor-pointer" size={24} />
-                </div>
+                <CopytoClip detail={detail} />
               </div>
             ))}
           </div>
