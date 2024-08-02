@@ -19,7 +19,7 @@ export default function Nav() {
   const router = useRouter();
   const menuRef = useRef(null);
 
-  // Handle clicks outside the menu to close it
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -38,7 +38,6 @@ export default function Nav() {
     };
   }, [open]);
 
-  // Handle scrolling to change the navbar style and close the menu
   useEffect(() => {
     const handleScroll = () => {
       setScroll(window.scrollY > 80);
@@ -54,6 +53,7 @@ export default function Nav() {
   }, [open]);
 
   const handleDonateClick = () => {
+    setOpen(false); 
     router.push("/donate");
   };
 
@@ -73,7 +73,11 @@ export default function Nav() {
           ChangeSpark Foundation
         </h1>
       </div>
-      <div className="flex flex-col md:flex-row gap-10 items-center justify-center">
+      <div
+        className={`flex flex-col md:flex-row gap-10 items-center justify-center transition-all duration-300 ${
+          open ? "max-h-screen opacity-100" : "max-h-0 opacity-0 md:max-h-screen md:opacity-100"
+        } overflow-hidden md:overflow-visible`}
+      >
         <ul className="flex flex-col md:flex-row gap-5 cursor-pointer">
           {navItems.map((item, index) => (
             <li
@@ -81,11 +85,17 @@ export default function Nav() {
                 scroll ? "md:text-text-200" : "md:text-text-800"
               } ${open ? "text-text-200" : "text-text-800 hidden"}`}
               key={index}
+              onClick={() => setOpen(false)} 
             >
               {item.href.startsWith("/") ? (
                 <Link href={item.href}>{item.label}</Link>
               ) : (
-                <ScrollLink to={item.href} smooth={true} duration={500}>
+                <ScrollLink
+                  to={item.href}
+                  smooth={true}
+                  duration={500}
+                  onClick={() => setOpen(false)} 
+                >
                   {item.label}
                 </ScrollLink>
               )}
