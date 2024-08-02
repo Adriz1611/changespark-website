@@ -54,7 +54,7 @@ const Projects = () => {
       variants={containerVariants}
     >
       <motion.h1
-        className="text-5xl uppercase font-bold font-heading text-purple-900 mb-12"
+        className="text-5xl uppercase font-heading text-secondary-700 dark:font-semibold mb-12"
         variants={itemVariants}
       >
         Projects

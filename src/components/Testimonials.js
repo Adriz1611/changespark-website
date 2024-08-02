@@ -65,7 +65,7 @@ export default function Testimonials() {
     <section id="testimonials" className="bg-background-200 min-h-screen p-10">
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          className="text-5xl font-bold font-heading text-secondary-700 text-center pt-14 mb-12"
+          className="text-5xl font-bold font-heading text-secondary-700 text-center pt-14 mb-12 dark:font-semibold"
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}

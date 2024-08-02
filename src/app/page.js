@@ -11,7 +11,7 @@ export default function Home() {
     <main className="bg-background-100 min-h-screen">
       <section className="flex flex-col md:flex-row items-center justify-between px-8 py-36">
         <div className="flex-col">
-          <h1 className="text-6xl font-heading font-bold text-purple-900 dark:font-semibold mb-4">
+          <h1 className="text-6xl font-bold font-heading text-secondary-700 dark:font-semibold mb-4">
             Changespark Foundation
           </h1>
           <p className="text-2xl text-green-700 font-paragraph font-bold px-2">
@@ -33,7 +33,7 @@ export default function Home() {
       </section>
       <div id="about" className="bg-background-200 min-h-screen p-10">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-5xl font-bold font-heading text-secondary-700 text-center pt-14 mb-6">
+          <h2 className="text-5xl font-bold font-heading text-secondary-700 text-center dark:font-semibold pt-14 mb-6">
             About Us
           </h2>
           <div className="font-paragraph text-lg text-text-700 mb-8 pb-6">
@@ -74,7 +74,7 @@ export default function Home() {
       </div>
       <section className="mx-4 pb-10 grid md:grid-cols-4  md:grid-rows-2 grid-cols-1 grid-rows-4 min-h-screen items-center justify-center">
         <div className="flex flex-col items-center ">
-          <h1 className="font-heading text-5xl font-bold text-secondary-700">
+          <h1 className="font-heading text-5xl text-secondary-700 dark:font-semibold">
             Vision
           </h1>
         </div>
@@ -93,7 +93,7 @@ export default function Home() {
           </p>
         </div>
         <div className="flex flex-col  md:col-start-4 md:row-start-2 items-center ">
-          <h1 className="font-heading text-5xl font-bold text-secondary-700">
+          <h1 className="font-heading text-5xl font-bold text-secondary-700 dark:font-semibold">
             Mission
           </h1>
         </div>

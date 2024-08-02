@@ -113,7 +113,7 @@ export function TeamSection12() {
           <h6 className="md:pb-0 md:pt-0 text-lg font-paragraph text-green-700 pt-10 pb-5 ">
             Meet the Team
           </h6>
-          <h1 className="my-2 text-4xl lg:text-5xl font-bold font-heading text-purple-900 pb-5">
+          <h1 className="my-2 text-5xl md:text-5xl font-bold font-heading text-secondary-700 pb-5 dark:font-semibold">
             Behind the Success: Our Dedicated Team
           </h1>
           <p className="mx-auto w-full text-secondary-700 max-w-4xl font-paragraph">

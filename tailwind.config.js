@@ -12,8 +12,8 @@ module.exports = {
         "4xl": "1px -114px 43px 1px rgba(214,245,232,1) inset",
       },
       fontFamily: {
-        heading: ["var(--font-tauri)"],
-        paragraph: ["var(--font-inika)"],
+        heading: ["var(--font-playfair_display)"],
+        paragraph: ["var(--font-poppins)"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
