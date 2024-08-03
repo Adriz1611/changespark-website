@@ -79,7 +79,7 @@ export default function Home() {
           </h1>
         </div>
         <div className="md:col-span-3">
-          <p className="font-paragraph text-lg text-text-700 p-3 md:text-justify md:px-10">
+          <p className="font-paragraph text-lg text-text-700 p-3 text-justify md:px-10">
             {" "}
             Changespark Foundation envisions a world where every individual is
             empowered through education and sustainable livelihood development.
@@ -98,7 +98,7 @@ export default function Home() {
           </h1>
         </div>
         <div className="md:col-span-3 md:col-start-1 md:row-start-2">
-          <p className="font-paragraph text-lg text-text-700 p-3 md:px-10 md:text-justify md:pb-0">
+          <p className="font-paragraph text-lg text-text-700 p-3 md:px-10 text-justify md:pb-0">
             {" "}
             Changespark Foundation is dedicated to igniting sustainable progress
             in rural communities by unlocking individual potential through

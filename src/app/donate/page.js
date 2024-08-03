@@ -63,7 +63,7 @@ export default function Donate() {
             Donation
           </h1>
           <Image
-            src={count === 3 ? "/monodeep.jpg" : "/donate.jpg"}
+            src={count === 3 ? "/priyanshu.jpg" : "/donate.jpg"}
             width={700}
             height={700}
             className="rounded-lg  shadow-md"
