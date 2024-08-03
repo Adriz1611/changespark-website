@@ -52,10 +52,10 @@ export default function Home() {
               delivering this to all children in India.
             </p>
           </div>
-          <div className="flex flex-col md:flex-row justify-between space-x-4 space-y-7 md:space-y-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {images.map((img, index) => (
               <div key={index} className="flex flex-col items-center">
-                <div className="w-[300px] h-[300px] relative">
+                <div className="w-full h-[300px] relative">
                   <Image
                     src={img.src}
                     alt={img.alt}
