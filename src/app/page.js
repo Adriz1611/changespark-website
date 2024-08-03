@@ -55,7 +55,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between space-x-4 space-y-7 md:space-y-0">
             {images.map((img, index) => (
               <div key={index} className="flex flex-col items-center">
-                <div className="w-[330px] h-[300px] relative">
+                <div className="w-full md:w-[330px] h-[300px] relative">
                   <Image
                     src={img.src}
                     alt={img.alt}
