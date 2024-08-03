@@ -24,28 +24,26 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-secondary-600 text-white py-8  z-40 w-full">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p className="text-sm font-heading">
-              &copy; {currentYear} Changespark Foundation. All rights reserved.
-            </p>
-          </div>
-          <div className="flex space-x-4">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-white transition-colors duration-300 text-lg"
-                aria-label={label}
-              >
-                <Icon size={24} />
-              </a>
-            ))}
-          </div>
+    <footer className="bg-secondary-600 text-white py-8 z-40 w-full">
+      <div className="flex flex-col md:flex-row justify-between px-20 items-center w-full">
+        <div className="mb-4 text-center md:mb-0">
+          <p className="text-lg  font-heading">
+            &copy; {currentYear} Changespark Foundation. All rights reserved.
+          </p>
+        </div>
+        <div className="flex gap-4">
+          {socialLinks.map(({ icon: Icon, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-white transition-colors duration-300 text-lg"
+              aria-label={label}
+            >
+              <Icon size={24} />
+            </a>
+          ))}
         </div>
       </div>
     </footer>
