@@ -9,15 +9,15 @@ export default function Home() {
   ];
   return (
     <main className="bg-background-100 min-h-screen">
-      <section className="flex flex-col md:flex-row items-center justify-between px-8 py-36">
+      <section className="flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-36">
         <div className="flex-col">
-          <h1 className="text-6xl font-bold font-heading text-secondary-700 dark:font-semibold mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold font-heading text-secondary-700 dark:font-semibold mb-4">
             Changespark Foundation
           </h1>
-          <p className="text-2xl text-green-700 font-paragraph font-bold px-2">
+          <p className="text-1xl md:text-2xl text-green-700 font-paragraph font-bold md:px-2">
             EMPOWERING POWER IGNITING CHANGE
           </p>
-          <button className="mx-2 mt-7 mb-10 text-2xl py-2 px-8 font-medium text-white bg-background-600 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
+          <button className=" mt-7 mb-10 px-3 py-2 md:text-2xl md:py-2 md:mx-2 md:px-8 font-medium text-white bg-background-600 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
             Join Us
           </button>
         </div>
@@ -37,14 +37,14 @@ export default function Home() {
             About Us
           </h2>
           <div className="font-paragraph text-lg text-text-700 mb-8 pb-6">
-            <p className="mb-4 text-center">
+            <p className="mb-4 text-justify">
               We are an organization committed to providing a high-quality
               education for every child in India. We believe that every child,
               regardless of their socio-economic status, location or
               circumstances, deserves an opportunity to reach their full
               potential.
             </p>
-            <p className="text-center">
+            <p className="text-justify">
               We exist to enable government schools in India to provide quality
               education to every child. We believe that a good
               &apos;quality&apos; education is the foundation of a child&apos;s
@@ -55,7 +55,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between space-x-4 space-y-7 md:space-y-0">
             {images.map((img, index) => (
               <div key={index} className="flex flex-col items-center">
-                <div className="w-[330px] h-[300px] relative">
+                <div className="w-[300px] h-[300px] relative">
                   <Image
                     src={img.src}
                     alt={img.alt}
@@ -64,7 +64,7 @@ export default function Home() {
                     className="rounded-md shadow-md"
                   />
                 </div>
-                <p className="mt-4 uppercase font-bold text-xl font-paragraph text-center text-gray-600">
+                <p className="mt-4 uppercase font-bold text-lg font-paragraph text-center text-gray-600">
                   {img.caption}
                 </p>
               </div>
@@ -79,7 +79,7 @@ export default function Home() {
           </h1>
         </div>
         <div className="md:col-span-3">
-          <p className="font-paragraph text-lg text-text-700 px-10">
+          <p className="font-paragraph text-lg text-text-700 p-3 md:text-justify md:px-10">
             {" "}
             Changespark Foundation envisions a world where every individual is
             empowered through education and sustainable livelihood development.
@@ -98,7 +98,7 @@ export default function Home() {
           </h1>
         </div>
         <div className="md:col-span-3 md:col-start-1 md:row-start-2">
-          <p className="font-paragraph text-lg text-text-700 px-10 pb-8 md:pb-0">
+          <p className="font-paragraph text-lg text-text-700 p-3 md:px-10 md:text-justify md:pb-0">
             {" "}
             Changespark Foundation is dedicated to igniting sustainable progress
             in rural communities by unlocking individual potential through
