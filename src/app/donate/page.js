@@ -18,7 +18,14 @@ export default function Donate() {
   const router = useRouter();
   return (
     <main className="flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24">
-      <section className="grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1  bg-background-200 rounded-lg p-4 md:p-20 w-full md:w-5/6">
+      <Image
+        src="/bgline.svg"
+        width={700}
+        height={700}
+        className="absolute top-0 right-0 z-0 w-full h-full"
+        alt="img"
+      />
+      <section className="z-10 grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1  bg-background-200 rounded-lg p-4 md:p-20 w-full md:w-5/6">
         <div className="flex flex-col col-start-1 row-start-2 md:col-auto md:row-auto justify-between">
           <h1 className="text-5xl font-heading mb-4 text-secondary-700 hidden md:block">
             Donation
@@ -43,7 +50,7 @@ export default function Donate() {
             <button
               onClick={() =>
                 (window.location.href =
-                  "https://test.payumoney.com/url/GICTTkiCkJSd")
+                  "https://test.payumoney.com/url/1IYTyk8CfKiv")
               }
               className="flex flex-row w-full  items-center justify-center text-center py-3 rounded-lg gap-2  bg-secondary-600 text-white"
             >
