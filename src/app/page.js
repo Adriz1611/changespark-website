@@ -52,7 +52,7 @@ export default function Home() {
               delivering this to all children in India.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {images.map((img, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div className="w-full h-[300px] relative">

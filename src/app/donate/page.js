@@ -57,7 +57,6 @@ export default function Donate() {
           </h1>
           <Image
             src={count === 3 ? "/monodeep.jpg" : "/donate.jpg"}
-            // fill
             width={700}
             height={700}
             className="rounded-lg  shadow-md"
