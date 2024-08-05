@@ -9,7 +9,7 @@ export default function Home() {
     { src: "/3.avif", alt: "Children", caption: "Every Child Matters" },
     { src: "/2.avif", alt: "School", caption: "Empowering Schools" },
   ];
-  
+
   const carousel = [
     { src: "/monodeep.jpg" },
     { src: "/adrij.jpg" },
@@ -33,7 +33,15 @@ export default function Home() {
         <div className="w-[89vw] h-[49vh] md:w-[40vw]">
           <Carousel slideInterval={2000} pauseOnHover>
             {carousel.map((img, index) => (
-              <img key={index} src={img.src} alt={img.alt} />
+              <div key={index} className="relative w-full h-full">
+                <Image
+                  key={index}
+                  src={img.src}
+                  alt={img.alt}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
             ))}
           </Carousel>
         </div>
@@ -54,10 +62,10 @@ export default function Home() {
             </p>
             <p className="text-justify">
               We exist to enable government schools in India to provide quality
-              education to every child. We believe that a good "quality"
-              education is the foundation of a child's future, and we are
-              dedicated to supporting the government in delivering this to all
-              children in India.
+              education to every child. We believe that a good quality education
+              is the foundation of a child&aposs future, and we are dedicated to
+              supporting the government in delivering this to all children in
+              India.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -119,7 +127,7 @@ export default function Home() {
             and contribute to the overall development of their region. Through
             our comprehensive programs and initiatives, we strive to create an
             inclusive environment where growth, learning, and prosperity are
-            within everyone's reach.
+            within everyone&aposs reach.
           </p>
         </div>
       </section>
