@@ -11,9 +11,9 @@ export default function Home() {
   ];
 
   const carousel = [
-    { src: "/monodeep.jpg" },
-    { src: "/adrij.jpg" },
-    { src: "/priyanshu.jpg" },
+    { src: "/home1.jpg" },
+    { src: "/home2.jpg" },
+    { src: "/home3.jpg" },
   ];
 
   return (
@@ -31,7 +31,7 @@ export default function Home() {
           </button>
         </div>
         <div className="w-[89vw] h-[49vh] md:w-[40vw]">
-          <Carousel slideInterval={2000} pauseOnHover>
+          <Carousel slideInterval={1000} pauseOnHover>
             {carousel.map((img, index) => (
               <div key={index} className="relative w-full h-full">
                 <Image
