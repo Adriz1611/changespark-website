@@ -11,9 +11,9 @@ export default function Home() {
   ];
 
   const carousel = [
-    { src: "/home1.jpg" },
     { src: "/home2.jpg" },
     { src: "/home3.jpg" },
+    { src: "/home1.jpg" },
   ];
 
   return (

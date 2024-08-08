@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/app/blog/page.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1723137738379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1723137748048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,4 +2,13 @@\n \n \n \n \n+export default function Donate() {\n+    const [count, setCount] = useState(0);\n+    const router = useRouter();\n+    return (\n+      <main className=\"flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24\">\n+\n+      </main>\n+    );\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1723137755906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,9 @@\n \n \n \n export default function Donate() {\n-    const [count, setCount] = useState(0);\n-    const router = useRouter();\n+\n     return (\n       <main className=\"flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24\">\n \n       </main>\n"
+                },
+                {
+                    "date": 1723137773464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n+\"use client\";\n \n \n \n \n-\n export default function Donate() {\n \n     return (\n       <main className=\"flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24\">\n"
+                }
+            ],
+            "date": 1723137738379,
+            "name": "Commit-0",
+            "content": "\n\n\n\n\n"
+        }
+    ]
+}
