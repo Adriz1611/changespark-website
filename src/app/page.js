@@ -31,7 +31,7 @@ export default function Home() {
           </button>
         </div>
         <div className="w-[89vw] h-[49vh] md:w-[40vw]">
-          <Carousel slideInterval={1000} pauseOnHover>
+          <Carousel slideInterval={1500} pauseOnHover>
             {carousel.map((img, index) => (
               <div key={index} className="relative w-full h-full">
                 <Image
