@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1723137738379,
@@ -20,6 +20,10 @@
                 {
                     "date": 1723137773464,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n+\"use client\";\n \n \n \n \n-\n export default function Donate() {\n \n     return (\n       <main className=\"flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24\">\n"
+                },
+                {
+                    "date": 1723139928900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,5 +9,6 @@\n       <main className=\"flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24\">\n \n       </main>\n     );\n-  }\n\\ No newline at end of file\n+  }\n+  \n\\ No newline at end of file\n"
                 }
             ],
             "date": 1723137738379,
