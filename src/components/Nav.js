@@ -60,7 +60,7 @@ export default function Nav() {
   return (
     <nav
       className={`z-50 fixed w-full flex flex-col md:flex-row items-start md:items-center justify-between py-5 px-5 md:gap-0 md:px-10 font-sans ${
-        scroll ? "bg-background-800" : "md:bg-transparent"
+        scroll ? "bg-background-800 text-text-200" : "md:bg-transparent"
       } ${open ? "bg-background-800 gap-10" : ""}`}
       ref={menuRef}
     >
@@ -113,7 +113,7 @@ export default function Nav() {
       </div>
       {open ? (
         <X
-          className="md:hidden cursor-pointer absolute right-5"
+          className="md:hidden cursor-pointer absolute right-5 text-text-200"
           onClick={() => setOpen(false)}
         />
       ) : (
