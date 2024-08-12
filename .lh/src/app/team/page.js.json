@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1723137455818,
@@ -12,6 +12,30 @@
                 {
                     "date": 1723137463254,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,15 @@\n     twitterLink: \"https://twitter.com/priyabratanandy\",\n     linkedinLink: \"https://linkedin.com/in/priyabratanandy\",\n   },\n   {\n+    img: \"/monodeep.jpg\",\n+    name: \"Monodeep Das\",\n+    title: \"Web Developer\",\n+    twitterLink: \"https://twitter.com/monodeepdas\",\n+    linkedinLink: \"https://linkedin.com/in/monodeepdas\",\n+  },\n+  {\n     img: \"/adrij.avif\",\n     name: \"Adrij Bhadra\",\n     title: \"Web Developer\",\n     twitterLink: \"https://twitter.com/adrijbhadra\",\n@@ -65,9 +72,8 @@\n     title: \"Web Developer\",\n     twitterLink: \"https://twitter.com/priyanshudebnath\",\n     linkedinLink: \"https://linkedin.com/in/priyanshudebnath\",\n   },\n-\n   // ... add more team members as needed\n ];\n \n export function TeamSection12() {\n"
+                },
+                {
+                    "date": 1723488628228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -109,9 +109,9 @@\n         <motion.div\n           className=\"mb-16 text-center lg:mb-28\"\n           variants={itemVariants}\n         >\n-          <h6 className=\"md:pb-0 md:pt-0 text-lg font-paragraph text-green-700 pt-10 pb-5 \">\n+          <h6 className=\"md:pb-0text-lg font-paragraph text-green-700 pt-10 pb-5 pt-10 md:pt-0\">\n             Meet the Team\n           </h6>\n           <h1 className=\"my-2 text-5xl md:text-5xl font-bold font-heading text-secondary-700 pb-5 dark:font-semibold\">\n             Behind the Success: Our Dedicated Team\n"
+                },
+                {
+                    "date": 1723488667901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -109,9 +109,9 @@\n         <motion.div\n           className=\"mb-16 text-center lg:mb-28\"\n           variants={itemVariants}\n         >\n-          <h6 className=\"md:pb-0text-lg font-paragraph text-green-700 pt-10 pb-5 pt-10 md:pt-0\">\n+          <h6 className=\"md:pb-0 text-lg font-paragraph text-green-700 pt-10 pb-5 md:pt-0\">\n             Meet the Team\n           </h6>\n           <h1 className=\"my-2 text-5xl md:text-5xl font-bold font-heading text-secondary-700 pb-5 dark:font-semibold\">\n             Behind the Success: Our Dedicated Team\n"
+                },
+                {
+                    "date": 1723488774459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -109,9 +109,9 @@\n         <motion.div\n           className=\"mb-16 text-center lg:mb-28\"\n           variants={itemVariants}\n         >\n-          <h6 className=\"md:pb-0 text-lg font-paragraph text-green-700 pt-10 pb-5 md:pt-0\">\n+          <h6 className=\"md:pb-0 text-lg font-paragraph text-green-700 pt- pb-5 md:pt-0\">\n             Meet the Team\n           </h6>\n           <h1 className=\"my-2 text-5xl md:text-5xl font-bold font-heading text-secondary-700 pb-5 dark:font-semibold\">\n             Behind the Success: Our Dedicated Team\n"
+                },
+                {
+                    "date": 1723488792708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -109,9 +109,9 @@\n         <motion.div\n           className=\"mb-16 text-center lg:mb-28\"\n           variants={itemVariants}\n         >\n-          <h6 className=\"md:pb-0 text-lg font-paragraph text-green-700 pt- pb-5 md:pt-0\">\n+          <h6 className=\"md:pb-0 text-lg font-paragraph text-green-700 pt-24 pb-5 md:pt-0\">\n             Meet the Team\n           </h6>\n           <h1 className=\"my-2 text-5xl md:text-5xl font-bold font-heading text-secondary-700 pb-5 dark:font-semibold\">\n             Behind the Success: Our Dedicated Team\n"
+                },
+                {
+                    "date": 1723488808956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -109,9 +109,9 @@\n         <motion.div\n           className=\"mb-16 text-center lg:mb-28\"\n           variants={itemVariants}\n         >\n-          <h6 className=\"md:pb-0 text-lg font-paragraph text-green-700 pt-24 pb-5 md:pt-0\">\n+          <h6 className=\"md:pb-0 text-lg font-paragraph text-green-700 pt-20 pb-5 md:pt-0\">\n             Meet the Team\n           </h6>\n           <h1 className=\"my-2 text-5xl md:text-5xl font-bold font-heading text-secondary-700 pb-5 dark:font-semibold\">\n             Behind the Success: Our Dedicated Team\n"
+                },
+                {
+                    "date": 1723488883344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -109,9 +109,9 @@\n         <motion.div\n           className=\"mb-16 text-center lg:mb-28\"\n           variants={itemVariants}\n         >\n-          <h6 className=\"md:pb-0 text-lg font-paragraph text-green-700 pt-20 pb-5 md:pt-0\">\n+          <h6 className=\"md:pb-0 text-lg font-paragraph text-green-700 pt-24 pb-5 md:pt-0\">\n             Meet the Team\n           </h6>\n           <h1 className=\"my-2 text-5xl md:text-5xl font-bold font-heading text-secondary-700 pb-5 dark:font-semibold\">\n             Behind the Success: Our Dedicated Team\n"
                 }
             ],
             "date": 1723137455818,

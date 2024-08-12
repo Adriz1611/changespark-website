@@ -17,7 +17,7 @@ export default function Donate() {
   const [count, setCount] = useState(0);
   const router = useRouter();
   return (
-    <main className="flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24">
+    <main className="flex items-center justify-center min-h-screen bg-background-100 p-4 pt-36 md:pt-24">
       <Image
         src="/bgline.svg"
         width={700}
