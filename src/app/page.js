@@ -26,7 +26,7 @@ export default function Home() {
           <p className="text-xl md:text-2xl text-green-700 font-paragraph font-bold md:px-2">
             EMPOWERING POWER IGNITING CHANGE
           </p>
-          <button className="mt-7 mb-10 px-3 py-2 md:text-2xl md:py-2 md:px-8 font-medium text-white bg-background-600 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
+          <button className="mt-7 mb-10 px-5 py-2 md:text-2xl md:py-3 md:px-9 font-medium text-white bg-background-600 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
             Join Us
           </button>
         </div>
