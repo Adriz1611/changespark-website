@@ -20,9 +20,9 @@ export default function Home() {
     <main className="bg-background-100 min-h-screen">
       <section className="flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-36">
         <div className="flex-col">
-          <h1 className="text-5xl md:text-6xl font-bold font-heading text-secondary-700 dark:font-semibold mb-4">
-            Changespark Foundation
-          </h1>
+            <h1 className="text-5xl md:text-6xl font-bold font-heading text-secondary-700 dark:font-semibold mb-4">
+              Changespark Foundation
+            </h1>
           <p className="text-xl md:text-2xl text-green-700 font-paragraph font-bold md:px-2">
             EMPOWERING POWER IGNITING CHANGE
           </p>

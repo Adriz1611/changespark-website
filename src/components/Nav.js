@@ -64,6 +64,7 @@ export default function Nav() {
       } ${open ? "bg-background-800 gap-10" : ""}`}
       ref={menuRef}
     >
+      <Link href="/">
       <div className="font-bold md:text-xl flex flex-row items-center">
         <h1
           className={`font-paragraph ${
@@ -73,6 +74,8 @@ export default function Nav() {
           ChangeSpark Foundation
         </h1>
       </div>
+      </Link>
+
       <div
         className={`flex flex-col md:flex-row gap-10 items-center justify-center transition-all duration-300 ${
           open ? "max-h-screen opacity-100" : "max-h-0 opacity-0 md:max-h-screen md:opacity-100"
