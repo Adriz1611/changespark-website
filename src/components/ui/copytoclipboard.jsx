@@ -13,7 +13,7 @@ export const CopytoClip = ({ detail }) => {
     }, 2000);
   };
   return (
-    <div className="bg-background-300 px-2 py-2 flex flex-row gap-5 justify-between rounded-lg w-full">
+    <div className="bg-background-300 px-4 py-3 flex flex-row gap-5 justify-between rounded-lg w-full items-center">
       <span className="text-lg">{detail.value}</span>
       {copy ? (
         <motion.div

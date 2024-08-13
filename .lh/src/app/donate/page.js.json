@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 21,
+            "activePatchIndex": 35,
             "patches": [
                 {
                     "date": 1722443916530,
@@ -92,6 +92,62 @@
                 {
                     "date": 1722675468013,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n           <h1 className=\"text-5xl font-heading mb-4 text-secondary-600 block md:hidden\">\n             Donation\n           </h1>\n           <Image\n-            src={count === 3 ? \"/pri\" : \"/donate.jpg\"}\n+            src={count === 3 ? \"/priyanshu\" : \"/donate.jpg\"}\n             width={700}\n             height={700}\n             className=\"rounded-lg  shadow-md\"\n             alt=\"img\"\n"
+                },
+                {
+                    "date": 1723489116983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n export default function Donate() {\n   const [count, setCount] = useState(0);\n   const router = useRouter();\n   return (\n-    <main className=\"flex items-center justify-center min-h-screen bg-background-100 p-4 pt-24\">\n+    <main className=\"flex items-center justify-center min-h-screen bg-background-100 p-4 pt-36 md:pt-24\">\n       <Image\n         src=\"/bgline.svg\"\n         width={700}\n         height={700}\n@@ -62,9 +62,9 @@\n           <h1 className=\"text-5xl font-heading mb-4 text-secondary-600 block md:hidden\">\n             Donation\n           </h1>\n           <Image\n-            src={count === 3 ? \"/priyanshu\" : \"/donate.jpg\"}\n+            src={count === 3 ? \"/monodeep.jpg\" : \"/donate.jpg\"}\n             width={700}\n             height={700}\n             className=\"rounded-lg  shadow-md\"\n             alt=\"img\"\n"
+                },
+                {
+                    "date": 1723556784767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n           <h1 className=\"text-5xl font-heading mb-4 text-secondary-600 block md:hidden\">\n             Donation\n           </h1>\n           <Image\n-            src={count === 3 ? \"/monodeep.jpg\" : \"/donate.jpg\"}\n+            src={count === 3 ? \"/mono.jpg\" : \"/donate.jpg\"}\n             width={700}\n             height={700}\n             className=\"rounded-lg  shadow-md\"\n             alt=\"img\"\n"
+                },
+                {
+                    "date": 1723556791225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n           <h1 className=\"text-5xl font-heading mb-4 text-secondary-600 block md:hidden\">\n             Donation\n           </h1>\n           <Image\n-            src={count === 3 ? \"/mono.jpg\" : \"/donate.jpg\"}\n+            src={count === 3 ? \"/.jpg\" : \"/donate.jpg\"}\n             width={700}\n             height={700}\n             className=\"rounded-lg  shadow-md\"\n             alt=\"img\"\n"
+                },
+                {
+                    "date": 1723556799230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n           <h1 className=\"text-5xl font-heading mb-4 text-secondary-600 block md:hidden\">\n             Donation\n           </h1>\n           <Image\n-            src={count === 3 ? \"/.jpg\" : \"/donate.jpg\"}\n+            src={count === 3 ? \"/monodeep.jpg\" : \"/donate.jpg\"}\n             width={700}\n             height={700}\n             className=\"rounded-lg  shadow-md\"\n             alt=\"img\"\n"
+                },
+                {
+                    "date": 1723559263604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         <div className=\"flex flex-col col-start-1 row-start-2 md:col-auto md:row-auto justify-between\">\n           <h1 className=\"text-5xl font-heading mb-4 text-secondary-700 hidden md:block\">\n             Donation\n           </h1>\n-          <div className=\"flex flex-col justify-evenly w-full md:w-1/2\">\n+          <div className=\"flex flex-col justify-evenly w-full md:w-1/2 \">\n             {bankDetails.map((detail, index) => (\n               <div\n                 key={index}\n                 className=\"flex flex-col items-start justify-center rounded-lg font-paragraph\"\n"
+                },
+                {
+                    "date": 1723559350835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         <div className=\"flex flex-col col-start-1 row-start-2 md:col-auto md:row-auto justify-between\">\n           <h1 className=\"text-5xl font-heading mb-4 text-secondary-700 hidden md:block\">\n             Donation\n           </h1>\n-          <div className=\"flex flex-col justify-evenly w-full md:w-1/2 \">\n+          <div className=\"flex flex-col justify-evenly w-full md:w-1/2 items-center\">\n             {bankDetails.map((detail, index) => (\n               <div\n                 key={index}\n                 className=\"flex flex-col items-start justify-center rounded-lg font-paragraph\"\n"
+                },
+                {
+                    "date": 1723559570021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,18 +29,18 @@\n         <div className=\"flex flex-col col-start-1 row-start-2 md:col-auto md:row-auto justify-between\">\n           <h1 className=\"text-5xl font-heading mb-4 text-secondary-700 hidden md:block\">\n             Donation\n           </h1>\n-          <div className=\"flex flex-col justify-evenly w-full md:w-1/2 items-center\">\n+          <div className=\"flex flex-col justify-evenly w-full md:w-1/2\">\n             {bankDetails.map((detail, index) => (\n               <div\n                 key={index}\n                 className=\"flex flex-col items-start justify-center rounded-lg font-paragraph\"\n               >\n                 <span className=\"text-lg font-bold font-heading\">\n                   {detail.label}\n                 </span>\n-                <CopytoClip detail={detail} />\n+                <CopytoClip className=\"flex justify\" detail={detail} />\n               </div>\n             ))}\n           </div>\n           <div className=\"w-full md:w-1/2 flex flex-col gap-2 text-center\">\n"
+                },
+                {
+                    "date": 1723559575667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               >\n                 <span className=\"text-lg font-bold font-heading\">\n                   {detail.label}\n                 </span>\n-                <CopytoClip className=\"flex justify\" detail={detail} />\n+                <CopytoClip className=\"flex justify-center\" detail={detail} />\n               </div>\n             ))}\n           </div>\n           <div className=\"w-full md:w-1/2 flex flex-col gap-2 text-center\">\n"
+                },
+                {
+                    "date": 1723559651897,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               >\n                 <span className=\"text-lg font-bold font-heading\">\n                   {detail.label}\n                 </span>\n-                <CopytoClip className=\"flex justify-center\" detail={detail} />\n+                <CopytoClip className=\"flex \" detail={detail} />\n               </div>\n             ))}\n           </div>\n           <div className=\"w-full md:w-1/2 flex flex-col gap-2 text-center\">\n"
+                },
+                {
+                    "date": 1723559665989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               >\n                 <span className=\"text-lg font-bold font-heading\">\n                   {detail.label}\n                 </span>\n-                <CopytoClip className=\"flex \" detail={detail} />\n+                <CopytoClip className=\"flex justify-center\" detail={detail} />\n               </div>\n             ))}\n           </div>\n           <div className=\"w-full md:w-1/2 flex flex-col gap-2 text-center\">\n"
+                },
+                {
+                    "date": 1723559688940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               >\n                 <span className=\"text-lg font-bold font-heading\">\n                   {detail.label}\n                 </span>\n-                <CopytoClip className=\"flex justify-center\" detail={detail} />\n+                <CopytoClip className=\"flex justify-center i\" detail={detail} />\n               </div>\n             ))}\n           </div>\n           <div className=\"w-full md:w-1/2 flex flex-col gap-2 text-center\">\n"
+                },
+                {
+                    "date": 1723559718114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               >\n                 <span className=\"text-lg font-bold font-heading\">\n                   {detail.label}\n                 </span>\n-                <CopytoClip className=\"flex justify-center i\" detail={detail} />\n+                <CopytoClip className=\"flex justify-center p\" detail={detail} />\n               </div>\n             ))}\n           </div>\n           <div className=\"w-full md:w-1/2 flex flex-col gap-2 text-center\">\n"
+                },
+                {
+                    "date": 1723559740145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n               >\n                 <span className=\"text-lg font-bold font-heading\">\n                   {detail.label}\n                 </span>\n-                <CopytoClip className=\"flex justify-center pt-3\" detail={detail} />\n+                <CopytoClip className=\"flex justify-center pt\" detail={detail} />\n               </div>\n             ))}\n           </div>\n           <div className=\"w-full md:w-1/2 flex flex-col gap-2 text-center\">\n"
+                },
+                {
+                    "date": 1723560063554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n               <div\n                 key={index}\n                 className=\"flex flex-col items-start justify-center rounded-lg font-paragraph\"\n               >\n-                <span className=\"text-lg font-bold font-heading px\">\n+                <span className=\"text-lg font-bold font-heading px-2\">\n                   {detail.label}\n                 </span>\n                 <CopytoClip detail={detail} />\n               </div>\n@@ -72,5 +72,6 @@\n           />\n         </div>\n       </section>\n     </main>\n-  );\n\\ No newline at end of file\n+  );\n+}\n"
                 }
             ],
             "date": 1722443916530,

@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/components/ui/copytoclipboard.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1723559870603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1723559882234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n       setCopy(false);\n     }, 2000);\n   };\n   return (\n-    <div className=\"bg-background-300 px-2 py-2 flex flex-row gap-5 justify-between rounded-lg w-full \">\n+    <div className=\"bg-background-300 px-2 py-2 flex flex-row gap-5 justify-between rounded-lg w-full ite\">\n       <span className=\"text-lg\">{detail.value}</span>\n       {copy ? (\n         <motion.div\n           initial={{\n"
+                },
+                {
+                    "date": 1723559918040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n       setCopy(false);\n     }, 2000);\n   };\n   return (\n-    <div className=\"bg-background-300 px-2 py-2 flex flex-row gap-5 justify-between rounded-lg w-full ite\">\n+    <div className=\"bg-background-300 px-2 py-2 flex flex-row gap-5 justify-between rounded-lg w-full items-center p\">\n       <span className=\"text-lg\">{detail.value}</span>\n       {copy ? (\n         <motion.div\n           initial={{\n"
+                },
+                {
+                    "date": 1723559946646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n       setCopy(false);\n     }, 2000);\n   };\n   return (\n-    <div className=\"bg-background-300 px-2 py-2 flex flex-row gap-5 justify-between rounded-lg w-full items-center p\">\n+    <div className=\"bg-background-300 px-2 py-2 flex flex-row gap-5 justify-between rounded-lg w-full items-center pr-\">\n       <span className=\"text-lg\">{detail.value}</span>\n       {copy ? (\n         <motion.div\n           initial={{\n"
+                },
+                {
+                    "date": 1723559950419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,5 +33,5 @@\n         />\n       )}\n     </div>\n   );\n-};\n\\ No newline at end of file\n+};\n"
+                },
+                {
+                    "date": 1723559956434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n       setCopy(false);\n     }, 2000);\n   };\n   return (\n-    <div className=\"bg-background-300 px-2 py-2 flex flex-row gap-5 justify-between rounded-lg w-full items-center pr-6\">\n+    <div className=\"bg-background-300 px-2 py-2 flex flex-row gap-5 justify-between rounded-lg w-full items-center pr-\">\n       <span className=\"text-lg\">{detail.value}</span>\n       {copy ? (\n         <motion.div\n           initial={{\n"
+                }
+            ],
+            "date": 1723559870603,
+            "name": "Commit-0",
+            "content": "\"use client\";\nimport { useState } from \"react\";\nimport { ClipboardCopy, Check } from \"lucide-react\";\nimport { motion } from \"framer-motion\";\n\nexport const CopytoClip = ({ detail }) => {\n  const [copy, setCopy] = useState(false);\n  const handleCopy = (value) => {\n    navigator.clipboard.writeText(value);\n    setCopy(true);\n    setTimeout(() => {\n      setCopy(false);\n    }, 2000);\n  };\n  return (\n    <div className=\"bg-background-300 px-2 py-2 flex flex-row gap-5 justify-between rounded-lg w-full \">\n      <span className=\"text-lg\">{detail.value}</span>\n      {copy ? (\n        <motion.div\n          initial={{\n            opacity: 0,\n            y: -10,\n          }}\n          animate={{ opacity: 1, y: 0 }}\n        >\n          <Check className=\" text-purple1-dark\" size={24} />\n        </motion.div>\n      ) : (\n        <ClipboardCopy\n          size={24}\n          className=\"cursor-pointer text-purple1-dark\"\n          onClick={() => handleCopy(detail.value)}\n        />\n      )}\n    </div>\n  );\n};\n"
+        }
+    ]
+}
