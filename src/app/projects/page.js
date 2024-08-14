@@ -3,8 +3,11 @@
 import Image from "next/image";
 import { MoveUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const Projects = () => {
+  const router = useRouter();
+
   const images = [
     {
       src: "/bhadreswar.avif",
@@ -61,56 +64,34 @@ const Projects = () => {
       <div className="flex flex-col md:flex-row gap-5 md:gap-40 items-center justify-center w-full">
         {images.map((img, index) => (
           <motion.div key={index} variants={itemVariants}>
-            {img.caption === "Women at Tailoring" ||
-            img.caption === "Children at School" ? (
-              <motion.div
-                className="group relative flex flex-col items-start max-w-96 text-start md:mx-0 mx-2 bg-background-200 px-4 py-4 rounded-md shadow-md"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  height={300}
-                  width={450}
-                  sizes="(max-width: 450px) 100vw, 450px"
-                  className="rounded-md shadow-md"
+            <motion.div
+              className={`group relative flex flex-col items-start max-w-96 text-start md:mx-0 mx-2 bg-background-200 px-4 py-4 rounded-md shadow-md ${img.url ? "cursor-pointer" : ""
+                }`}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => img.url && router.push(img.url)}
+            >
+              {img.url && (
+                <MoveUpRight
+                  size={32}
+                  className="text-green-300 absolute top-5 right-5 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500"
                 />
-                <h2 className="mt-4 uppercase font-bold text-xl font-paragraph text-green-700 text-center">
-                  {img.caption}
-                </h2>
-                <p className="text-wrap font-paragraph text-secondary-700">
-                  {img.description}
-                </p>
-              </motion.div>
-            ) : (
-              <Link href={img.url}>
-                <motion.div
-                  className="group relative flex flex-col items-start max-w-96 text-start md:mx-0 mx-2 bg-background-200 px-4 py-4 rounded-md shadow-md cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <MoveUpRight
-                    size={32}
-                    className="text-green-300 absolute top-5 right-5 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500"
-                  />
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    height={300}
-                    width={450}
-                    sizes="(max-width: 450px) 100vw, 450px"
-                    className="rounded-md shadow-md"
-                  />
-                  <h2 className="mt-4 uppercase font-bold text-xl font-paragraph text-green-700 text-center">
-                    {img.caption}
-                  </h2>
-                  <p className="text-wrap font-paragraph text-secondary-700">
-                    {img.description}
-                  </p>
-                </motion.div>
-              </Link>
-            )}
+              )}
+              <Image
+                src={img.src}
+                alt={img.alt}
+                height={300}
+                width={450}
+                sizes="(max-width: 450px) 100vw, 450px"
+                className="rounded-md shadow-md"
+              />
+              <h2 className="mt-4 uppercase font-bold text-xl font-paragraph text-green-700 text-center">
+                {img.caption}
+              </h2>
+              <p className="text-wrap font-paragraph text-secondary-700">
+                {img.description}
+              </p>
+            </motion.div>
           </motion.div>
         ))}
       </div>
