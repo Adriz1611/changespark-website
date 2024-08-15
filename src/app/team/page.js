@@ -45,6 +45,7 @@ function TeamCard({ img, name, title, twitterLink, linkedinLink }) {
 }
 
 const members = [
+  /**
   {
     img: "/priyabrata.jpg",
     name: "Priyabrata Nandy",
@@ -74,6 +75,7 @@ const members = [
     linkedinLink: "https://linkedin.com/in/priyanshudebnath",
   },
   // ... add more team members as needed
+   */
 ];
 
 export function TeamSection12() {

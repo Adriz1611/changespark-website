@@ -23,12 +23,36 @@ export default function Footer() {
     { icon: Mail, href: "mailto:changespark@yahoo.com", label: "Email" },
   ];
 
+  const developers = [
+    { name: "Adrij", linkedIn: "https://www.linkedin.com/in/adrijbhadra/" },
+    { name: "Monodeep", linkedIn: "https://www.linkedin.com/in/monodeepdas/" },
+    { name: "Priyanshu", linkedIn: "https://www.linkedin.com/in/priyanshu-debnath/" },
+  ];
+
   return (
-    <footer className="bg-secondary-600 text-white py-8 z-40 w-full">
-      <div className="flex flex-col md:flex-row justify-between px-20 items-center w-full">
-        <div className="mb-4 text-center md:mb-0">
-          <p className="text-lg  font-heading">
+    <footer className="bg-secondary-600 text-white py-7 z-40 w-full">
+      <div className="flex flex-col md:flex-row justify-between items-center px-20 pl-4 w-full">
+        <div className="mb-4 md:mb-0 text-center md:text-left">
+          <p className="text-sm md:text-base font-heading">
             &copy; {currentYear} Changespark Foundation. All rights reserved.
+          </p>
+        </div>
+        <div className="mb-4 md:mb-0 text-center">
+          <p className="text-xs md:text-sm">
+            Designed and developed by{" "}
+            {developers.map((dev, index) => (
+              <React.Fragment key={dev.name}>
+                <a
+                  href={dev.linkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-blue-300 transition-colors duration-300"
+                >
+                  {dev.name}
+                </a>
+                {index < developers.length - 1 && ", "}
+              </React.Fragment>
+            ))}
           </p>
         </div>
         <div className="flex gap-4">
@@ -38,10 +62,10 @@ export default function Footer() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-white transition-colors duration-300 text-lg"
+              className="text-white hover:text-white transition-colors duration-300"
               aria-label={label}
             >
-              <Icon size={24} />
+              <Icon size={20} />
             </a>
           ))}
         </div>
