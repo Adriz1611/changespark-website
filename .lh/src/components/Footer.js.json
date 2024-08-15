@@ -1,0 +1,62 @@
+{
+    "sourceFile": "src/components/Footer.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1723733099861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1723733105783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n           <p className=\"text-sm md:text-base font-heading\">\n             &copy; {currentYear} Changespark Foundation. All rights reserved.\n           </p>\n         </div>\n-        <div className=\"mb-4 md:mb-0 text-center \">\n+        <div className=\"mb-4 md:mb-0 text-center flex jus\">\n           <p className=\"text-xs md:text-sm\">\n             Designed and developed by{\" \"}\n             {developers.map((dev, index) => (\n               <React.Fragment key={dev.name}>\n"
+                },
+                {
+                    "date": 1723733328037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n           <p className=\"text-sm md:text-base font-heading\">\n             &copy; {currentYear} Changespark Foundation. All rights reserved.\n           </p>\n         </div>\n-        <div className=\"mb-4 md:mb-0 text-center flex jus\">\n+        <div className=\"mb-4 md:mb-0 text-center px-0 md:px-10\">\n           <p className=\"text-xs md:text-sm\">\n             Designed and developed by{\" \"}\n             {developers.map((dev, index) => (\n               <React.Fragment key={dev.name}>\n"
+                },
+                {
+                    "date": 1723733478765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,10 +36,10 @@\n           <p className=\"text-sm md:text-base font-heading\">\n             &copy; {currentYear} Changespark Foundation. All rights reserved.\n           </p>\n         </div>\n-        <div className=\"mb-4 md:mb-0 text-center px-0 md:px-10\">\n-          <p className=\"text-xs md:text-sm\">\n+        <div className=\"mb-4 md:mb-0 text-center \">\n+          <p className=\"text-xs md:text-sm px-0 md:px-10\">\n             Designed and developed by{\" \"}\n             {developers.map((dev, index) => (\n               <React.Fragment key={dev.name}>\n                 <a\n"
+                },
+                {
+                    "date": 1723733551335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n             &copy; {currentYear} Changespark Foundation. All rights reserved.\n           </p>\n         </div>\n         <div className=\"mb-4 md:mb-0 text-center \">\n-          <p className=\"text-xs md:text-sm px-0 md:px-10\">\n+          <p className=\"text-xs md:text-sm px-0 md:px-5\">\n             Designed and developed by{\" \"}\n             {developers.map((dev, index) => (\n               <React.Fragment key={dev.name}>\n                 <a\n"
+                },
+                {
+                    "date": 1723733596363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n             &copy; {currentYear} Changespark Foundation. All rights reserved.\n           </p>\n         </div>\n         <div className=\"mb-4 md:mb-0 text-center \">\n-          <p className=\"text-xs md:text-sm px-0 md:px-5\">\n+          <p className=\"text-xs md:text-sm\">\n             Designed and developed by{\" \"}\n             {developers.map((dev, index) => (\n               <React.Fragment key={dev.name}>\n                 <a\n"
+                },
+                {
+                    "date": 1723733617701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   ];\n \n   return (\n     <footer className=\"bg-secondary-600 text-white py-6 z-40 w-full\">\n-      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-20 w-full\">\n+      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-24 w-full\">\n         <div className=\"mb-4 md:mb-0 text-center md:text-left\">\n           <p className=\"text-sm md:text-base font-heading\">\n             &copy; {currentYear} Changespark Foundation. All rights reserved.\n           </p>\n"
+                },
+                {
+                    "date": 1723733654146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   ];\n \n   return (\n     <footer className=\"bg-secondary-600 text-white py-6 z-40 w-full\">\n-      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-24 w-full\">\n+      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-25 w-full\">\n         <div className=\"mb-4 md:mb-0 text-center md:text-left\">\n           <p className=\"text-sm md:text-base font-heading\">\n             &copy; {currentYear} Changespark Foundation. All rights reserved.\n           </p>\n"
+                },
+                {
+                    "date": 1723733663794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   ];\n \n   return (\n     <footer className=\"bg-secondary-600 text-white py-6 z-40 w-full\">\n-      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-25 w-full\">\n+      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-28 w-full\">\n         <div className=\"mb-4 md:mb-0 text-center md:text-left\">\n           <p className=\"text-sm md:text-base font-heading\">\n             &copy; {currentYear} Changespark Foundation. All rights reserved.\n           </p>\n"
+                },
+                {
+                    "date": 1723733671270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   ];\n \n   return (\n     <footer className=\"bg-secondary-600 text-white py-6 z-40 w-full\">\n-      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-28 w-full\">\n+      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-30 w-full\">\n         <div className=\"mb-4 md:mb-0 text-center md:text-left\">\n           <p className=\"text-sm md:text-base font-heading\">\n             &copy; {currentYear} Changespark Foundation. All rights reserved.\n           </p>\n"
+                },
+                {
+                    "date": 1723733747245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   ];\n \n   return (\n     <footer className=\"bg-secondary-600 text-white py-6 z-40 w-full\">\n-      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-32 w-full\">\n+      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-36 w-full\">\n         <div className=\"mb-4 md:mb-0 text-center md:text-left\">\n           <p className=\"text-sm md:text-base font-heading\">\n             &copy; {currentYear} Changespark Foundation. All rights reserved.\n           </p>\n"
+                },
+                {
+                    "date": 1723733783549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   ];\n \n   return (\n     <footer className=\"bg-secondary-600 text-white py-6 z-40 w-full\">\n-      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-20 w-full\">\n+      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-24 w-full\">\n         <div className=\"mb-4 md:mb-0 text-center md:text-left\">\n           <p className=\"text-sm md:text-base font-heading\">\n             &copy; {currentYear} Changespark Foundation. All rights reserved.\n           </p>\n"
+                }
+            ],
+            "date": 1723733099861,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\nimport { Facebook, Linkedin, Instagram, Mail } from \"lucide-react\";\n\nexport default function Footer() {\n  const currentYear = new Date().getFullYear();\n\n  const socialLinks = [\n    {\n      icon: Facebook,\n      href: \"https://www.facebook.com/profile.php?id=61560185391368\",\n      label: \"Facebook\",\n    },\n    {\n      icon: Linkedin,\n      href: \"https://www.linkedin.com/company/changespark-foundation/\",\n      label: \"LinkedIn\",\n    },\n    {\n      icon: Instagram,\n      href: \"https://www.instagram.com/changesparkfoundation/\",\n      label: \"Instagram\",\n    },\n    { icon: Mail, href: \"mailto:connect@changespark.in\", label: \"Email\" },\n  ];\n\n  const developers = [\n    { name: \"Adrij\", linkedIn: \"https://www.linkedin.com/in/adrijbhadra/\" },\n    { name: \"Monodeep\", linkedIn: \"https://www.linkedin.com/in/monodeepdas/\" },\n    { name: \"Priyanshu\", linkedIn: \"https://www.linkedin.com/in/priyanshu-debnath/\" },\n  ];\n\n  return (\n    <footer className=\"bg-secondary-600 text-white py-6 z-40 w-full\">\n      <div className=\"flex flex-col md:flex-row justify-between items-center px-6 md:px-20 w-full\">\n        <div className=\"mb-4 md:mb-0 text-center md:text-left\">\n          <p className=\"text-sm md:text-base font-heading\">\n            &copy; {currentYear} Changespark Foundation. All rights reserved.\n          </p>\n        </div>\n        <div className=\"mb-4 md:mb-0 text-center \">\n          <p className=\"text-xs md:text-sm\">\n            Designed and developed by{\" \"}\n            {developers.map((dev, index) => (\n              <React.Fragment key={dev.name}>\n                <a\n                  href={dev.linkedIn}\n                  target=\"_blank\"\n                  rel=\"noopener noreferrer\"\n                  className=\"text-white hover:text-blue-300 transition-colors duration-300\"\n                >\n                  {dev.name}\n                </a>\n                {index === developers.length - 2\n                  ? \" and \"\n                  : index < developers.length - 2\n                  ? \", \"\n                  : \"\"}\n              </React.Fragment>\n            ))}\n          </p>\n        </div>\n        <div className=\"flex gap-2 md:gap-4\">\n          {socialLinks.map(({ icon: Icon, href, label }) => (\n            <a\n              key={label}\n              href={href}\n              target=\"_blank\"\n              rel=\"noopener noreferrer\"\n              className=\"text-white hover:text-white transition-colors duration-300\"\n              aria-label={label}\n            >\n              <Icon size={20} />\n            </a>\n          ))}\n        </div>\n      </div>\n    </footer>\n  );\n}\n"
+        }
+    ]
+}
