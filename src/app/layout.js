@@ -40,7 +40,7 @@ const playfair_display = Playfair_Display({
 
 export const metadata = {
   title: "ChangeSpark",
-  description: "new budding NGO about women empowerment and child education",
+  description: "New budding NGO about women empowerment and child education",
 };
 
 export default function RootLayout({ children }) {
