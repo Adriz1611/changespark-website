@@ -2,7 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["www.material-tailwind.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "goklwwrtrwguuuezbodj.supabase.co",
+      },
+      {
+        protocol: "https",
+        hostname: "www.material-tailwind.com",
+      },
+    ],
   },
 };
 
