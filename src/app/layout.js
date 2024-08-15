@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Whatsapp } from "@/components/ui/whatsApp";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const inika = Inika({
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
         <Whatsapp />
         <Nav />
         {children}
+        <SpeedInsights />
         <Analytics />
         <Footer />
       </body>
