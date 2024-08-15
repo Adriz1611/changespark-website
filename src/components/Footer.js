@@ -20,7 +20,7 @@ export default function Footer() {
       href: "https://www.instagram.com/changesparkfoundation/",
       label: "Instagram",
     },
-    { icon: Mail, href: "mailto:changespark@yahoo.com", label: "Email" },
+    { icon: Mail, href: "mailto:connect@changespark.in", label: "Email" },
   ];
 
   const developers = [
@@ -30,8 +30,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-secondary-600 text-white py-7 z-40 w-full">
-      <div className="flex flex-col md:flex-row justify-between items-center px-20 pl-4 w-full">
+    <footer className="bg-secondary-600 text-white py-6 z-40 w-full">
+      <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-20 w-full">
         <div className="mb-4 md:mb-0 text-center md:text-left">
           <p className="text-sm md:text-base font-heading">
             &copy; {currentYear} Changespark Foundation. All rights reserved.
@@ -50,12 +50,16 @@ export default function Footer() {
                 >
                   {dev.name}
                 </a>
-                {index < developers.length - 1 && ", "}
+                {index === developers.length - 2
+                  ? " and "
+                  : index < developers.length - 2
+                  ? ", "
+                  : ""}
               </React.Fragment>
             ))}
           </p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-2 md:gap-4">
           {socialLinks.map(({ icon: Icon, href, label }) => (
             <a
               key={label}
