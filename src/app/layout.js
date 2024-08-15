@@ -5,6 +5,7 @@ import {
   Rubik,
   Playfair_Display,
 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Whatsapp } from "@/components/ui/whatsApp";
@@ -48,9 +49,9 @@ export default function RootLayout({ children }) {
         className={`${inika.variable} ${tauri.variable} ${poppins.variable} ${playfair_display.variable}`}
       >
         <Whatsapp />
-
         <Nav />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
