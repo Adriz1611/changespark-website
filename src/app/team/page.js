@@ -53,6 +53,13 @@ const members = [
     linkedinLink: "https://linkedin.com/in/priyabratanandy",
   },
   {
+    img: "/monodeep.jpg",
+    name: "Monodeep Das",
+    title: "Web Developer",
+    twitterLink: "https://twitter.com/monodeepdas",
+    linkedinLink: "https://linkedin.com/in/monodeepdas",
+  },
+  {
     img: "/adrij.avif",
     name: "Adrij Bhadra",
     title: "Web Developer",
@@ -65,13 +72,6 @@ const members = [
     title: "Web Developer",
     twitterLink: "https://twitter.com/priyanshudebnath",
     linkedinLink: "https://linkedin.com/in/priyanshudebnath",
-  },
-  {
-    img: "/monodeep.jpg",
-    name: "Monodeep Das",
-    title: "Web Developer",
-    twitterLink: "https://twitter.com/monodeepdas",
-    linkedinLink: "https://linkedin.com/in/monodeepdas",
   },
   // ... add more team members as needed
 ];
@@ -110,7 +110,7 @@ export function TeamSection12() {
           className="mb-16 text-center lg:mb-28"
           variants={itemVariants}
         >
-          <h6 className="md:pb-0 md:pt-0 text-lg font-paragraph text-green-700 pt-10 pb-5 ">
+          <h6 className="md:pb-0 text-lg font-paragraph text-green-700 pt-24 pb-5 md:pt-0">
             Meet the Team
           </h6>
           <h1 className="my-2 text-5xl md:text-5xl font-bold font-heading text-secondary-700 pb-5 dark:font-semibold">

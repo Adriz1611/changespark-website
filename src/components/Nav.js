@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/", label: "HOME" },
-  { href: "/#about", label: "ABOUT US" },
+  { href: "/blog", label: "BLOG" },
   { href: "/team", label: "TEAM" },
   { href: "/projects", label: "PROJECTS" },
 ];
@@ -60,10 +60,11 @@ export default function Nav() {
   return (
     <nav
       className={`z-50 fixed w-full flex flex-col md:flex-row items-start md:items-center justify-between py-5 px-5 md:gap-0 md:px-10 font-sans ${
-        scroll ? "bg-background-800" : "md:bg-transparent"
+        scroll ? "bg-background-800 text-text-200" : "md:bg-transparent"
       } ${open ? "bg-background-800 gap-10" : ""}`}
       ref={menuRef}
     >
+      <Link href="/">
       <div className="font-bold md:text-xl flex flex-row items-center">
         <h1
           className={`font-paragraph ${
@@ -73,6 +74,8 @@ export default function Nav() {
           ChangeSpark Foundation
         </h1>
       </div>
+      </Link>
+
       <div
         className={`flex flex-col md:flex-row gap-10 items-center justify-center transition-all duration-300 ${
           open ? "max-h-screen opacity-100" : "max-h-0 opacity-0 md:max-h-screen md:opacity-100"
@@ -113,7 +116,7 @@ export default function Nav() {
       </div>
       {open ? (
         <X
-          className="md:hidden cursor-pointer absolute right-5"
+          className="md:hidden cursor-pointer absolute right-5 text-text-200"
           onClick={() => setOpen(false)}
         />
       ) : (

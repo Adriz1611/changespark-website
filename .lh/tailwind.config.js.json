@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1722443817220,
@@ -28,6 +28,22 @@
                 {
                     "date": 1722445597434,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,6 +98,6 @@\n       },\n     },\n   },\n   plugins: [\n-  ],\n+  ,\n };\n"
+                },
+                {
+                    "date": 1722870782977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,36 +1,35 @@\n /** @type {import('tailwindcss').Config} */\n+\n module.exports = {\n   content: [\n     \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/components/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/app/**/*.{js,ts,jsx,tsx,mdx}\",\n   ],\n   theme: {\n     extend: {\n+      boxShadow: {\n+        \"4xl\": \"1px -114px 43px 1px rgba(214,245,232,1) inset\",\n+      },\n       fontFamily: {\n-        heading: [\"var(--font-tauri)\"],\n-        paragraph: [\"var(--font-inika)\"],\n+        heading: [\"var(--font-playfair_display)\"],\n+        paragraph: [\"var(--font-poppins)\"],\n       },\n       backgroundImage: {\n         \"gradient-radial\": \"radial-gradient(var(--tw-gradient-stops))\",\n         \"gradient-conic\":\n           \"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))\",\n       },\n       colors: {\n         green1: {\n-          light: \"#5EA384\",\n-          dark: \"#0E6E44\", // added missing #\n+          light: \"#d6f5e8\",\n+          dark: \"#5bd7a1\", // added missing #\n         },\n         purple1: {\n           light: \"#8E68A5\",\n           dark: \"#623B7A\", // added missing #\n         },\n-        blue: \"#1A3641\",\n-        lavender: \"#FFF0F5\", // added missing #\n-        rose: \"#FFE4E1\",\n-        navyblue: \"#4A0E4E\",\n-\n         text: {\n           50: \"var(--text-50)\",\n           100: \"var(--text-100)\",\n           200: \"var(--text-200)\",\n@@ -98,6 +97,7 @@\n       },\n     },\n   },\n   plugins: [\n-  ,\n+    require(\"flowbite/plugin\")\n+  ],\n };\n"
+                },
+                {
+                    "date": 1722872546688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+\n /** @type {import('tailwindcss').Config} */\n \n module.exports = {\n   content: [\n"
+                },
+                {
+                    "date": 1722872570969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,13 @@\n-\n+const flowbite = require(\"flowbite-react/tailwind\");\n /** @type {import('tailwindcss').Config} */\n \n module.exports = {\n   content: [\n     \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/components/**/*.{js,ts,jsx,tsx,mdx}\",\n     \"./src/app/**/*.{js,ts,jsx,tsx,mdx}\",\n+    flowbite.content(),\n   ],\n   theme: {\n     extend: {\n       boxShadow: {\n"
+                },
+                {
+                    "date": 1722872600417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,7 +99,7 @@\n       },\n     },\n   },\n   plugins: [\n-    require(\"flowbite/plugin\")\n+    flowbite.plugin(),\n   ],\n };\n"
                 }
             ],
             "date": 1722443817220,
