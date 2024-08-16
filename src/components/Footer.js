@@ -31,14 +31,14 @@ export default function Footer() {
 
   return (
     <footer className="bg-secondary-600 text-white py-6 z-40 w-full">
-      <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-20 w-full">
-        <div className="mb-4 md:mb-0 text-center md:text-left">
+      <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-24 w-full">
+        <div className="mb-4 md:mb-0 text-center md:text-left ">
           <p className="text-sm md:text-base font-heading">
             &copy; {currentYear} Changespark Foundation. All rights reserved.
           </p>
         </div>
-        <div className="mb-4 md:mb-0 text-center">
-          <p className="text-xs md:text-sm">
+        <div className="mb-4 md:mb-0 text-center ">
+          <p className="text-xs md:text-sm space-x-0.5">
             Designed and developed by{" "}
             {developers.map((dev, index) => (
               <React.Fragment key={dev.name}>
