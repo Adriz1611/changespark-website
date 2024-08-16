@@ -30,6 +30,7 @@ const itemVariants = {
 
 
 export const Blogs = ({ blogData }) => {
+  console.log(blogData.length);
   return (
     <motion.div
       className="container mx-auto"
@@ -53,7 +54,7 @@ export const Blogs = ({ blogData }) => {
         </p>
       </motion.div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {blogData.length == 0 ? (
+        {blogData.length > 0 ? (
           blogData.map((post, key) => (
             <motion.div key={key} variants={itemVariants}>
               <motion.div
