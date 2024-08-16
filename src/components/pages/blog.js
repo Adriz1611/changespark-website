@@ -30,7 +30,7 @@ const itemVariants = {
 
 
 export const Blogs = ({ blogData }) => {
-  console.log(blogData.length);
+  
   return (
     <motion.div
       className="container mx-auto"
