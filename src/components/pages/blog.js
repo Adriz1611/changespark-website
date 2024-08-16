@@ -91,54 +91,62 @@ export const Blogs = ({ blogData }) => {
         </p>
       </motion.div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {blogData.map((post, key) => (
-          <motion.div key={key} variants={itemVariants}>
-            <motion.div
-              className="rounded-lg bg-background-200 shadow-md overflow-hidden cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="relative h-48 mb-4">
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/blog/${post.id}/${post.images[0].name}`}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  onError={(e) => {
-                    e.target.src = "https://via.placeholder.com/400x200";
-                  }}
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-medium font-heading text-secondary-700 mb-2">
-                  {post.title}
-                </h3>
-                <p className="text-base font-paragraph text-secondary-600 mb-4">
-                  {post.body}
-                </p>
-                <div className="flex items-center justify-between text-sm text-green-700">
-                  <div className="flex items-center">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    <span>
-                      {new Date(post.created_at).toLocaleDateString()}
-                    </span>
-                  </div>
-                  {/* <div className="flex items-center">
+        {blogData.length == 0 ? (
+          blogData.map((post, key) => (
+            <motion.div key={key} variants={itemVariants}>
+              <motion.div
+                className="rounded-lg bg-background-200 shadow-md overflow-hidden cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="relative h-48 mb-4">
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/blog/${post.id}/${post.images[0].name}`}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    onError={(e) => {
+                      e.target.src = "https://via.placeholder.com/400x200";
+                    }}
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-medium font-heading text-secondary-700 mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-base font-paragraph text-secondary-600 mb-4">
+                    {post.body}
+                  </p>
+                  <div className="flex items-center justify-between text-sm text-green-700">
+                    <div className="flex items-center">
+                      <Calendar className="mr-2 h-4 w-4" />
+                      <span>
+                        {new Date(post.created_at).toLocaleDateString()}
+                      </span>
+                    </div>
+                    {/* <div className="flex items-center">
                     <User className="mr-2 h-4 w-4" />
                     <span>{author}</span>
                   </div> */}
+                  </div>
+                  <Link
+                    href={`/blog/${post.id}`}
+                    className="mt-4 inline-flex items-center text-purple-900 hover:text-purple-700 transition-colors"
+                  >
+                    Read More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </div>
-                <Link
-                  href={`/blog/${post.id}`}
-                  className="mt-4 inline-flex items-center text-purple-900 hover:text-purple-700 transition-colors"
-                >
-                  Read More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        ))}
+          ))
+        ) : (
+          <div>
+            <h2 className="text-2xl font-bold text-center text-secondary-700">
+              No blog posts available.
+            </h2>
+          </div>
+        )}
       </div>
     </motion.div>
   );
