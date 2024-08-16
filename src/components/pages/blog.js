@@ -27,45 +27,7 @@ const itemVariants = {
   },
 };
 
-const blogPosts = [
-  {
-    img: "/Future.jpeg",
-    title: "The Future of Web Development",
-    excerpt:
-      "Explore the latest trends shaping the future of web development...",
-    date: "2024-08-15",
-    author: "Priyabrata Nandy",
-    slug: "future-of-web-development",
-  },
-  {
-    img: "/Masteringpng.png",
-    title: "Mastering React Hooks",
-    excerpt:
-      "Learn how to leverage React Hooks for more efficient components...",
-    date: "2024-08-10",
-    author: "Monodeep Das",
-    slug: "mastering-react-hooks",
-  },
-  {
-    img: "/power.jpeg",
-    title: "The Power of NextJS",
-    excerpt:
-      "Discover why NextJS is becoming the go-to framework for React applications...",
-    date: "2024-08-05",
-    author: "Adrij Bhadra",
-    slug: "power-of-nextjs",
-  },
-  {
-    img: "/optimization.png",
-    title: "Optimizing Website Performance",
-    excerpt:
-      "Tips and tricks to boost your website's speed and user experience...",
-    date: "2024-07-30",
-    author: "Priyanshu Debnath",
-    slug: "optimizing-website-performance",
-  },
-  // ... add more blog posts as needed
-];
+
 
 export const Blogs = ({ blogData }) => {
   return (
