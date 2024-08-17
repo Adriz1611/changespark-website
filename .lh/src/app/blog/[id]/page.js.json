@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/app/blog/[id]/page.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1723897476070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1723897483397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-// `page.js`\n \n+\n import { useState, useEffect } from 'react';\n \n const BlogPage = () => {\n   const [likes, setLikes] = useState(0);\n"
+                },
+                {
+                    "date": 1723897909192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n-\n-\n+'use client';\n import { useState, useEffect } from 'react';\n \n const BlogPage = () => {\n   const [likes, setLikes] = useState(0);\n@@ -21,9 +20,9 @@\n     // fetch('/api/likes', { method: 'POST', body: JSON.stringify({ likes: likes + 1 }) });\n   };\n \n   return (\n-    <div className=\"max-w-3xl mx-auto p-6\">\n+    <div className=\"min-h-screen py-8 px-8 lg:py-28 bg-background-100\">\n       <img\n         src=\"/path-to-your-image.jpg\"\n         alt=\"Blog Post\"\n         className=\"w-full h-auto mb-6 rounded-lg\"\n"
+                },
+                {
+                    "date": 1723897917709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n \n   return (\n     <div className=\"min-h-screen py-8 px-8 lg:py-28 bg-background-100\">\n       <img\n-        src=\"/path-to-your-image.jpg\"\n+        src=\"./\"\n         alt=\"Blog Post\"\n         className=\"w-full h-auto mb-6 rounded-lg\"\n       />\n \n"
+                },
+                {
+                    "date": 1723897945139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n 'use client';\n import { useState, useEffect } from 'react';\n+import Image from \"next/image\";\n \n const BlogPage = () => {\n   const [likes, setLikes] = useState(0);\n   const [views, setViews] = useState(0);\n"
+                },
+                {
+                    "date": 1723897961783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \n   return (\n     <div className=\"min-h-screen py-8 px-8 lg:py-28 bg-background-100\">\n       <img\n-        src=\"./\"\n+        src=\"/\"\n         alt=\"Blog Post\"\n         className=\"w-full h-auto mb-6 rounded-lg\"\n       />\n \n"
+                },
+                {
+                    "date": 1723897973834,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n \n   return (\n     <div className=\"min-h-screen py-8 px-8 lg:py-28 bg-background-100\">\n       <img\n-        src=\"/\"\n+        src=\"/1.\"\n         alt=\"Blog Post\"\n         className=\"w-full h-auto mb-6 rounded-lg\"\n       />\n \n"
+                },
+                {
+                    "date": 1723898046438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,17 +23,17 @@\n \n   return (\n     <div className=\"min-h-screen py-8 px-8 lg:py-28 bg-background-100\">\n       <img\n-        src=\"/1.\"\n+        src=\"/1.avif\"\n         alt=\"Blog Post\"\n         className=\"w-full h-auto mb-6 rounded-lg\"\n       />\n \n       <div className=\"flex items-center mb-6\">\n         <button\n           onClick={handleLike}\n-          className=\"px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors mr-4\"\n+          className=\"px-4 py-2 bg-blue-500 text-white\"\n         >\n           👍 Like {likes}\n         </button>\n         <div className=\"text-lg\">\n"
+                },
+                {
+                    "date": 1723898054346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n \n       <div className=\"flex items-center mb-6\">\n         <button\n           onClick={handleLike}\n-          className=\"px-4 py-2 bg-blue-500 text-white\"\n+          className=\" text-white\"\n         >\n           👍 Like {likes}\n         </button>\n         <div className=\"text-lg\">\n"
+                },
+                {
+                    "date": 1723898061053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n \n       <div className=\"flex items-center mb-6\">\n         <button\n           onClick={handleLike}\n-          className=\"\" text-white\"\n+          className=\" text-white\"\n         >\n           👍 Like {likes}\n         </button>\n         <div className=\"text-lg\">\n"
+                },
+                {
+                    "date": 1723898332251,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     <div className=\"min-h-screen py-8 px-8 lg:py-28 bg-background-100\">\n       <img\n         src=\"/1.avif\"\n         alt=\"Blog Post\"\n-        className=\"w- h-auto mb-6 rounded-lg\"\n+        className=\"w-2 h-auto mb-6 rounded-lg\"\n       />\n \n       <div className=\"flex items-center mb-6\">\n         <button\n"
+                }
+            ],
+            "date": 1723897476070,
+            "name": "Commit-0",
+            "content": "// `page.js`\n\nimport { useState, useEffect } from 'react';\n\nconst BlogPage = () => {\n  const [likes, setLikes] = useState(0);\n  const [views, setViews] = useState(0);\n\n  // Increment the view counter when the page loads\n  useEffect(() => {\n    // Simulate an API call to fetch and update views\n    fetch('/api/views', { method: 'POST' }) // This would increment the view count on the server\n      .then((response) => response.json())\n      .then((data) => setViews(data.views)); // Assume the server returns the updated view count\n  }, []);\n\n  // Handle the like button click\n  const handleLike = () => {\n    setLikes(likes + 1);\n    // Optionally, you can send this like count to the server\n    // fetch('/api/likes', { method: 'POST', body: JSON.stringify({ likes: likes + 1 }) });\n  };\n\n  return (\n    <div className=\"max-w-3xl mx-auto p-6\">\n      <img\n        src=\"/path-to-your-image.jpg\"\n        alt=\"Blog Post\"\n        className=\"w-full h-auto mb-6 rounded-lg\"\n      />\n\n      <div className=\"flex items-center mb-6\">\n        <button\n          onClick={handleLike}\n          className=\"px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors mr-4\"\n        >\n          👍 Like {likes}\n        </button>\n        <div className=\"text-lg\">\n          👁️ {views} Views\n        </div>\n      </div>\n\n      <div>\n        <h1 className=\"text-3xl font-bold mb-4\">Your Blog Title</h1>\n        <p className=\"text-lg text-gray-700\">\n          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat.\n          Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur non nulla sit amet nisl\n          tempus convallis quis ac lectus.\n        </p>\n        {/* Add your blog content here */}\n      </div>\n    </div>\n  );\n};\n\nexport default BlogPage;\n"
+        }
+    ]
+}
