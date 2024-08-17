@@ -14,7 +14,7 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="min-h-screen py-8 px-8 lg:py-28 bg-background-100">
+    <div className="min-h-screen py-8 px-8 lg:py-28 bg-background-100 pt-32">
       <div className="relative w-full h-96 mb-6">
         <Image
           src="/1.avif" 
@@ -24,7 +24,7 @@ const BlogPage = () => {
         />
       </div>
 
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 px-5">
         <button
           onClick={handleLike}
           className="text-red-600 flex gap-2 items-center"
@@ -38,7 +38,7 @@ const BlogPage = () => {
 
       <div>
         <h1 className="text-3xl font-bold mb-4 text-center">Your Blog Title</h1>
-        <p className="text-lg text-text-700 text-left leading-relaxed">
+        <p className="text-lg text-text-700 text-left leading-relaxed px-10 md:px-32 pt-3">
           Lorem ipsum odor amet, consectetuer adipiscing elit. Orci euismod
           aptent auctor platea pulvinar nulla phasellus, mollis aliquet. Auctor
           lacus ante enim fringilla nascetur euismod morbi metus. Netus elit ut
