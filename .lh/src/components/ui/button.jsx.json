@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/components/ui/button.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1723998665374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1723998695732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n-\n \"use client\";\n \n import { Button } from \"flowbite-react\";\n \n-export function Component() {\n+export function () {\n   return (\n     <div className=\"flex flex-wrap gap-2\">\n       <Button>Default</Button>\n       <Button color=\"blue\">Blue</Button>\n"
+                },
+                {
+                    "date": 1723998705498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n \"use client\";\n \n import { Button } from \"flowbite-react\";\n \n-export function () {\n+\n+export function Button() {\n   return (\n     <div className=\"flex flex-wrap gap-2\">\n       <Button>Default</Button>\n       <Button color=\"blue\">Blue</Button>\n"
+                },
+                {
+                    "date": 1723998875151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,12 @@\n \"use client\";\n \n import { Button } from \"flowbite-react\";\n \n-\n export function Button() {\n   return (\n     <div className=\"flex flex-wrap gap-2\">\n-      <Button>Default</Button>\n+\n       <Button color=\"blue\">Blue</Button>\n       <Button color=\"gray\">Gray</Button>\n       <Button color=\"dark\">Dark</Button>\n       <Button color=\"light\">Light</Button>\n"
+                },
+                {
+                    "date": 1723998880673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,14 +6,7 @@\n   return (\n     <div className=\"flex flex-wrap gap-2\">\n \n       <Button color=\"blue\">Blue</Button>\n-      <Button color=\"gray\">Gray</Button>\n-      <Button color=\"dark\">Dark</Button>\n-      <Button color=\"light\">Light</Button>\n-      <Button color=\"success\">Success</Button>\n-      <Button color=\"failure\">Failure</Button>\n-      <Button color=\"warning\">Warning</Button>\n-      <Button color=\"purple\">Purple</Button>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1723998894410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,9 @@\n import { Button } from \"flowbite-react\";\n \n export function Button() {\n   return (\n-    <div className=\"flex flex-wrap gap-2\">\n-\n+    <div className=\"\">\n       <Button color=\"blue\">Blue</Button>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1723998903992,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { Button } from \"flowbite-react\";\n \n export function Button() {\n   return (\n-    <div className=\"\">\n+    <div>\n       <Button color=\"blue\">Blue</Button>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1723999023226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n \"use client\";\n \n-import { Button } from \"flowbite-react\";\n+import { Button as FlowbiteButton } from \"flowbite-react\";\n \n export function Button() {\n   return (\n     <div>\n-      <Button color=\"blue\">Blue</Button>\n+      <FlowbiteButton color=\"blue\">Blue</FlowbiteButton>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1723999332365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n \n export function Button() {\n   return (\n     <div>\n-      <FlowbiteButton color=\"blue\">Blue</FlowbiteButton>\n+      <FlowbiteButton color=\"\"></FlowbiteButton>\n     </div>\n   );\n }\n"
+                }
+            ],
+            "date": 1723998665374,
+            "name": "Commit-0",
+            "content": "\n\"use client\";\n\nimport { Button } from \"flowbite-react\";\n\nexport function Component() {\n  return (\n    <div className=\"flex flex-wrap gap-2\">\n      <Button>Default</Button>\n      <Button color=\"blue\">Blue</Button>\n      <Button color=\"gray\">Gray</Button>\n      <Button color=\"dark\">Dark</Button>\n      <Button color=\"light\">Light</Button>\n      <Button color=\"success\">Success</Button>\n      <Button color=\"failure\">Failure</Button>\n      <Button color=\"warning\">Warning</Button>\n      <Button color=\"purple\">Purple</Button>\n    </div>\n  );\n}\n"
+        }
+    ]
+}
