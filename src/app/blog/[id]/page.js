@@ -12,11 +12,11 @@ export default function Component() {
           alt="Featured Image"
           width={1920}
           height={1080}
-          className="h-full w-full object-cover object-center rounded-xl"
+          className="h-full w-full object-cover object-center rounded-xl opacity-50"
           style={{ aspectRatio: "1920/1080", objectFit: "cover" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-background/0" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-text-800">
           <h1
             // change the text colour according to the bg contrast
             className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl 
@@ -32,7 +32,7 @@ export default function Component() {
           <div className="mt-5 flex items-center text-sm font-medium text-muted-foreground sm:mt-8">
             <div className="h-10 w-10 overflow-hidden rounded-full">
               <Image
-                src="/2.avif"
+                src="/priyabrata.jpg"
                 alt="Author Avatar"
                 width={40}
                 height={40}
@@ -43,22 +43,22 @@ export default function Component() {
             <span className="ml-3">
               By{" "}
               <Link href="#" className="hover:underline" prefetch={false}>
-                John Doe
+                Priyabrata Nandy
               </Link>
             </span>
           </div>
         </div>
       </section>
       <article className="container mx-auto my-12 px-4 sm:my-16 sm:px-6 lg:my-20 lg:px-8">
-        <div className="prose prose-lg prose-neutral mx-auto max-w-3xl dark:prose-invert">
+        <div className="prose prose-lg prose-neutral mx-auto max-w-3xl dark:prose-invert text-text-700">
           <div className="flex items-center justify-between">
             <h2>The Rise of the Startup Ecosystem</h2>
-            <div className="flex items-center gap-2">
-              <button>
+            <div className="flex items-center gap-2 pb-10">
+              <button className="text-red-600">
                 <HeartIcon />
                 <span className="sr-only">Like</span>
               </button>
-              <span className="text-muted-foreground">25</span>
+              <span className="text-muted-foreground text-black">25</span>
             </div>
           </div>
           <p>
@@ -129,7 +129,7 @@ export default function Component() {
         </div>
       </article>
       <section className="container mx-auto my-12 px-4 sm:my-16 sm:px-6 lg:my-20 lg:px-8">
-        <h2 className="mb-6 text-2xl font-bold">Related Images</h2>
+        <h2 className="mb-6 text-2xl font-bold text-text-800">Related Images</h2>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {[...Array(10)].map((_, i) => (
             <div
@@ -137,7 +137,7 @@ export default function Component() {
               className="relative h-40 cursor-pointer overflow-hidden rounded-lg"
             >
               <Image
-                src="/placeholder.svg"
+                src="/2.avif"
                 alt={`Image ${i + 1}`}
                 width={400}
                 height={400}
