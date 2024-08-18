@@ -13,7 +13,7 @@ Welcome to **ChangeSpark**, a platform dedicated to igniting positive change thr
 ChangeSpark is a dynamic platform designed to connect individuals, educators, and organizations with the tools and resources they need to foster positive social change. Through our platform, users can access educational materials, participate in community-driven projects, and collaborate on innovative solutions to global challenges.
 
 <div align="center">
-  <img src="https://source.unsplash.com/featured/?community,education" alt="Community" width="600px" />
+  <img src="[https://media.licdn.com/dms/image/v2/D560BAQEl592yudOz8g/company-logo_200_200/company-logo_200_200/0/1719255834651?e=2147483647&v=beta&t=1PGCKO5av3DTrA-ATX2Ocval_scxgYJuly0ziXXLfQM}" alt="Community" width="600px" />
 </div>
 
 ## 🌟 Features
