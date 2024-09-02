@@ -3,6 +3,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import submitForm from "../../actions/formSubmit"
 import * as z from "zod";
 import {
   Checkbox,
@@ -20,7 +21,7 @@ const volunteerSchema = z.object({
   phoneNumber: z.string().min(1, "Phone number is required"),
   address: z.string().min(1, "Address is required"),
   interests: z
-    .array(z.string(), "At least one interest must be selected")
+    .array(z.string())
     .min(1, "At least one interest must be selected"),
   availability: z.string().min(1, "Please select your availability"),
   preferredDays: z
@@ -46,9 +47,8 @@ export default function VolunteerForm() {
     resolver: zodResolver(volunteerSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // Here you would typically send the data to your backend
+  const onSubmit = async (data) => {
+     await submitForm(data)
   };
 
   const interests = watch("interests") || [];
