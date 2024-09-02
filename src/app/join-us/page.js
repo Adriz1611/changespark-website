@@ -1,72 +1,45 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import { Checkbox, Label, TextInput, Textarea, Radio, Select } from 'flowbite-react';
 
 export default function VolunteerForm() {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phoneNumber: '',
-    address: '',
-    interests: [],
-    availability: '',
-    preferredDays: [],
-    skills: '',
-    experience: '',
-    startDate: '',
-    endDate: '',
-    qualifications: '',
-    reason: '',
-    contribute: '',
-  });
+  const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm();
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: type === 'checkbox' 
-        ? (checked 
-          ? [...prevState[name], value] 
-          : prevState[name].filter(item => item !== value))
-        : value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
+  const onSubmit = (data) => {
+    console.log(data);
     // Here you would typically send the data to your backend
   };
+
+  // Watch interests and preferredDays to manually handle checkboxes
+  const interests = watch('interests') || [];
+  const preferredDays = watch('preferredDays') || [];
 
   return (
     <div className="bg-gradient-to-br from-background-100 to-background-200 min-h-screen p-4 sm:p-8">
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-2xl p-6 sm:p-10">
         <h1 className="text-3xl sm:text-4xl font-bold font-heading text-secondary-700 mb-8 text-center">Volunteer Application</h1>
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <Label htmlFor="fullName" value="Full Name" className="text-secondary-700 font-semibold" />
               <TextInput
                 id="fullName"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-                required
+                {...register('fullName', { required: 'Full name is required' })}
                 className="mt-1"
               />
+              {errors.fullName && <span className="text-red-500">{errors.fullName.message}</span>}
             </div>
             <div>
               <Label htmlFor="email" value="Email Address" className="text-secondary-700 font-semibold" />
               <TextInput
                 id="email"
-                name="email"
                 type="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
+                {...register('email', { required: 'Email is required' })}
                 className="mt-1"
               />
+              {errors.email && <span className="text-red-500">{errors.email.message}</span>}
             </div>
           </div>
           
@@ -75,25 +48,21 @@ export default function VolunteerForm() {
               <Label htmlFor="phoneNumber" value="Phone Number" className="text-secondary-700 font-semibold" />
               <TextInput
                 id="phoneNumber"
-                name="phoneNumber"
                 type="tel"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                required
+                {...register('phoneNumber', { required: 'Phone number is required' })}
                 className="mt-1"
               />
+              {errors.phoneNumber && <span className="text-red-500">{errors.phoneNumber.message}</span>}
             </div>
             <div>
               <Label htmlFor="address" value="Full Address" className="text-secondary-700 font-semibold" />
               <Textarea
                 id="address"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                required
+                {...register('address', { required: 'Address is required' })}
                 className="mt-1"
                 rows={1}
               />
+              {errors.address && <span className="text-red-500">{errors.address.message}</span>}
             </div>
           </div>
 
@@ -104,10 +73,12 @@ export default function VolunteerForm() {
                 <div key={interest} className="flex items-center gap-2">
                   <Checkbox
                     id={interest}
-                    name="interests"
+                    {...register('interests')}
                     value={interest}
-                    checked={formData.interests.includes(interest)}
-                    onChange={handleChange}
+                    checked={interests.includes(interest)}
+                    onChange={() => {
+                      setValue('interests', interests.includes(interest) ? interests.filter(i => i !== interest) : [...interests, interest]);
+                    }}
                   />
                   <Label htmlFor={interest} value={interest} className="text-sm" />
                 </div>
@@ -128,10 +99,8 @@ export default function VolunteerForm() {
                 <div key={option} className="flex items-center gap-2">
                   <Radio
                     id={option}
-                    name="availability"
+                    {...register('availability', { required: 'Please select your availability' })}
                     value={option}
-                    checked={formData.availability === option}
-                    onChange={handleChange}
                   />
                   <Label htmlFor={option} value={option} className="text-sm" />
                 </div>
@@ -146,10 +115,12 @@ export default function VolunteerForm() {
                 <div key={day} className="flex items-center gap-2">
                   <Checkbox
                     id={day}
-                    name="preferredDays"
+                    {...register('preferredDays')}
                     value={day}
-                    checked={formData.preferredDays.includes(day)}
-                    onChange={handleChange}
+                    checked={preferredDays.includes(day)}
+                    onChange={() => {
+                      setValue('preferredDays', preferredDays.includes(day) ? preferredDays.filter(d => d !== day) : [...preferredDays, day]);
+                    }}
                   />
                   <Label htmlFor={day} value={day} className="text-sm" />
                 </div>
@@ -161,21 +132,17 @@ export default function VolunteerForm() {
             <Label htmlFor="skills" value="Skills and Qualifications" className="text-secondary-700 font-semibold" />
             <Textarea
               id="skills"
-              name="skills"
-              value={formData.skills}
-              onChange={handleChange}
-              required
+              {...register('skills', { required: 'Skills and qualifications are required' })}
               className="mt-1"
             />
+            {errors.skills && <span className="text-red-500">{errors.skills.message}</span>}
           </div>
 
           <div>
             <Label htmlFor="experience" value="Previous Volunteer Experience" className="text-secondary-700 font-semibold" />
             <Textarea
               id="experience"
-              name="experience"
-              value={formData.experience}
-              onChange={handleChange}
+              {...register('experience')}
               className="mt-1"
             />
           </div>
@@ -185,25 +152,21 @@ export default function VolunteerForm() {
               <Label htmlFor="startDate" value="Starting Date" className="text-secondary-700 font-semibold" />
               <TextInput
                 id="startDate"
-                name="startDate"
                 type="date"
-                value={formData.startDate}
-                onChange={handleChange}
-                required
+                {...register('startDate', { required: 'Starting date is required' })}
                 className="mt-1"
               />
+              {errors.startDate && <span className="text-red-500">{errors.startDate.message}</span>}
             </div>
             <div>
               <Label htmlFor="endDate" value="Ending Date" className="text-secondary-700 font-semibold" />
               <TextInput
                 id="endDate"
-                name="endDate"
                 type="date"
-                value={formData.endDate}
-                onChange={handleChange}
-                required
+                {...register('endDate', { required: 'Ending date is required' })}
                 className="mt-1"
               />
+              {errors.endDate && <span className="text-red-500">{errors.endDate.message}</span>}
             </div>
           </div>
 
@@ -211,34 +174,27 @@ export default function VolunteerForm() {
             <Label htmlFor="qualifications" value="Current Qualifications (Institute's name)" className="text-secondary-700 font-semibold" />
             <TextInput
               id="qualifications"
-              name="qualifications"
-              value={formData.qualifications}
-              onChange={handleChange}
-              required
+              {...register('qualifications', { required: 'Qualifications are required' })}
               className="mt-1"
             />
+            {errors.qualifications && <span className="text-red-500">{errors.qualifications.message}</span>}
           </div>
 
           <div>
             <Label htmlFor="reason" value="Why do you want to volunteer with us?" className="text-secondary-700 font-semibold" />
             <Textarea
               id="reason"
-              name="reason"
-              value={formData.reason}
-              onChange={handleChange}
-              required
+              {...register('reason', { required: 'Reason for volunteering is required' })}
               className="mt-1"
             />
+            {errors.reason && <span className="text-red-500">{errors.reason.message}</span>}
           </div>
 
           <div>
             <Label value="Would you like to contribute to the cause?" className="text-secondary-700 font-semibold mb-2 block" />
             <Select
               id="contribute"
-              name="contribute"
-              value={formData.contribute}
-              onChange={handleChange}
-              required
+              {...register('contribute', { required: 'Please select an option' })}
               className="mt-1"
             >
               <option value="">Select an option</option>
@@ -246,6 +202,7 @@ export default function VolunteerForm() {
               <option value="No">No</option>
               <option value="Maybe">Maybe</option>
             </Select>
+            {errors.contribute && <span className="text-red-500">{errors.contribute.message}</span>}
           </div>
 
           <button
