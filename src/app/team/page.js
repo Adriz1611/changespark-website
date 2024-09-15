@@ -16,7 +16,9 @@ async function fetchMembers() {
 
   const { data, error } = await supabase
     .from("volunteers")
-    .select("name, role, avatar, socials");
+    .select("name, role, avatar, socials")
+    .order("created_at", { ascending: true }); // Order by creation date in ascending order
+
   if (error) throw error;
   return data;
 }
