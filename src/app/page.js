@@ -1,6 +1,7 @@
 "use client";
 import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
+import Link from "next/link";
 import { Carousel } from "flowbite-react";
 
 export default function Home() {
@@ -20,15 +21,17 @@ export default function Home() {
     <main className="bg-background-100 min-h-screen">
       <section className="flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-36">
         <div className="flex-col">
-            <h1 className="text-5xl md:text-6xl font-bold font-heading text-secondary-700 dark:font-semibold mb-4">
-              Changespark Foundation
-            </h1>
+          <h1 className="text-5xl md:text-6xl font-bold font-heading text-secondary-700 dark:font-semibold mb-4">
+            Changespark Foundation
+          </h1>
           <p className="text-xl md:text-2xl text-green-700 font-paragraph font-bold md:px-2">
             EMPOWERING POWER IGNITING CHANGE
           </p>
-          <button className="mt-7 mb-10 px-5 py-2 md:text-2xl md:py-3 md:px-9 font-medium text-white bg-background-600 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
-            Join Us
-          </button>
+          <Link href="/join-us" passHref>
+            <button className="mt-7 mb-10 px-5 py-2 md:text-2xl md:py-3 md:px-9 font-medium text-white bg-background-600 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
+              Join Us
+            </button>
+          </Link>
         </div>
         <div className="w-[89vw] h-[49vh] md:w-[40vw]">
           <Carousel slideInterval={1500} pauseOnHover>
