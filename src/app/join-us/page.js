@@ -48,7 +48,9 @@ export default function VolunteerForm() {
   });
 
   const onSubmit = async (data) => {
-     await submitForm(data)
+     await submitForm(data).then(() => {
+        alert("Form submitted successfully");
+     })
   };
 
   const interests = watch("interests") || [];
