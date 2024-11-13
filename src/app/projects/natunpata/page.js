@@ -48,7 +48,7 @@ export default function NatunPata() {
             <br></br> In these formative years, children build the foundation of
             who they will become. ECE is vital because it nurtures cognitive
             skills, social awareness, emotional resilience, and physical
-            abilities that shape a child's journey. But for many rural children,
+            abilities that shape a child&apos;s journey. But for many rural children,
             barriers like limited access and scarce resources make this
             opportunity feel distant.
           </p>
