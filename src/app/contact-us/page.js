@@ -72,7 +72,7 @@ const ContactUs = () => {
           <motion.div className="flex flex-col items-center justify-center" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
             <Image src="/contactus.jpg" alt="Contact Us" width={500} height={400} className="mb-10" />
             <blockquote className="text-center text-xl font-semibold text-secondary-700 italic max-w-3xl mx-auto mb-12">
-              "At Changespark Foundation, your journey with us begins here—lets spark change together!"
+            &quot;At Changespark Foundation, your journey with us begins here—lets spark change together!&quot;
             </blockquote>
             <div className="flex space-x-8">
               {socialLinks.map(({ icon, label, href }) => (
