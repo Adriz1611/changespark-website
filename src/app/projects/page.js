@@ -10,14 +10,14 @@ const Projects = () => {
       alt: "Natun Pata",
       caption: "Natun Pata",
       description:
-        "ChangeSpark Foundation's Education Program nurtures young minds by delivering quality early childhood education in underserved rural areas, fostering cognitive, social, and emotional growth, and empowering communities to value lifelong learning.",
+        "ChangeSpark Foundation Education Program nurtures young minds by delivering quality early childhood education in underserved rural areas, fostering cognitive, social, and emotional growth, and empowering communities to value lifelong learning.",
     },
     {
       src: "/bhadreswar.avif",
       alt: "Pranati",
       caption: "Pranati",
       description:
-        "ChangeSpark Foundation's Entrepreneurship Development Program empowers individuals, especially women, with vocational and business skills, fostering economic independence, local job creation, and sustainable community growth through hands-on training and market access.",
+        "ChangeSpark Foundation Entrepreneurship Development Program empowers individuals, especially women, with vocational and business skills, fostering economic independence, local job creation, and sustainable community growth through hands-on training and market access.",
     },
   ];
 

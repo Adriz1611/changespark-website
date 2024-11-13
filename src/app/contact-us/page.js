@@ -18,7 +18,7 @@ const ContactUs = () => {
     {
       color: "bg-green-100 text-green-700",
       title: "Drop Us a Line",
-      description: "Got a question or feedback? Email us and we’ll get back to you as soon as we can. Your thoughts are important to us, and we’re here to help!",
+      description: "Got a question or feedback? Email us and we wll get back to you as soon as we can. Your thoughts are important to us, and we are here to help!",
       linkText: "connect@changespark.in",
       href: "mailto:connect@changespark.in",
       icon: <Mail className="w-6 h-6 text-green-700" />,
@@ -26,7 +26,7 @@ const ContactUs = () => {
     {
       color: "bg-blue-100 text-blue-700",
       title: "Give Us a Call",
-      description: "Prefer to chat or call? We’re available to discuss how we can work together to empower communities and ignite change.",
+      description: "Prefer to chat or call? We are available to discuss how we can work together to empower communities and ignite change.",
       linkText: "+91 8961520779",
       href: "tel:+918961520779",
       icon: <Phone className="w-6 h-6 text-blue-700" />,
@@ -34,7 +34,7 @@ const ContactUs = () => {
     {
       color: "bg-purple-100 text-purple-700",
       title: "Follow Us",
-      description: "Stay updated on our latest projects, success stories, and upcoming events by connecting with us on social media. Together, let's build a community of change-makers!",
+      description: "Stay updated on our latest projects, success stories, and upcoming events by connecting with us on social media. Together, lets build a community of change-makers!",
       icon: <MapPin className="w-6 h-6 text-purple-700" />,
     },
   ];
@@ -43,8 +43,8 @@ const ContactUs = () => {
     <div className="min-h-screen bg-background-100">
       <motion.div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
         <motion.div className="text-center mb-16" {...fadeIn}>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-secondary-700 mb-6">Let's Connect</h1>
-          <p className="text-lg md:text-xl text-secondary-700 max-w-2xl mx-auto">Ready to make a difference? We're here to collaborate, listen, and create meaningful change together.</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-secondary-700 mb-6">Lets Connect</h1>
+          <p className="text-lg md:text-xl text-secondary-700 max-w-2xl mx-auto">Ready to make a difference? We are here to collaborate, listen, and create meaningful change together.</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -72,7 +72,7 @@ const ContactUs = () => {
           <motion.div className="flex flex-col items-center justify-center" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
             <Image src="/contactus.jpg" alt="Contact Us" width={500} height={400} className="mb-10" />
             <blockquote className="text-center text-xl font-semibold text-secondary-700 italic max-w-3xl mx-auto mb-12">
-              "At Changespark Foundation, your journey with us begins here—let’s spark change together!"
+              "At Changespark Foundation, your journey with us begins here—lets spark change together!"
             </blockquote>
             <div className="flex space-x-8">
               {socialLinks.map(({ icon, label, href }) => (
