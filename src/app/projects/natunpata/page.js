@@ -79,7 +79,7 @@ export default function NatunPata() {
                       <p className="md:text-sm leading-relaxed">
                         We understand that every community is unique. Through
                         dedicated needs assessments, we adapt our programs to
-                        reflect each area’s strengths and challenges, ensuring
+                        reflect each area&apos;s strengths and challenges, ensuring
                         our support is impactful and sustainable.
                       </p>
                     </div>
@@ -150,7 +150,7 @@ export default function NatunPata() {
                   <div className="absolute inset-0 h-full w-full rounded-xl bg-background-200 p-8 text-secondary-800 [transform:rotateY(180deg)] [backface-visibility:hidden]">
                     <div className="flex h-full flex-col items-center justify-center">
                       <p className="md:text-sm leading-relaxed">
-                        A child’s first teacher is their family. That’s why we
+                        A child&apos;s first teacher is their family. That&apos;s why we
                         host monthly workshops for parents on child development,
                         creating a shared journey where learning extends beyond
                         the classroom and into the heart of each home.
@@ -257,7 +257,7 @@ export default function NatunPata() {
               Our Vision for Impact
             </h2>
             <p className="text-lg text-center mb-12 max-w-3xl mx-auto">
-              Our commitment doesn’t end in the classroom. We envision a future
+              Our commitment doesn&apos;t end in the classroom. We envision a future
               of expanded access, empowered families, passionate learners, and
               supportive communities.
             </p>
@@ -287,7 +287,7 @@ export default function NatunPata() {
                 </h3>
                 <p className="max-w-md">
                   Guiding families to be active, supportive partners in their
-                  child’s learning journey.
+                  child&apos;s learning journey.
                 </p>
               </div>
 
