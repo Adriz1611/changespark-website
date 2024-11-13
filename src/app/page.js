@@ -3,6 +3,7 @@ import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 import Link from "next/link";
 import { Carousel } from "flowbite-react";
+import CoreValuesSection from "@/components/CoreValuesSection";
 
 export default function Home() {
   const images = [
@@ -57,18 +58,13 @@ export default function Home() {
           </h2>
           <div className="font-paragraph text-lg text-text-700 mb-8 pb-6">
             <p className="mb-4 text-justify">
-              We are an organization committed to providing a high-quality
-              education for every child in India. We believe that every child,
-              regardless of their socio-economic status, location, or
-              circumstances, deserves an opportunity to reach their full
-              potential.
+            At Changespark Foundation, we are driven by a single vision: to empower communities through the transformative power of Education and Livelihood Development. As a nonprofit organization dedicated to creating lasting impact, we work hand-in-hand with rural communities to close educational gaps and cultivate skills that ignite progress.
+            </p>
+            <p className="mb-4 text-justify">
+            Our approach is built on the belief that meaningful change starts with opportunity. We focus on delivering quality Early Childhood Education (ECE) to give young children a strong start, while our Livelihood Development Programs equip individuals with the tools and training they need to thrive as micro-entrepreneurs.
             </p>
             <p className="text-justify">
-              We exist to enable government schools in India to provide quality
-              education to every child. We believe that a good quality education
-              is the foundation of a child&aposs future, and we are dedicated to
-              supporting the government in delivering this to all children in
-              India.
+            Founded with a commitment to social equity and sustainable growth, Changespark Foundation combines compassionate action with evidence-based strategies. By building partnerships with local schools, training dedicated educators, and fostering a spirit of entrepreneurship, we nurture environments where children can learn, families can prosper, and entire communities can flourish.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -92,7 +88,9 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="mx-4 pb-10 grid md:grid-cols-4 md:grid-rows-2 grid-cols-1 grid-rows-4 min-h-screen items-center justify-center">
+      <CoreValuesSection />
+
+      <section className="mx-4 md:mx-0 pb-10 grid md:grid-cols-4 md:grid-rows-2 grid-cols-1 grid-rows-4 min-h-screen items-center justify-center bg-background-200">
         <div className="flex flex-col items-center">
           <h1 className="font-heading text-5xl text-secondary-700 dark:font-semibold">
             Vision

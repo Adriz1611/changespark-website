@@ -1,106 +1,90 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
 
 const ContactUs = () => {
-  return (
-    <motion.div
-      className="flex flex-col min-h-screen w-full bg-background-100 px-4 md:px-8 py-8 md:py-16"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <motion.h1
-        className="text-4xl md:text-5xl uppercase font-heading text-secondary-700 dark:font-semibold text-center my-16"
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        Get in Touch with Us
-      </motion.h1>
+  const fadeIn = { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.5 } };
 
-      <div className="flex flex-col md:flex-row gap-8 items-start justify-center max-w-7xl mx-auto w-full">
-        <motion.div
-          className="w-full md:w-1/2 h-[400px] md:h-[600px] relative overflow-hidden rounded-lg shadow-lg"
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Image
-            src="/contactus.jpg" 
-            alt="Contact Changespark Foundation"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-lg"
-          />
+  const socialLinks = [
+    { icon: <Facebook className="w-5 h-5" />, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61560185391368" },
+    { icon: <Twitter className="w-5 h-5" />, label: "Twitter", href: "https://www.instagram.com/changesparkfoundation/" },
+    { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", href: "https://www.linkedin.com/company/changespark-foundation/" },
+  ];
+
+  const contactItems = [
+    {
+      color: "bg-green-100 text-green-700",
+      title: "Drop Us a Line",
+      description: "Got a question or feedback? Email us and we’ll get back to you as soon as we can. Your thoughts are important to us, and we’re here to help!",
+      linkText: "connect@changespark.in",
+      href: "mailto:connect@changespark.in",
+      icon: <Mail className="w-6 h-6 text-green-700" />,
+    },
+    {
+      color: "bg-blue-100 text-blue-700",
+      title: "Give Us a Call",
+      description: "Prefer to chat or call? We’re available to discuss how we can work together to empower communities and ignite change.",
+      linkText: "+91 8961520779",
+      href: "tel:+918961520779",
+      icon: <Phone className="w-6 h-6 text-blue-700" />,
+    },
+    {
+      color: "bg-purple-100 text-purple-700",
+      title: "Follow Us",
+      description: "Stay updated on our latest projects, success stories, and upcoming events by connecting with us on social media. Together, let's build a community of change-makers!",
+      icon: <MapPin className="w-6 h-6 text-purple-700" />,
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-background-100">
+      <motion.div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
+        <motion.div className="text-center mb-16" {...fadeIn}>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-secondary-700 mb-6">Let's Connect</h1>
+          <p className="text-lg md:text-xl text-secondary-700 max-w-2xl mx-auto">Ready to make a difference? We're here to collaborate, listen, and create meaningful change together.</p>
         </motion.div>
 
-        {/* Contact information box */}
-        <div className="w-full md:w-1/2 flex flex-col items-start p-6 md:p-8 bg-background-200 rounded-lg shadow-lg space-y-6 border border-green-700">
-          <motion.p
-            className="text-base md:text-lg font-paragraph text-secondary-700"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            At Changespark Foundation, we're always eager to connect with those who share our passion for creating change! Whether you have questions, ideas, or simply want to learn more about our mission, we'd love to hear from you.
-          </motion.p>
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <motion.div className="space-y-6" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+            {contactItems.map(({ color, title, description, linkText, href, icon }) => (
+              <div key={title} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6">
+                <div className="flex items-start space-x-4">
+                  <div className={`${color} p-3 rounded-full`}>
+                    {icon}
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-secondary-700 mb-2">{title}</h2>
+                    <p className="text-secondary-600 mb-3">{description}</p>
+                    {linkText && (
+                      <a href={href} className="inline-flex items-center font-medium text-secondary-700 hover:text-secondary-800">
+                        {linkText}
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </motion.div>
 
-          <div className="space-y-6 w-full">
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.1 }}
-            >
-              <h2 className="text-xl md:text-2xl font-semibold text-green-700 mb-2">📬 Drop Us a Line</h2>
-              <p className="font-paragraph text-secondary-700">
-                Got a question or feedback? Email us at{" "}
-                <a href="mailto:connect@changespark.in" className="text-blue-500 hover:text-blue-600 underline">
-                  connect@changespark.in
-                </a>{" "}
-                and we'll get back to you as soon as we can. Your thoughts are important to us, and we're here to help!
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <h2 className="text-xl md:text-2xl font-semibold text-green-700 mb-2">📞 Give Us a Call</h2>
-              <p className="font-paragraph text-secondary-700">
-                Prefer to chat? Reach out at{" "}
-                <a href="tel:+918961520779" className="text-blue-500 hover:text-blue-600 underline">
-                  +91 8961520779
+          <motion.div className="flex flex-col items-center justify-center" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+            <Image src="/contactus.jpg" alt="Contact Us" width={500} height={400} className="mb-10" />
+            <blockquote className="text-center text-xl font-semibold text-secondary-700 italic max-w-3xl mx-auto mb-12">
+              "At Changespark Foundation, your journey with us begins here—let’s spark change together!"
+            </blockquote>
+            <div className="flex space-x-8">
+              {socialLinks.map(({ icon, label, href }) => (
+                <a key={label} href={href} className="text-secondary-700 hover:text-secondary-900 transition-colors duration-300" aria-label={label} target="_blank" rel="noopener noreferrer">
+                  {icon}
                 </a>
-                . We're available to discuss how we can work together to empower communities and ignite change.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              <h2 className="text-xl md:text-2xl font-semibold text-green-700 mb-2">🌐 Follow Us</h2>
-              <p className="font-paragraph text-secondary-700">
-                Stay updated on our latest projects, success stories, and upcoming events by connecting with us on social media. Together, let's build a community of change-makers!
-              </p>
-            </motion.div>
-          </div>
-
-          <motion.p
-            className="font-paragraph font-bold text-secondary-700 mt-4"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            At Changespark Foundation, your journey with us begins here—let's spark change together!
-          </motion.p>
+              ))}
+            </div>
+          </motion.div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
