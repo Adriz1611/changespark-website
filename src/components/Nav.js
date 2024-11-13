@@ -54,7 +54,7 @@ export default function Nav() {
 
   const handleDonateClick = () => {
     setOpen(false); 
-    router.push("/donate");
+    router.push("/contact-us");
   };
 
   return (
@@ -111,7 +111,7 @@ export default function Nav() {
           }`}
           onClick={handleDonateClick}
         >
-          Donate
+          Contact Us
         </button>
       </div>
       {open ? (
