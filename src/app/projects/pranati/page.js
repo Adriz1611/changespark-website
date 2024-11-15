@@ -42,7 +42,7 @@ export default function ProjectPranati() {
           Why Entrepreneurship Matters
         </h2>
         <p className="text-lg text-justify mb-10">
-          Entrepreneurship is more than business—it’s the engine of community
+          Entrepreneurship is more than business—it&apos;s the engine of community
           change. For families in rural areas affected by economic instability,
           creating small businesses can provide a steady source of income,
           reduce unemployment, and contribute to the local economy. MEDP not
