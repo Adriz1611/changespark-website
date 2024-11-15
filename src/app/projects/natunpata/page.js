@@ -56,7 +56,7 @@ export default function NatunPata() {
           <h3 className="text-5xl font-bold text-center mb-8 text-secondary-700 m-10 mt-14">
             A Vision with Impact
           </h3>
-          <p className="text-lg pt-5">
+          <p className="text-lg py-5 text-justify">
             At Changespark, we don&apos;t just teach—we transform. Guided by
             in-depth research and a genuine commitment to community needs, our
             approach brings meaningful change to early childhood education.
