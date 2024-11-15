@@ -14,9 +14,9 @@ const projectData = {
 
 export default function ProjectPranati() {
   return (
-    <div className="min-h-screen py-8 lg:py-20 px-4 lg:px-8 bg-background-100 text-text-700">
+    <div className="min-h-screen py-8 px-8 md:py-28 bg-background-100">
       {/* Header Section */}
-      <section className="relative h-[500px] overflow-hidden mb-16 rounded-xl">
+      <section className="relative h-[500px] overflow-hidden mb-16 rounded-xl mt-8 md:mt-0">
         <Image
           src={projectData.headerImage}
           alt="Project Pranati Header Image"
