@@ -4,11 +4,11 @@ import Image from "next/image";
 const projectData = {
   headerImage: "/bhadreswar.avif",
   galleryImages: [
-    "/pranati1.jpeg",
-    "/pranati2.jpeg",
-    "/pranati3.jpeg",
-    "/pranati4.jpeg",
-    "/pranati5.jpeg",
+    "/pranati1.jpg",
+    "/pranati2.jpg",
+    "/pranati3.jpg",
+    "/pranati4.jpg",
+    "/pranati5.jpg",
   ],
 };
 
