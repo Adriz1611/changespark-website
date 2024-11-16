@@ -14,7 +14,6 @@ import {
   Select,
 } from "flowbite-react";
 
-// Define the Zod schema for form validation
 const volunteerSchema = z.object({
   fullName: z.string().min(1, "Full name is required"),
   email: z.string().email("Invalid email address").min(1, "Email is required"),

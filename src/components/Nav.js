@@ -8,9 +8,9 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/", label: "HOME" },
-  { href: "/blog", label: "BLOG" },
-  { href: "/team", label: "TEAM" },
   { href: "/projects", label: "PROJECTS" },
+  { href: "/team", label: "TEAM" },
+  { href: "/blog", label: "BLOG" },
 ];
 
 export default function Nav() {
@@ -54,7 +54,7 @@ export default function Nav() {
 
   const handleDonateClick = () => {
     setOpen(false); 
-    router.push("/donate");
+    router.push("/contact-us");
   };
 
   return (
@@ -111,7 +111,7 @@ export default function Nav() {
           }`}
           onClick={handleDonateClick}
         >
-          Donate
+          Contact Us
         </button>
       </div>
       {open ? (

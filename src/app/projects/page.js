@@ -1,23 +1,26 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const Projects = () => {
   const images = [
     {
-      src: "/bhadreswar.avif",
-      alt: "Women at Tailoring",
-      caption: "Women at Tailoring",
+      src: "/goghat.avif",
+      alt: "Natun Pata",
+      caption: "Natun Pata",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "ChangeSpark Foundation Education Program nurtures young minds by delivering quality early childhood education in underserved rural areas, fostering cognitive, social, and emotional growth, and empowering communities to value lifelong learning.",
+      href: "/projects/natunpata",
     },
     {
-      src: "/goghat.avif",
-      alt: "Children at School",
-      caption: "Children at School",
+      src: "/bhadreswar.avif",
+      alt: "Pranati",
+      caption: "Pranati",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "ChangeSpark Foundation Entrepreneurship Development Program empowers individuals, especially women, with vocational and business skills, fostering economic independence, local job creation, and sustainable community growth through hands-on training and market access.",
+      href: "/projects/pranati",
     },
   ];
 
@@ -37,47 +40,46 @@ const Projects = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5 },
+        duration: 0.5,
+      },
     },
   };
 
   return (
     <motion.div
-      className="flex flex-col items-center py-20 md:py-0 justify-center min-h-screen w-full bg-background-100"
+      className="flex flex-col items-center py-20 justify-center min-h-screen w-full bg-background-100"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <motion.h1
-        className="text-5xl uppercase font-heading text-secondary-700 dark:font-semibold mb-12 pt-10 md:pt-0"
-        variants={itemVariants}
-      >
+      <h1 className="my-2 text-5xl font-bold font-heading text-secondary-700 pb-5 dark:font-semibold">
         Projects
-      </motion.h1>
-      <div className="flex flex-col md:flex-row gap-5 md:gap-40 items-center justify-center w-full">
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 px-10 md:px-20 lg:px-32 mt-5 w-full">
         {images.map((img, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            className="group relative flex flex-col items-start max-w-96 text-start md:mx-0 mx-2 bg-background-200 px-4 py-4 rounded-md shadow-md"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              height={300}
-              width={450}
-              sizes="(max-width: 450px) 100vw, 450px"
-              className="rounded-md shadow-md"
-            />
-            <h2 className="mt-4 uppercase font-bold text-xl font-paragraph text-green-700 text-center">
-              {img.caption}
-            </h2>
-            <p className="text-wrap font-paragraph text-secondary-700">
-              {img.description}
-            </p>
-          </motion.div>
+          <Link href={img.href} key={index} className="w-full">
+            <motion.div
+              variants={itemVariants}
+              className="group relative flex flex-col items-start text-start bg-background-200 p-6 rounded-md shadow-lg w-full h-full cursor-pointer transition-transform duration-300 hover:scale-105"
+            >
+              <div className="w-full">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  layout="responsive"
+                  width={800}
+                  height={600}
+                  className="rounded-md shadow-md"
+                />
+              </div>
+              <h2 className="mt-4 uppercase font-bold text-xl font-paragraph text-green-700 text-center">
+                {img.caption}
+              </h2>
+              <p className="mt-2 font-paragraph text-secondary-700 text-justify">
+                {img.description}
+              </p>
+            </motion.div>
+          </Link>
         ))}
       </div>
     </motion.div>
