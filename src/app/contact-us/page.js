@@ -3,14 +3,14 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
 
 const ContactUs = () => {
   const fadeIn = { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.5 } };
 
   const socialLinks = [
     { icon: <Facebook className="w-5 h-5" />, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61560185391368" },
-    { icon: <Twitter className="w-5 h-5" />, label: "Twitter", href: "https://www.instagram.com/changesparkfoundation/" },
+    { icon: <Instagram className="w-5 h-5" />, label: "Twitter", href: "https://www.instagram.com/changesparkfoundation/" },
     { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", href: "https://www.linkedin.com/company/changespark-foundation/" },
   ];
 
