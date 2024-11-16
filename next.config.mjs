@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "www.material-tailwind.com",
       },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+      },
     ],
   },
 };
