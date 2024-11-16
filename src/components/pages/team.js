@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Twitter, Linkedin } from "lucide-react";
 
-export default function Team({ users }) {
+export default function Team() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -49,7 +49,10 @@ export default function Team({ users }) {
           service and innovative solutions.
         </p>
       </motion.div>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+
+
+
+      {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {users.map((user, key) => (
           <motion.div key={key} variants={itemVariants}>
             <motion.div
@@ -77,7 +80,7 @@ export default function Team({ users }) {
                   {user.role ? user.role : "Volunteer"}
                 </p>
                 <div className="flex items-center justify-center gap-1.5">
-                  {/* <a
+                  <a
                     href={props.twitterLink}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -90,13 +93,13 @@ export default function Team({ users }) {
                     rel="noopener noreferrer"
                   >
                     <Linkedin className="text-purple-900 hover:text-purple-700 transition-colors h-5 w-5" />
-                  </a> */}
+                  </a>
                 </div>
               </div>
             </motion.div>
           </motion.div>
         ))}
-      </div>
+      </div>*/}
     </motion.div>
   );
 }
