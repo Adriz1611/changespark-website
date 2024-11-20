@@ -12,12 +12,14 @@ const team_member = [
             {
                 name: "Satavisha Chakraborty",
                 role: "Director",
-                img: "https://placehold.co/200x200.jpg"
+                img: "https://placehold.co/200x200.jpg",
+                desc: "Strategic leader with 9+ years in social impact."
             },
             {
                 name: "Soumen Nandy",
                 role: "Director",
-                img: "https://placehold.co/200x200.jpg"
+                img: "https://placehold.co/200x200.jpg",
+                desc: "Dedicated director driving community empowerment."
             }
         ]
     },
@@ -27,7 +29,8 @@ const team_member = [
             {
                 name: "Aarti Sharma",
                 role: "Mentor",
-                img: "https://placehold.co/200x200.jpg"
+                img: "/Aarti.jpg",
+                desc: "Education innovator with expertise in project execution and curriculum design."
             },
         ]
     },
@@ -37,7 +40,8 @@ const team_member = [
             {
                 name: "JayaKumar S",
                 role: "Advisor",
-                img: "https://placehold.co/200x200.jpg"
+                img: "https://placehold.co/200x200.jpg",
+                desc: "Veteran leader with 40+ years in military, corporate, and nonprofit roles."
             },
         ]
     }
@@ -103,10 +107,11 @@ export default function Team() {
                                         boxShadow:
                                             "0 20px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(139, 92, 246, 0.1)",
                                     }}
-                                    key={key} className="flex-col flex items-center text-center rounded-lg w-80 py-16 bg-background-200">
-                                    <Image className="rounded-full mb-20" width={150} height={150} src={person.img} alt={person.name} />
+                                    key={key} className="flex-col flex items-center text-center rounded-lg w-80 py-16 px-8 bg-background-200">
+                                    <Image className="rounded-full mb-20 aspect-square object-cover" width={150} height={150} src={person.img} alt={person.name} />
                                     <h2 className="font-heading font-semibold text-2xl text-background-800">{person.name}</h2>
                                     <p className="font-paragraph uppercase mt-3 font-medium text-accent-700">{person.role}</p>
+                                    <p className="font-paragraph font-medium text-background-800 mt-3">{person.desc}</p>
                                 </motion.div>
                             ))}
                         </div>
