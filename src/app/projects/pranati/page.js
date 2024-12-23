@@ -6,9 +6,9 @@ const projectData = {
   galleryImages: [
     "/pranati1.png",
     "/pranati2.png",
-    "/pranati3.png",
-    "/pranati4.png",
-    "/pranati5.png",
+    "/pranati3.jpg",
+    "/pranati4.jpg",
+    "/pranati5.jpg",
   ],
 };
 

@@ -12,7 +12,7 @@ const team_member = [
             {
                 name: "Satavisha Chakraborty",
                 role: "Director",
-                img: "https://placehold.co/200x200.jpg",
+                img: "/Satavisha.jpg",
                 desc: "Strategic leader with 9+ years in social impact."
             },
             {
@@ -40,7 +40,7 @@ const team_member = [
             {
                 name: "JayaKumar S",
                 role: "Advisor",
-                img: "https://placehold.co/200x200.jpg",
+                img: "/Jayakumar.jpg",
                 desc: "Veteran leader with 40+ years in military, corporate, and nonprofit roles."
             },
         ]

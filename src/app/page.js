@@ -7,13 +7,13 @@ import CoreValuesSection from "@/components/CoreValuesSection";
 
 export default function Home() {
   const images = [
-    { src: "/1.avif", alt: "Education", caption: "Quality Education" },
-    { src: "/3.avif", alt: "Children", caption: "Every Child Matters" },
-    { src: "/2.avif", alt: "School", caption: "Empowering Schools" },
+    { src: "/IMG_20240903_083424.jpg", alt: "Education", caption: "Quality Education" },
+    { src: "/IMG_20240913_091930.jpg", alt: "Children", caption: "Every Child Matters" },
+    { src: "/IMG_20241008_091327.jpg", alt: "School", caption: "Empowering Schools" },
   ];
 
   const carousel = [
-    { src: "/home2.avif" },
+    { src: "/pranati3.jpg" },
     { src: "/home3.avif" },
     { src: "/home1.avif" },
   ];
