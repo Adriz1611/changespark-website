@@ -16,7 +16,7 @@ ChangeSpark is a dynamic platform designed to connect individuals, educators, an
   <img src="[https://media.licdn.com/dms/image/v2/D560BAQEl592yudOz8g/company-logo_200_200/company-logo_200_200/0/1719255834651?e=2147483647&v=beta&t=1PGCKO5av3DTrA-ATX2Ocval_scxgYJuly0ziXXLfQM}" alt="Community" width="600px" />
 </div>
 
-## 🌟 Features
+## 🌟 Features jk
 
 - **📚 Educational Resources**: Access a wide range of learning materials, courses, and workshops on various topics related to social change, sustainability, and innovation.
 - **🌍 Community Projects**: Join or initiate projects that address pressing social issues, and collaborate with like-minded individuals to create real-world impact.
