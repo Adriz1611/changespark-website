@@ -11,6 +11,7 @@ const navItems = [
   { href: "/projects", label: "PROJECTS" },
   { href: "/team", label: "TEAM" },
   { href: "/blog", label: "BLOG" },
+  { href: "/contact-us", label: "CONTACT US" },
 ];
 
 export default function Nav() {
@@ -54,7 +55,7 @@ export default function Nav() {
 
   const handleDonateClick = () => {
     setOpen(false); 
-    router.push("/contact-us");
+    router.push("https://changespark-foundation.danamojo.org/");
   };
 
   return (
@@ -111,7 +112,7 @@ export default function Nav() {
           }`}
           onClick={handleDonateClick}
         >
-          Contact Us
+          Donate Now
         </button>
       </div>
       {open ? (
