@@ -55,7 +55,8 @@ export default function Nav() {
 
   const handleDonateClick = () => {
     setOpen(false); 
-    router.push("https://changespark-foundation.danamojo.org/");
+    router.push("/donate");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
