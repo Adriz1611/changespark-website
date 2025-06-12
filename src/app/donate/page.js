@@ -77,7 +77,7 @@
 
 import Script from "next/script";
 import { motion } from "framer-motion";
-
+import { useEffect } from 'react';
 /**
  * Donation landing page – same colour palette as the rest of your site.
  * Uses only your custom Tailwind tokens (background-100/200, secondary-600/700, etc.).
@@ -89,11 +89,15 @@ export default function Donate() {
       c.innerHTML = "<center><p style='color:#a94442;'>we are sorry that our systems are down. we will be up shortly. apologies for the inconvenience.</p></center>";
     }
 
-    const script = document.createElement("script");
-    script.src = "https://danamojo.org/dm/js/widget.js";
-    script.async = true;
-    script.onload = () => this.scriptLoaded();  
-    document.body.appendChild(script);
+    useEffect(() => {
+      const script = document.createElement('script');
+      script.src = "https://danamojo.org/dm/js/widget.js";
+      script.async = true;
+      document.body.appendChild(script);  
+      return () => {
+        document.body.removeChild(script);
+      };
+    }, []);
 
   }, 2000);`;
 
