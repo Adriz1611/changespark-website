@@ -55,8 +55,9 @@ export default function Nav() {
 
   const handleDonateClick = () => {
     setOpen(false); 
-    router.push("/donate");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    //router.push("/donate");
+    //window.scrollTo({ top: 0, behavior: "smooth" });
+    window.location.href = 'https://changespark.in/donate';
   };
 
   useEffect(() => {
