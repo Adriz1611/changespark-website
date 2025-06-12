@@ -95,7 +95,11 @@ export default function Donate() {
       {/* ------------------------------------------------------ */}
       {/* 1. Third-party widget + graceful fallback */}
       {/* ------------------------------------------------------ */}
-      
+
+      <Script
+        src="https://danamojo.org/dm/js/widget.js"
+        strategy="afterInteractive"
+        />
       <Script id="dm-fallback" strategy="afterInteractive">
         {fallbackScript}
       </Script>
