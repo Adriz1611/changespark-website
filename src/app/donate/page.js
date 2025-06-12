@@ -88,17 +88,24 @@ export default function Donate() {
     if (c && c.innerHTML.length < 40) {
       c.innerHTML = "<center><p style='color:#a94442;'>we are sorry that our systems are down. we will be up shortly. apologies for the inconvenience.</p></center>";
     }
-  }, 20000);`;
+
+    const script = document.createElement("script");
+    script.src = "https://danamojo.org/dm/js/widget.js";
+    script.async = true;
+    script.onload = () => this.scriptLoaded();  
+    document.body.appendChild(script);
+
+  }, 2000);`;
 
   return (
     <>
       {/* ------------------------------------------------------ */}
       {/* 1. Third-party widget + graceful fallback */}
       {/* ------------------------------------------------------ */}
-      <Script
-        src="https://danamojo.org/dm/js/widget.js"
-        strategy="afterInteractive"
-      />
+      //<Script
+      //  src="https://danamojo.org/dm/js/widget.js"
+      //  strategy="afterInteractive"
+      ///>
       <Script id="dm-fallback" strategy="afterInteractive">
         {fallbackScript}
       </Script>
@@ -128,7 +135,7 @@ export default function Donate() {
 
           <p className="mt-6 max-w-xl mx-auto text-center text-lg md:text-xl text-secondary-600 font-light">
             Your generosity enables <strong>Changespark Foundation</strong> to
-            reach more lives. Every rupee counts—thank you for standing with us
+            reach more lives. Every rupee counts—thank you for standing with us!
           </p>
 
           {/* danamojo containers */}
