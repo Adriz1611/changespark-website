@@ -55,21 +55,10 @@ export default function Nav() {
 
   const handleDonateClick = () => {
     setOpen(false); 
-    //router.push("/donate");
-    //window.scrollTo({ top: 0, behavior: "smooth" });
+    //router.push("/donate");   
     window.location.href = 'https://changespark.in/donate';
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://danamojo.org/dm/js/widget.js";
-    script.async = true;
-    document.body.appendChild(script);  
-    
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   return (
     <nav
