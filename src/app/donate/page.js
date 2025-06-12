@@ -88,18 +88,21 @@ export default function Donate() {
     if (c && c.innerHTML.length < 40) {
       c.innerHTML = "<center><p style='color:#a94442;'>we are sorry that our systems are down. we will be up shortly. apologies for the inconvenience.</p></center>";
     }
+    
+  }, 20000);`;
 
+  const dmscriptComponent = () => {
     useEffect(() => {
       const script = document.createElement('script');
-      script.src = "https://danamojo.org/dm/js/widget.js";
+      script.src = "https://danamojo.org/dm/js/widget.js"; 
       script.async = true;
-      document.body.appendChild(script);  
+      document.body.appendChild(script);
+  
       return () => {
         document.body.removeChild(script);
       };
     }, []);
-
-  }, 2000);`;
+  };
 
   return (
     <>
@@ -108,7 +111,7 @@ export default function Donate() {
       {/* ------------------------------------------------------ */}
       
       <Script id="dm-fallback" strategy="afterInteractive">
-        {fallbackScript}
+        {dmscriptComponent}
       </Script>
 
       {/* ------------------------------------------------------ */}
