@@ -64,7 +64,11 @@ export default function Nav() {
     script.src = "https://danamojo.org/dm/js/widget.js";
     script.async = true;
     document.body.appendChild(script);  
-  }, [open]);
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <nav
