@@ -128,7 +128,7 @@ export default function Donate() {
 
           <p className="mt-6 max-w-xl mx-auto text-center text-lg md:text-xl text-secondary-600 font-light">
             Your generosity enables <strong>Changespark Foundation</strong> to
-            reach more lives. Every rupee counts—thank you for standing with us!
+            reach more lives. Every rupee counts—thank you for standing with us
           </p>
 
           {/* danamojo containers */}
