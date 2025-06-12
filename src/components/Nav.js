@@ -59,6 +59,13 @@ export default function Nav() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://danamojo.org/dm/js/widget.js";
+    script.async = true;
+    document.body.appendChild(script);  
+  }, [open]);
+
   return (
     <nav
       className={`z-50 fixed w-full flex flex-col md:flex-row items-start md:items-center justify-between py-5 px-5 md:gap-0 md:px-10 font-sans ${
