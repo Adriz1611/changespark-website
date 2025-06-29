@@ -77,7 +77,6 @@
 
 import Script from "next/script";
 import { motion } from "framer-motion";
-
 /**
  * Donation landing page – same colour palette as the rest of your site.
  * Uses only your custom Tailwind tokens (background-100/200, secondary-600/700, etc.).
@@ -88,6 +87,7 @@ export default function Donate() {
     if (c && c.innerHTML.length < 40) {
       c.innerHTML = "<center><p style='color:#a94442;'>we are sorry that our systems are down. we will be up shortly. apologies for the inconvenience.</p></center>";
     }
+    
   }, 20000);`;
 
   return (
@@ -95,10 +95,11 @@ export default function Donate() {
       {/* ------------------------------------------------------ */}
       {/* 1. Third-party widget + graceful fallback */}
       {/* ------------------------------------------------------ */}
+
       <Script
         src="https://danamojo.org/dm/js/widget.js"
         strategy="afterInteractive"
-      />
+        />
       <Script id="dm-fallback" strategy="afterInteractive">
         {fallbackScript}
       </Script>
