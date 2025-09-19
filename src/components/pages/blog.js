@@ -27,88 +27,99 @@ const itemVariants = {
   },
 };
 
-
-
 export const Blogs = ({ blogData }) => {
-  
   return (
     <motion.div
-      className="container mx-auto"
+      className="container-custom"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <motion.div
-        className="mb-16 text-center lg:mb-28"
-        variants={itemVariants}
+      {/* Blog Posts Grid */}
+      <div
+        className={`
+          grid gap-8 
+          ${
+            blogData.length === 1
+              ? "grid-cols-1 place-items-center max-w-md mx-auto"
+              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          }
+        `}
       >
-        <h6 className="md:pb-0 text-lg font-paragraph text-green-700 pt-24 pb-5 md:pt-0">
-          Our Blog
-        </h6>
-        <h1 className="my-2 text-5xl md:text-5xl font-bold font-heading text-secondary-700 pb-5 dark:font-semibold">
-          Insights and Updates from Our Team
-        </h1>
-        <p className="mx-auto w-full text-secondary-700 max-w-4xl font-paragraph">
-          Stay informed with the latest trends, technologies, and best practices
-          in web development through our expert-written blog posts.
-        </p>
-      </motion.div>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {blogData.length > 0 ? (
           blogData.map((post, key) => (
-            <motion.div key={key} variants={itemVariants}>
-              <motion.div
-                className="rounded-lg bg-background-200 shadow-md overflow-hidden cursor-pointer"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="relative h-48 mb-4">
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/blog/${post.id}/${post.images[0].name}`}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                    onError={(e) => {
-                      e.target.src = "https://via.placeholder.com/400x200";
-                    }}
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-medium font-heading text-secondary-700 mb-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-base font-paragraph text-secondary-600 mb-4">
-                    {post.body}
-                  </p>
-                  <div className="flex items-center justify-between text-sm text-green-700">
-                    <div className="flex items-center">
-                      <Calendar className="mr-2 h-4 w-4" />
+            <motion.div key={key} variants={itemVariants} className="w-full">
+              <Link href={`/blog/${post.id}`}>
+                <motion.div
+                  className="group bg-white rounded-2xl shadow-sm hover:shadow-xl overflow-hidden transition-all duration-300 border border-gray-100"
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* Image Container */}
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={`${
+                        process.env.NEXT_PUBLIC_SUPABASE_URL
+                      }/storage/v1/object/public/blog/${post.id}/${
+                        post.images[0]?.name || "placeholder.jpg"
+                      }`}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        e.target.src =
+                          "https://via.placeholder.com/400x200?text=Blog+Image&bg=f0f0f0";
+                      }}
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-center text-xs text-gray-500 mb-3">
+                      <Calendar className="mr-1 h-3 w-3" />
                       <span>
-                        {new Date(post.created_at).toLocaleDateString()}
+                        {new Date(post.created_at).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
                       </span>
                     </div>
-                    {/* <div className="flex items-center">
-                    <User className="mr-2 h-4 w-4" />
-                    <span>{author}</span>
-                  </div> */}
+
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors duration-200">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-gray-600 text-sm line-clamp-2 leading-relaxed mb-4">
+                      {post.subheading || post.body}
+                    </p>
+
+                    <div className="flex items-center text-primary-600 text-sm font-medium group-hover:text-primary-700 transition-colors">
+                      <span>Read article</span>
+                      <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
+                    </div>
                   </div>
-                  <Link
-                    href={`/blog/${post.id}`}
-                    className="mt-4 inline-flex items-center text-purple-900 hover:text-purple-700 transition-colors"
-                  >
-                    Read More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             </motion.div>
           ))
         ) : (
-          <div>
-            <h2 className="text-2xl font-bold text-center text-secondary-700">
-              No blog posts available.
-            </h2>
-          </div>
+          <motion.div
+            className="col-span-full text-center py-20"
+            variants={itemVariants}
+          >
+            <div className="max-w-md mx-auto">
+              <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Calendar className="w-12 h-12 text-gray-400" />
+              </div>
+              <h2 className="text-2xl font-bold text-secondary-700 mb-4">
+                No blog posts available.
+              </h2>
+              <p className="text-secondary-600">
+                Check back soon for new insights and updates from our team.
+              </p>
+            </div>
+          </motion.div>
         )}
       </div>
     </motion.div>
