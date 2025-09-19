@@ -146,7 +146,9 @@ const VolunteerRoles = () => {
 
 export default function VolunteerForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submissionState, setSubmissionState] = useState(null); // null, 'success', 'error'
+  const [applicationData, setApplicationData] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const {
     register,
@@ -160,13 +162,22 @@ export default function VolunteerForm() {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
+    setErrorMessage("");
+
     try {
-      await submitForm(data);
-      setIsSubmitted(true);
+      const result = await submitForm(data);
+
+      if (result.success) {
+        setApplicationData(result.data);
+        setSubmissionState("success");
+      } else {
+        setErrorMessage(result.error);
+        setSubmissionState("error");
+      }
     } catch (error) {
-      alert(
-        "There was an error submitting your application. Please try again."
-      );
+      console.error("Submission error:", error);
+      setErrorMessage("There was an unexpected error. Please try again.");
+      setSubmissionState("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -186,7 +197,18 @@ export default function VolunteerForm() {
     { value: "Photography and Videography", icon: Camera },
   ];
 
-  if (isSubmitted) {
+  // Success State
+  if (submissionState === "success" && applicationData) {
+    const formatDate = (dateString) => {
+      return new Date(dateString).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    };
+
     return (
       <>
         <JoinUsHero />
@@ -202,19 +224,143 @@ export default function VolunteerForm() {
                 <CheckCircle className="w-10 h-10 text-green-600" />
               </div>
               <h2 className="text-3xl font-bold text-secondary-700 mb-4">
-                Application Submitted!
+                Application Submitted Successfully!
               </h2>
               <p className="text-lg text-secondary-600 mb-8">
-                Thank you for your interest in volunteering with us. We'll
-                review your application and get back to you within 2-3 business
-                days.
+                Thank you for your interest in volunteering with us. Your
+                application has been received and we'll review it within 2-3
+                business days.
               </p>
+
+              {/* Application Details */}
+              <div className="bg-gray-50 rounded-xl p-6 mb-8 text-left">
+                <h3 className="text-lg font-semibold text-secondary-700 mb-4 text-center">
+                  Application Details
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium text-gray-600">
+                      Application ID:
+                    </span>
+                    <span className="text-sm font-bold text-primary-600">
+                      #{applicationData.id}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium text-gray-600">
+                      Name:
+                    </span>
+                    <span className="text-sm text-secondary-700">
+                      {applicationData.name}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium text-gray-600">
+                      Phone:
+                    </span>
+                    <span className="text-sm text-secondary-700">
+                      {applicationData.phoneNumber}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium text-gray-600">
+                      Email:
+                    </span>
+                    <span className="text-sm text-secondary-700">
+                      {applicationData.email}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium text-gray-600">
+                      Submitted:
+                    </span>
+                    <span className="text-sm text-secondary-700">
+                      {formatDate(applicationData.submittedAt)}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
+                <p className="text-sm text-blue-700">
+                  <strong>Important:</strong> Please save your Application ID{" "}
+                  <strong>#{applicationData.id}</strong> for future reference.
+                  You may need it for follow-up communications.
+                </p>
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/" className="btn-primary">
                   Back to Home
                 </a>
                 <a href="/projects" className="btn-secondary">
                   See Our Work
+                </a>
+                <button
+                  onClick={() => window.print()}
+                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  Print Details
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </>
+    );
+  }
+
+  // Error State
+  if (submissionState === "error") {
+    return (
+      <>
+        <JoinUsHero />
+        <section className="section-padding bg-gray-50">
+          <div className="container-custom">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-2xl mx-auto text-center bg-white rounded-2xl shadow-lg p-12"
+            >
+              <div className="w-20 h-20 mx-auto mb-6 bg-red-100 rounded-full flex items-center justify-center">
+                <svg
+                  className="w-10 h-10 text-red-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold text-secondary-700 mb-4">
+                Submission Failed
+              </h2>
+              <p className="text-lg text-secondary-600 mb-4">
+                We're sorry, but there was an error submitting your application.
+              </p>
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-8">
+                <p className="text-sm text-red-700">
+                  <strong>Error:</strong> {errorMessage}
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => {
+                    setSubmissionState(null);
+                    setErrorMessage("");
+                  }}
+                  className="btn-primary"
+                >
+                  Try Again
+                </button>
+                <a href="/contact-us" className="btn-secondary">
+                  Contact Us
                 </a>
               </div>
             </motion.div>
