@@ -18,22 +18,22 @@ const team_member = [
             {
                 name: "Soumen Nandy",
                 role: "Director",
-                img: "https://placehold.co/200x200.jpg",
+                img: "/SoumenNandy.jpg",
                 desc: "Dedicated director driving community empowerment."
             }
         ]
     },
-    {
-        heading: "Mentor",
-        people: [
-            {
-                name: "Aarti Sharma",
-                role: "Mentor",
-                img: "/Aarti.jpg",
-                desc: "Education innovator with expertise in project execution and curriculum design."
-            },
-        ]
-    },
+    // {
+    //     heading: "Mentor",
+    //     people: [
+    //         {
+    //             name: "Aarti Sharma",
+    //             role: "Mentor",
+    //             img: "/Aarti.jpg",
+    //             desc: "Education innovator with expertise in project execution and curriculum design."
+    //         },
+    //     ]
+    // },
     {
         heading: "Advisor",
         people: [
