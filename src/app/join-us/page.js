@@ -443,7 +443,9 @@ export default function VolunteerForm() {
                             const newDays = isSelected
                               ? preferredDays.filter((d) => d !== day)
                               : [...preferredDays, day];
-                            setValue("preferredDays", newDays, { shouldValidate: true });
+                            setValue("preferredDays", newDays, {
+                              shouldValidate: true,
+                            });
                           }}
                         >
                           <input
@@ -453,9 +455,7 @@ export default function VolunteerForm() {
                             onChange={() => {}} // Handled by onClick
                             className="sr-only"
                           />
-                          <span className="text-sm font-medium">
-                            {day}
-                          </span>
+                          <span className="text-sm font-medium">{day}</span>
                           {isSelected && (
                             <CheckCircle className="w-4 h-4 ml-2 text-primary-600" />
                           )}
@@ -598,7 +598,9 @@ export default function VolunteerForm() {
                         {...register("contribute")}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors bg-white hover:border-primary-300 cursor-pointer appearance-none"
                       >
-                        <option value="" className="text-gray-500">Choose your preference</option>
+                        <option value="" className="text-gray-500">
+                          Choose your preference
+                        </option>
                         <option value="Yes" className="text-secondary-700">
                           ✓ Yes, I'm open to other opportunities
                         </option>
@@ -610,8 +612,18 @@ export default function VolunteerForm() {
                         </option>
                       </select>
                       <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                        <svg
+                          className="w-4 h-4 text-gray-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 9l-7 7-7-7"
+                          />
                         </svg>
                       </div>
                     </div>
