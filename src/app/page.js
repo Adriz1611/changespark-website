@@ -171,28 +171,32 @@ const AboutSection = () => {
   const contentCards = [
     {
       title: "Our Mission",
-      content: "ChangeSpark Foundation is a purpose-driven social development organization working to ignite change at the grassroots. Rooted in the heartlands of rural and semi-urban West Bengal.",
+      content:
+        "ChangeSpark Foundation is a purpose-driven social development organization working to ignite change at the grassroots. Rooted in the heartlands of rural and semi-urban West Bengal.",
       icon: "🎯",
-      color: "from-amber-500 to-orange-500"
+      color: "from-amber-500 to-orange-500",
     },
     {
       title: "Our Approach",
-      content: "We work at the intersection of environmental sustainability and inclusive economic growth, addressing climate change through community-led action and regenerative practices.",
+      content:
+        "We work at the intersection of environmental sustainability and inclusive economic growth, addressing climate change through community-led action and regenerative practices.",
       icon: "🌱",
-      color: "from-green-500 to-emerald-500"
+      color: "from-green-500 to-emerald-500",
     },
     {
       title: "Our Impact",
-      content: "We champion entrepreneurial thinking, skill development, and capacity-building among rural women—creating pathways for self-reliance, innovation, and leadership.",
+      content:
+        "We champion entrepreneurial thinking, skill development, and capacity-building among rural women—creating pathways for self-reliance, innovation, and leadership.",
       icon: "📈",
-      color: "from-blue-500 to-indigo-500"
+      color: "from-blue-500 to-indigo-500",
     },
     {
       title: "Our Vision",
-      content: "Building ecosystems where children learn with joy, women lead with confidence, and communities evolve with purpose through our growing network of partners.",
+      content:
+        "ChangeSpark Foundation empowers communities to create sustainable livelihoods, protect the planet, and foster dignity, purpose, and hope through transparency, compassion, and collaboration.",
       icon: "✨",
-      color: "from-purple-500 to-pink-500"
-    }
+      color: "from-purple-500 to-pink-500",
+    },
   ];
 
   return (
