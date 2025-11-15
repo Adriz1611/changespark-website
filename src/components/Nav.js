@@ -8,6 +8,7 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/", label: "HOME" },
+  { href: "/green-walkathon-2026", label: "GREEN WALKATHON 2026" },
   { href: "/projects", label: "PROJECTS" },
   { href: "/team", label: "TEAM" },
   { href: "/blog", label: "BLOG" },
@@ -50,10 +51,10 @@ export default function Nav() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Show background after minimal scroll (20px instead of 80px)
       setScroll(currentScrollY > 20);
-      
+
       // Hide/show navbar based on scroll direction
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         // Scrolling down & past 100px
@@ -63,7 +64,7 @@ export default function Nav() {
         // Scrolling up
         setNavHidden(false);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
@@ -80,7 +81,7 @@ export default function Nav() {
 
   const handleDonateClick = () => {
     setOpen(false);
-    window.location.href = 'https://changespark.in/donate';
+    window.location.href = "https://changespark.in/donate";
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -96,8 +97,8 @@ export default function Nav() {
         className={`z-50 fixed w-full transition-all duration-500 ease-in-out ${
           navHidden ? "-translate-y-full" : "translate-y-0"
         } ${
-          scroll 
-            ? "bg-white/95 backdrop-blur-md shadow-lg py-3" 
+          scroll
+            ? "bg-white/95 backdrop-blur-md shadow-lg py-3"
             : "bg-gradient-to-b from-black/20 to-transparent py-5"
         }`}
         ref={menuRef}
@@ -109,8 +110,8 @@ export default function Nav() {
               <div className="font-bold flex items-center group cursor-pointer">
                 <h1
                   className={`text-lg md:text-xl font-paragraph transition-all duration-300 ${
-                    scroll 
-                      ? "text-gray-800 group-hover:text-green-600" 
+                    scroll
+                      ? "text-gray-800 group-hover:text-green-600"
                       : "text-white group-hover:text-green-300"
                   }`}
                 >
@@ -125,18 +126,18 @@ export default function Nav() {
                 {navItems.map((item, index) => (
                   <li key={index} className="relative">
                     {item.href.startsWith("/") ? (
-                      <Link 
+                      <Link
                         href={item.href}
                         onClick={() => handleNavClick(item.href)}
                         className={`text-base font-medium font-paragraph capitalize transition-all duration-300 hover:scale-105 ${
-                          scroll 
-                            ? "text-gray-700 hover:text-green-600" 
+                          scroll
+                            ? "text-gray-700 hover:text-green-600"
                             : "text-white hover:text-green-300"
                         } ${activeItem === item.href ? "font-bold" : ""}`}
                       >
                         {item.label}
                         {/* Active indicator */}
-                        <span 
+                        <span
                           className={`absolute -bottom-1 left-0 h-0.5 bg-green-500 transition-all duration-300 ${
                             activeItem === item.href ? "w-full" : "w-0"
                           }`}
@@ -148,8 +149,8 @@ export default function Nav() {
                         smooth={true}
                         duration={500}
                         className={`cursor-pointer text-base font-medium font-paragraph capitalize transition-all duration-300 hover:scale-105 ${
-                          scroll 
-                            ? "text-gray-700 hover:text-green-600" 
+                          scroll
+                            ? "text-gray-700 hover:text-green-600"
                             : "text-white hover:text-green-300"
                         }`}
                       >
@@ -181,16 +182,16 @@ export default function Nav() {
               aria-label="Toggle menu"
             >
               {open ? (
-                <X 
+                <X
                   className={`w-6 h-6 transition-all duration-300 ${
                     scroll ? "text-gray-800" : "text-white"
-                  }`} 
+                  }`}
                 />
               ) : (
-                <Menu 
+                <Menu
                   className={`w-6 h-6 transition-all duration-300 ${
                     scroll ? "text-gray-800" : "text-white"
-                  }`} 
+                  }`}
                 />
               )}
             </button>
@@ -238,8 +239,8 @@ export default function Nav() {
                         setOpen(false);
                       }}
                       className={`block px-5 py-3 text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 transition-all duration-200 ${
-                        activeItem === item.href 
-                          ? "bg-green-50 text-green-600 border-l-4 border-green-600" 
+                        activeItem === item.href
+                          ? "bg-green-50 text-green-600 border-l-4 border-green-600"
                           : ""
                       }`}
                     >
