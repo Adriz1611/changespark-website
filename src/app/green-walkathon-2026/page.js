@@ -12,6 +12,7 @@ import {
   Target,
   Sparkles,
   ArrowRight,
+  X,
 } from "lucide-react";
 
 // --- Event Data ---
@@ -23,6 +24,105 @@ const eventData = {
   location: "Chandur, Arambagh, Hooghly",
   expectedParticipants: "400+",
   headerImage: "/walkathon.png", // Replace with actual walkathon image
+};
+
+// --- Registration Modal Component ---
+const RegistrationModal = ({ isOpen, onClose }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.9 }}
+        className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+      >
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 p-2 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        >
+          <X className="w-6 h-6 text-gray-700" />
+        </button>
+
+        {/* Content */}
+        <div className="p-6 sm:p-8">
+          {/* Header */}
+          <div className="text-center mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+              Complete Your Registration
+            </h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto"></div>
+          </div>
+
+          {/* Payment QR Image */}
+          <div className="mb-6 relative w-full aspect-square max-w-md mx-auto rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src="/99.jpeg"
+              alt="Payment QR Code"
+              fill
+              className="object-contain"
+            />
+          </div>
+
+          {/* Important Notice */}
+          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
+            <p className="text-sm font-semibold text-yellow-800 mb-2">
+              ⚠️ Important / গুরুত্বপূর্ণ
+            </p>
+            <p className="text-sm text-yellow-700 mb-2">
+              <strong>English:</strong> It is mandatory to fill the registration
+              form after completing the payment to make your payment admissible.
+            </p>
+            <p className="text-sm text-yellow-700">
+              <strong>বাংলা:</strong> পেমেন্ট সম্পূর্ণ করার পরে আপনার পেমেন্ট
+              গ্রহণযোগ্য করতে রেজিস্ট্রেশন ফর্ম পূরণ করা বাধ্যতামূলক।
+            </p>
+          </div>
+
+          {/* Registration Form Buttons */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* English Form */}
+            <a
+              href="https://forms.gle/iPaRhymv63yYssHM8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+              <div className="relative bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-4 rounded-xl font-bold text-center hover:scale-105 transition-transform duration-200 shadow-lg">
+                <div className="text-lg mb-1">Register Now</div>
+                <div className="text-xs opacity-90">English Form</div>
+              </div>
+            </a>
+
+            {/* Bengali Form */}
+            <a
+              href="https://forms.gle/pUihiKjJZj5TN8sq6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-green-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+              <div className="relative bg-gradient-to-r from-emerald-500 to-green-600 text-white px-6 py-4 rounded-xl font-bold text-center hover:scale-105 transition-transform duration-200 shadow-lg">
+                <div className="text-lg mb-1">এখনই নিবন্ধন করুন</div>
+                <div className="text-xs opacity-90">বাংলা ফর্ম</div>
+              </div>
+            </a>
+          </div>
+
+          {/* Additional Instructions */}
+          <div className="mt-6 text-center text-sm text-gray-600">
+            <p>
+              After payment, please fill the appropriate form based on your
+              language preference.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
 };
 
 // --- Reusable Icon Component ---
@@ -43,7 +143,7 @@ const CheckIcon = () => (
 );
 
 // --- Hero Section ---
-const EventHeader = () => (
+const EventHeader = ({ onOpenModal }) => (
   <section className="relative min-h-[100vh] flex items-center justify-center text-white overflow-hidden">
     <Image
       src={eventData.headerImage}
@@ -161,12 +261,15 @@ const EventHeader = () => (
         >
           <div className="relative group w-full sm:w-auto">
             <div className="absolute -inset-1 bg-gradient-to-r from-green-400 via-emerald-400 to-yellow-400 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-            <button className="relative w-full sm:w-auto px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-green-500 via-emerald-600 to-green-600 text-white font-black text-base sm:text-xl rounded-full shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3">
+            <button
+              onClick={onOpenModal}
+              className="relative w-full sm:w-auto px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-green-500 via-emerald-600 to-green-600 text-white font-black text-base sm:text-xl rounded-full shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 hover:scale-105"
+            >
               <Sparkles
                 className="w-5 sm:w-6 h-5 sm:h-6 animate-spin"
                 style={{ animationDuration: "3s" }}
               />
-              Registration Opens Soon
+              Register Now
               <Sparkles
                 className="w-5 sm:w-6 h-5 sm:h-6 animate-spin"
                 style={{ animationDuration: "3s", animationDelay: "1.5s" }}
@@ -174,7 +277,7 @@ const EventHeader = () => (
             </button>
           </div>
           <p className="text-green-200 text-xs sm:text-sm font-semibold animate-pulse">
-            🔔 Stay tuned for updates!
+            🎉 Registration is now open!
           </p>
         </motion.div>
       </motion.div>
@@ -644,7 +747,7 @@ const ImpactSection = () => (
 );
 
 // --- Call to Action ---
-const CallToActionSection = () => (
+const CallToActionSection = ({ onOpenModal }) => (
   <section className="section-padding bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 text-white relative overflow-hidden">
     {/* Animated background elements */}
     <div className="absolute inset-0 overflow-hidden">
@@ -768,9 +871,12 @@ const CallToActionSection = () => (
           <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-white to-yellow-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
 
           {/* Button */}
-          <button className="relative w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 bg-white text-green-700 font-black text-lg sm:text-xl md:text-2xl rounded-full shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 sm:gap-4">
+          <button
+            onClick={onOpenModal}
+            className="relative w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 bg-white text-green-700 font-black text-lg sm:text-xl md:text-2xl rounded-full shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 sm:gap-4"
+          >
             <span className="text-2xl sm:text-3xl animate-bounce">🌟</span>
-            <span>Registration Opens Soon</span>
+            <span>Register Now</span>
             <span
               className="text-2xl sm:text-3xl animate-bounce"
               style={{ animationDelay: "0.2s" }}
@@ -782,12 +888,12 @@ const CallToActionSection = () => (
 
         {/* Additional info */}
         <p className="mt-4 sm:mt-6 text-green-100 text-sm sm:text-base font-semibold flex flex-wrap items-center justify-center gap-2 px-4">
-          <span className="animate-pulse">🔔</span>
+          <span className="animate-pulse">🎉</span>
           <span className="text-center">
-            Stay tuned for updates and announcements
+            Limited spots available - Register today!
           </span>
           <span className="animate-pulse" style={{ animationDelay: "0.5s" }}>
-            🔔
+            🎉
           </span>
         </p>
       </motion.div>
@@ -835,16 +941,22 @@ const ClosingSection = () => (
 
 // --- Main Page Export ---
 export default function GreenWalkathon2026Page() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <main className="bg-background-100">
-      <EventHeader />
+      <EventHeader onOpenModal={() => setIsModalOpen(true)} />
       <IntroductionSection />
       <StorySection />
       <WhyItMattersSection />
       <MissionObjectivesSection />
       <ImpactSection />
-      <CallToActionSection />
+      <CallToActionSection onOpenModal={() => setIsModalOpen(true)} />
       <ClosingSection />
+      <RegistrationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </main>
   );
 }
