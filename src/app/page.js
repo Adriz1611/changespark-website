@@ -21,7 +21,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         {/* Main Background Image - Now Brighter */}
         <Image
-          src="/bg.jpg" // Your background image
+          src="/home/bg.jpg" // Your background image
           alt="Background"
           fill
           priority
@@ -43,89 +43,6 @@ const HeroSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          {/* Green Walkathon 2026 Banner - Enhanced */}
-          <Link
-            href="/green-walkathon-2026"
-            aria-label="Green Walkathon 2026 event – details and participation"
-          >
-            <div
-              className="relative w-full sm:w-auto px-2 sm:px-0 mb-8 group focus:outline-none focus:ring-2 focus:ring-emerald-300 rounded-3xl"
-              tabIndex={0}
-            >
-              {/* Soft glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-green-400 to-emerald-400 rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition-opacity duration-500"></div>
-
-              <div className="relative flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 px-4 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-green-700 via-emerald-500 to-green-600 bg-[length:200%_100%] animate-gradient-x text-white rounded-3xl sm:rounded-full border-2 border-emerald-300/70 shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-[1.03] sm:hover:scale-105 cursor-pointer overflow-hidden">
-                {/* Shimmer (disabled on mobile for clarity) */}
-                <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer"></div>
-
-                {/* Event identity */}
-                <div className="relative z-10 flex items-center gap-3 sm:gap-4 text-left w-full sm:w-auto justify-center sm:justify-start">
-                  <span className="relative flex h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-200 opacity-70"></span>
-                    <span className="relative inline-flex rounded-full h-full w-full bg-emerald-100"></span>
-                  </span>
-                  <span className="text-xl sm:text-2xl md:text-3xl sm:animate-bounce-slow drop-shadow-lg flex-shrink-0">
-                    🌱
-                  </span>
-                  <div className="flex flex-col gap-0.5 sm:gap-1">
-                    <span className="text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.35em] text-emerald-100/90 font-medium whitespace-nowrap">
-                      ChangeSpark presents
-                    </span>
-                    <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-extrabold tracking-wide sm:tracking-wider drop-shadow-md whitespace-nowrap">
-                      GREEN WALKATHON 2026
-                    </span>
-                  </div>
-                </div>
-
-                {/* Horizontal divider for mobile, vertical for desktop */}
-                <div className="w-20 h-px sm:w-px sm:h-12 bg-emerald-200/40"></div>
-
-                {/* Details row */}
-                <div
-                  className="relative z-10 flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-center gap-2 sm:gap-3 text-[11px] sm:text-sm md:text-base font-semibold bg-white/10 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-0 px-3 py-2 sm:px-0 sm:py-0 rounded-2xl sm:rounded-full border border-white/20 sm:border-0 overflow-x-auto scrollbar-none"
-                  style={{ WebkitOverflowScrolling: "touch" }}
-                >
-                  <span className="text-emerald-50 px-3 py-1 bg-black/25 rounded-lg shadow-sm whitespace-nowrap flex items-center gap-1">
-                    <svg
-                      className="w-3 h-3 opacity-80"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                    12 JAN
-                  </span>
-                  <span className="text-white px-3 py-1 bg-black/25 rounded-lg shadow-sm whitespace-nowrap">
-                    CHANDUR
-                  </span>
-                  <span className="flex items-center gap-1.5 sm:gap-2 text-emerald-50 px-3 py-1 bg-black/25 rounded-lg shadow-sm group-hover:bg-black/30 transition-colors whitespace-nowrap">
-                    Join the movement
-                    <svg
-                      className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform flex-shrink-0"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.5}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Link>
-
           {/* Main Title */}
           <div className="mb-6">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-800">
@@ -255,21 +172,21 @@ const AboutSection = () => {
 
   const images = [
     {
-      src: "/pranati1.png",
+      src: "/projects/pranati/pranati1.png",
       alt: "Project Pranati",
       caption: "Empowering Women",
       stat: "150+ Women Empowered",
       gradient: "from-blue-500 to-cyan-500",
     },
     {
-      src: "/BGSHP.jpg",
+      src: "/home/BGSHP.jpg",
       alt: "Green Gyan",
       caption: "Building Green Schools",
       stat: "15+ Schools",
       gradient: "from-purple-500 to-pink-500",
     },
     {
-      src: "/GCHP.jpg",
+      src: "/home/GCHP.jpg",
       alt: "Plant for Tomorrow",
       caption: "Greening Communities",
       stat: "100+ Trees Planted",
@@ -463,7 +380,7 @@ const CoreValuesSection = () => {
   const [hoveredValue, setHoveredValue] = useState(null);
   const values = [
     {
-      icon: "/Innovation.png",
+      icon: "/core-values/Innovation.png",
       title: "Innovation",
       description:
         "Pioneering creative solutions for complex social challenges",
@@ -472,7 +389,7 @@ const CoreValuesSection = () => {
       details: "We embrace cutting-edge approaches and technologies",
     },
     {
-      icon: "/Collaboration.png",
+      icon: "/core-values/Collaboration.png",
       title: "Collaboration",
       description: "Building strong partnerships for collective impact",
       gradient: "from-blue-400 to-purple-500",
@@ -480,7 +397,7 @@ const CoreValuesSection = () => {
       details: "Together we achieve more than we could alone",
     },
     {
-      icon: "/Sustainability.png",
+      icon: "/core-values/Sustainability.png",
       title: "Sustainability",
       description: "Creating lasting change that benefits future generations",
       gradient: "from-green-400 to-teal-500",
@@ -488,7 +405,7 @@ const CoreValuesSection = () => {
       details: "Every action considers long-term environmental impact",
     },
     {
-      icon: "/Empowerment.png",
+      icon: "/core-values/Empowerment.png",
       title: "Empowerment",
       description: "Enabling communities to drive their own development",
       gradient: "from-pink-400 to-red-500",
@@ -725,7 +642,7 @@ const Testimonials = () => {
               onClick={() =>
                 setActiveTestimonial(
                   (prev) =>
-                    (prev - 1 + testimonials.length) % testimonials.length
+                    (prev - 1 + testimonials.length) % testimonials.length,
                 )
               }
               className="p-2 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"

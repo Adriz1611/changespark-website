@@ -2,168 +2,194 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Calendar,
   MapPin,
   Users,
   Heart,
   Leaf,
-  Target,
-  Sparkles,
-  ArrowRight,
+  Award,
+  ChevronLeft,
+  ChevronRight,
   X,
+  Quote,
+  TrendingUp,
+  Globe,
+  Footprints,
 } from "lucide-react";
 
 // --- Event Data ---
 const eventData = {
   title: "Green Walkathon 2026",
   tagline: "Rise. Walk. Inspire.",
-  headline: "Walk the Change. Heal the Earth. Inspire the Future.",
+  headline: "Building a Workers' Community for the First Time in Arambagh",
   date: "12 January 2026",
   location: "Chandur, Arambagh, Hooghly",
-  expectedParticipants: "400+",
-  headerImage: "/walkathon.png", // Replace with actual walkathon image
+  participants: "284",
 };
 
-// --- Registration Modal Component ---
-const RegistrationModal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
+const galleryImages = [
+  {
+    src: "/pages/walkathon/crowd-gathering.jpeg",
+    alt: "Participants gathering at the walkathon venue",
+    caption: "284 walkers united for a common cause",
+  },
+  {
+    src: "/pages/walkathon/morning-march.jpeg",
+    alt: "Morning march with participants in yellow t-shirts",
+    caption: "The morning march begins under the winter sun",
+  },
+  {
+    src: "/pages/walkathon/banner-walkers.jpeg",
+    alt: "Walkers carrying environmental awareness banner",
+    caption: "Walking with purpose and a green message",
+  },
+  {
+    src: "/pages/walkathon/volunteers.jpeg",
+    alt: "Volunteer team in blue t-shirts",
+    caption: "Our dedicated volunteer team",
+  },
+  {
+    src: "/pages/walkathon/pranati-banner.jpeg",
+    alt: "Project Pranati banner at the walkathon",
+    caption: "Showcasing Project Pranati at the event",
+  },
+  {
+    src: "/pages/walkathon/flag-ceremony.jpeg",
+    alt: "Flag hoisting ceremony with dignitaries",
+    caption: "The ceremonial flag-off by dignitaries",
+  },
+  {
+    src: "/pages/walkathon/road-walk.jpeg",
+    alt: "Participants walking along the road",
+    caption: "The walkathon in full stride through Arambagh",
+  },
+  {
+    src: "/pages/walkathon/road-walk-2.jpeg",
+    alt: "Long line of walkers on the road",
+    caption: "A sea of yellow — community in motion",
+  },
+  {
+    src: "/pages/walkathon/award-ceremony.jpeg",
+    alt: "Award ceremony with Green Walkathon 2026 backdrop",
+    caption: "Recognizing contributions at the ceremony",
+  },
+];
+
+// --- Animation Variants ---
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.4, 0.25, 1] },
+  },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+  },
+};
+
+// --- Image Gallery Modal ---
+const ImageModal = ({ images, initialIndex, onClose }) => {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+
+  const nextImage = () => setCurrentIndex((prev) => (prev + 1) % images.length);
+  const prevImage = () =>
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+    <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.9 }}
-        className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
+        onClick={onClose}
       >
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          className="relative max-w-5xl w-full"
+          onClick={(e) => e.stopPropagation()}
         >
-          <X className="w-6 h-6 text-gray-700" />
-        </button>
+          <button
+            onClick={onClose}
+            className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
+          >
+            <X className="w-8 h-8" />
+          </button>
 
-        {/* Content */}
-        <div className="p-6 sm:p-8">
-          {/* Header */}
-          <div className="text-center mb-6">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-              Complete Your Registration
-            </h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto"></div>
-          </div>
-
-          {/* Payment QR Image */}
-          <div className="mb-6 relative w-full aspect-square max-w-md mx-auto rounded-xl overflow-hidden shadow-lg">
+          <div className="relative aspect-video rounded-2xl overflow-hidden">
             <Image
-              src="/99.jpeg"
-              alt="Payment QR Code"
+              src={images[currentIndex].src}
+              alt={images[currentIndex].alt}
               fill
               className="object-contain"
             />
           </div>
 
-          {/* Important Notice */}
-          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
-            <p className="text-sm font-semibold text-yellow-800 mb-2">
-              ⚠️ Important / গুরুত্বপূর্ণ
-            </p>
-            <p className="text-sm text-yellow-700 mb-2">
-              <strong>English:</strong> It is mandatory to fill the registration
-              form after completing the payment to make your payment admissible.
-            </p>
-            <p className="text-sm text-yellow-700">
-              <strong>বাংলা:</strong> পেমেন্ট সম্পূর্ণ করার পরে আপনার পেমেন্ট
-              গ্রহণযোগ্য করতে রেজিস্ট্রেশন ফর্ম পূরণ করা বাধ্যতামূলক।
-            </p>
-          </div>
+          <p className="text-center text-white/80 mt-4 text-sm sm:text-base">
+            {images[currentIndex].caption}
+          </p>
 
-          {/* Registration Form Buttons */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* English Form */}
-            <a
-              href="https://forms.gle/iPaRhymv63yYssHM8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative"
-            >
-              <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
-              <div className="relative bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-4 rounded-xl font-bold text-center hover:scale-105 transition-transform duration-200 shadow-lg">
-                <div className="text-lg mb-1">Register Now</div>
-                <div className="text-xs opacity-90">English Form</div>
-              </div>
-            </a>
+          <button
+            onClick={prevImage}
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full hover:bg-white/20 transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
 
-            {/* Bengali Form */}
-            <a
-              href="https://forms.gle/pUihiKjJZj5TN8sq6"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative"
-            >
-              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-green-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
-              <div className="relative bg-gradient-to-r from-emerald-500 to-green-600 text-white px-6 py-4 rounded-xl font-bold text-center hover:scale-105 transition-transform duration-200 shadow-lg">
-                <div className="text-lg mb-1">এখনই নিবন্ধন করুন</div>
-                <div className="text-xs opacity-90">বাংলা ফর্ম</div>
-              </div>
-            </a>
-          </div>
+          <button
+            onClick={nextImage}
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full hover:bg-white/20 transition-colors"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+          </button>
 
-          {/* Additional Instructions */}
-          <div className="mt-6 text-center text-sm text-gray-600">
-            <p>
-              After payment, please fill the appropriate form based on your
-              language preference.
-            </p>
+          <div className="flex justify-center gap-2 mt-4">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-2 rounded-full transition-all ${
+                  index === currentIndex
+                    ? "bg-white w-8"
+                    : "bg-white/50 w-2 hover:bg-white/70"
+                }`}
+              />
+            ))}
           </div>
-        </div>
+        </motion.div>
       </motion.div>
-    </div>
+    </AnimatePresence>
   );
 };
 
-// --- Reusable Icon Component ---
-const CheckIcon = () => (
-  <svg
-    className="w-6 h-6 text-green-600 mr-3 flex-shrink-0"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M5 13l4 4L19 7"
-    ></path>
-  </svg>
-);
-
 // --- Hero Section ---
-const EventHeader = ({ onOpenModal }) => (
-  <section className="relative min-h-[100vh] flex items-center justify-center text-white overflow-hidden">
+const HeroSection = () => (
+  <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center text-white overflow-hidden">
     <Image
-      src={eventData.headerImage}
-      alt="Green Walkathon 2026"
+      src="/pages/walkathon/morning-march.jpeg"
+      alt="Green Walkathon 2026 — Arambagh"
       fill
       className="object-cover"
       priority
     />
-    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
 
-    {/* Enhanced floating particles effect */}
+    {/* Subtle floating elements */}
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute top-10 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-green-400/30 rounded-full filter blur-3xl animate-pulse"></div>
+      <div className="absolute top-10 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-green-400/15 rounded-full filter blur-3xl animate-pulse"></div>
       <div
-        className="absolute bottom-10 right-10 w-80 sm:w-[500px] h-80 sm:h-[500px] bg-emerald-400/30 rounded-full filter blur-3xl animate-pulse"
+        className="absolute bottom-10 right-10 w-80 sm:w-[400px] h-80 sm:h-[400px] bg-emerald-400/15 rounded-full filter blur-3xl animate-pulse"
         style={{ animationDelay: "1s" }}
-      ></div>
-      <div
-        className="absolute top-1/2 left-1/2 w-48 sm:w-64 h-48 sm:h-64 bg-yellow-400/20 rounded-full filter blur-3xl animate-pulse"
-        style={{ animationDelay: "2s" }}
       ></div>
     </div>
 
@@ -173,18 +199,18 @@ const EventHeader = ({ onOpenModal }) => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Enhanced Badge */}
-        <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-lg text-white rounded-full text-xs sm:text-sm font-bold mb-6 sm:mb-8 border-2 border-white/40 shadow-2xl">
-          <Sparkles className="w-4 sm:w-5 h-4 sm:h-5 mr-2 text-yellow-300 animate-pulse" />
-          <span className="bg-gradient-to-r from-green-200 to-emerald-200 bg-clip-text text-transparent font-extrabold">
-            ChangeSpark Foundation Presents
+        {/* Event Completed Badge */}
+        <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-emerald-500/30 to-green-500/30 backdrop-blur-lg text-white rounded-full text-xs sm:text-sm font-bold mb-6 sm:mb-8 border border-emerald-400/50 shadow-2xl">
+          <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
+          <span className="text-emerald-200 font-extrabold uppercase tracking-wider">
+            Event Successfully Completed
           </span>
         </div>
 
-        {/* Enhanced Main Title with glow effect */}
+        {/* Title */}
         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-3 sm:mb-4 leading-tight">
           <motion.span
-            className="block text-white mb-2 sm:mb-3 drop-shadow-2xl"
+            className="block text-white mb-2 drop-shadow-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -196,15 +222,14 @@ const EventHeader = ({ onOpenModal }) => (
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ textShadow: "0 0 40px rgba(16, 185, 129, 0.5)" }}
           >
             2026
           </motion.span>
         </h1>
 
-        {/* Enhanced Tagline */}
+        {/* Tagline */}
         <motion.p
-          className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-10 text-yellow-300 drop-shadow-lg"
+          className="text-xl sm:text-2xl md:text-3xl font-bold mb-8 sm:mb-10 text-yellow-300/90 drop-shadow-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -212,26 +237,28 @@ const EventHeader = ({ onOpenModal }) => (
           Rise. Walk. Inspire.
         </motion.p>
 
-        {/* Enhanced Event Details with icons */}
+        {/* Event Stats Row */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center mb-6 sm:mb-10 px-2"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center mb-6 px-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <div className="flex items-center gap-2 sm:gap-3 bg-white/20 backdrop-blur-lg px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl border-2 border-white/30 shadow-xl hover:scale-105 transition-transform duration-300">
-            <Calendar className="w-5 sm:w-6 h-5 sm:h-6 text-yellow-300 flex-shrink-0" />
+          <div className="flex items-center gap-2 sm:gap-3 bg-white/15 backdrop-blur-lg px-5 sm:px-6 py-3 rounded-xl sm:rounded-2xl border border-white/20 shadow-xl">
+            <Calendar className="w-5 sm:w-6 h-5 sm:h-6 text-emerald-300 flex-shrink-0" />
             <div className="text-left">
-              <div className="text-xs text-green-200 font-semibold">Date</div>
+              <div className="text-[10px] text-green-200/80 font-semibold uppercase tracking-wider">
+                Date
+              </div>
               <div className="text-sm sm:text-lg font-bold">
                 {eventData.date}
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-2 sm:gap-3 bg-white/20 backdrop-blur-lg px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl border-2 border-white/30 shadow-xl hover:scale-105 transition-transform duration-300">
-            <MapPin className="w-5 sm:w-6 h-5 sm:h-6 text-yellow-300 flex-shrink-0" />
+          <div className="flex items-center gap-2 sm:gap-3 bg-white/15 backdrop-blur-lg px-5 sm:px-6 py-3 rounded-xl sm:rounded-2xl border border-white/20 shadow-xl">
+            <MapPin className="w-5 sm:w-6 h-5 sm:h-6 text-emerald-300 flex-shrink-0" />
             <div className="text-left">
-              <div className="text-xs text-green-200 font-semibold">
+              <div className="text-[10px] text-green-200/80 font-semibold uppercase tracking-wider">
                 Location
               </div>
               <div className="text-sm sm:text-lg font-bold">
@@ -239,45 +266,81 @@ const EventHeader = ({ onOpenModal }) => (
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-2 sm:gap-3 bg-white/20 backdrop-blur-lg px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl border-2 border-white/30 shadow-xl hover:scale-105 transition-transform duration-300">
-            <Users className="w-5 sm:w-6 h-5 sm:h-6 text-yellow-300 flex-shrink-0" />
+          <div className="flex items-center gap-2 sm:gap-3 bg-white/15 backdrop-blur-lg px-5 sm:px-6 py-3 rounded-xl sm:rounded-2xl border border-white/20 shadow-xl">
+            <Users className="w-5 sm:w-6 h-5 sm:h-6 text-emerald-300 flex-shrink-0" />
             <div className="text-left">
-              <div className="text-xs text-green-200 font-semibold">
-                Expected
+              <div className="text-[10px] text-green-200/80 font-semibold uppercase tracking-wider">
+                Participants
               </div>
               <div className="text-sm sm:text-lg font-bold">
-                {eventData.expectedParticipants} Participants
+                {eventData.participants} Walkers
               </div>
             </div>
           </div>
         </motion.div>
+      </motion.div>
+    </div>
 
-        {/* Enhanced CTA Button - Registration Coming Soon */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-col items-center gap-3 sm:gap-4 px-4"
-        >
-          <div className="relative group w-full sm:w-auto">
-            <div className="absolute -inset-1 bg-gradient-to-r from-green-400 via-emerald-400 to-yellow-400 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-            <button
-              onClick={onOpenModal}
-              className="relative w-full sm:w-auto px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-green-500 via-emerald-600 to-green-600 text-white font-black text-base sm:text-xl rounded-full shadow-2xl transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 hover:scale-105"
-            >
-              <Sparkles
-                className="w-5 sm:w-6 h-5 sm:h-6 animate-spin"
-                style={{ animationDuration: "3s" }}
-              />
-              Register Now
-              <Sparkles
-                className="w-5 sm:w-6 h-5 sm:h-6 animate-spin"
-                style={{ animationDuration: "3s", animationDelay: "1.5s" }}
-              />
-            </button>
+    {/* Bottom wave */}
+    <div className="absolute bottom-0 left-0 right-0 -mb-1">
+      <svg
+        viewBox="0 0 1440 80"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full block"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0 80L60 70C120 60 240 40 360 35C480 30 600 40 720 45C840 50 960 50 1080 45C1200 40 1320 30 1380 25L1440 20V80H0Z"
+          fill="white"
+        />
+      </svg>
+    </div>
+  </section>
+);
+
+// --- Opening Statement ---
+const OpeningSection = () => (
+  <section className="py-16 sm:py-20 lg:py-24 bg-white">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={staggerContainer}
+        className="text-center"
+      >
+        {/* Decorative Line */}
+        <motion.div variants={fadeInUp} className="flex justify-center mb-8">
+          <div className="flex items-center gap-3">
+            <div className="h-px w-12 sm:w-20 bg-gradient-to-r from-transparent to-green-500"></div>
+            <Footprints className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
+            <div className="h-px w-12 sm:w-20 bg-gradient-to-l from-transparent to-green-500"></div>
           </div>
-          <p className="text-green-200 text-xs sm:text-sm font-semibold animate-pulse">
-            🎉 Registration is now open!
+        </motion.div>
+
+        <motion.h2
+          variants={fadeInUp}
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-8 leading-tight px-2"
+        >
+          A Moment that Marked Both{" "}
+          <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+            History & Hope
+          </span>
+        </motion.h2>
+
+        <motion.div
+          variants={fadeInUp}
+          className="max-w-4xl mx-auto space-y-6 text-base sm:text-lg text-gray-700 leading-relaxed"
+        >
+          <p className="text-lg sm:text-xl text-gray-800 font-medium">
+            On 12th January, Arambagh witnessed a moment that marked both
+            history and hope — a first-of-its-kind Walkathon that united its
+            worker community in an extraordinary display of participation,
+            pride, and collective purpose.
+          </p>
+          <p className="text-xl sm:text-2xl font-bold text-green-700 py-2">
+            What unfolded was far more than a walk. It was a movement.
           </p>
         </motion.div>
       </motion.div>
@@ -285,472 +348,480 @@ const EventHeader = ({ onOpenModal }) => (
   </section>
 );
 
-// --- Introduction Section ---
-const IntroductionSection = () => (
-  <section className="section-padding bg-gradient-to-b from-white to-green-50/30">
+// --- Impact Numbers ---
+const ImpactNumbersSection = () => {
+  const stats = [
+    {
+      number: "284",
+      label: "Walkers",
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      description: "United for a common cause",
+    },
+    {
+      number: "3+",
+      label: "Districts Represented",
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      description: "Kolkata, Howrah & Hooghly",
+    },
+    {
+      number: "1st",
+      label: "Worker Community Event",
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      description: "First ever in Arambagh",
+    },
+    {
+      number: "1",
+      label: "Unified Community",
+      icon: <Heart className="w-6 h-6 sm:w-8 sm:h-8" />,
+      description: "A living legacy",
+    },
+  ];
+
+  return (
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full filter blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              variants={fadeInUp}
+              className="text-center bg-white/10 backdrop-blur-md p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/20 hover:bg-white/15 transition-all duration-300"
+            >
+              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 text-yellow-300">
+                {stat.icon}
+              </div>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-1">
+                {stat.number}
+              </div>
+              <div className="text-sm sm:text-base font-bold text-emerald-200 mb-1">
+                {stat.label}
+              </div>
+              <div className="text-xs sm:text-sm text-green-100/70">
+                {stat.description}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// --- Featured Image with Text ---
+const FeaturedSection = () => (
+  <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-green-50/30">
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7 }}
-        className="text-center mb-12"
-      >
-        {/* Decorative element */}
-        <div className="flex justify-center mb-6">
-          <div className="flex items-center gap-2">
-            <div className="h-1 w-16 bg-gradient-to-r from-transparent to-green-500 rounded-full"></div>
-            <Leaf className="w-8 h-8 text-green-600 animate-pulse" />
-            <div className="h-1 w-16 bg-gradient-to-l from-transparent to-green-500 rounded-full"></div>
+      <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+        {/* Image Side */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
+          className="relative"
+        >
+          <div className="absolute -inset-4 bg-gradient-to-r from-green-400/20 to-emerald-400/20 rounded-3xl blur-2xl"></div>
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src="/pages/walkathon/crowd-gathering.jpeg"
+              alt="284 participants gathering at the walkathon"
+              width={800}
+              height={600}
+              className="w-full h-auto object-cover"
+            />
           </div>
-        </div>
+        </motion.div>
 
-        <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-700 via-emerald-600 to-green-700 mb-6 sm:mb-8 leading-tight px-4">
-          {eventData.headline}
-        </h2>
-      </motion.div>
+        {/* Text Side */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
+          className="space-y-6"
+        >
+          <div>
+            <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-xs sm:text-sm font-bold mb-4 uppercase tracking-wider">
+              The Movement
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-4 leading-tight">
+              Every Step Symbolized{" "}
+              <span className="text-green-600">Dignity & Solidarity</span>
+            </h2>
+          </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-        className="max-w-4xl mx-auto"
-      >
-        <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-xl border border-green-100 space-y-4 sm:space-y-6 text-base sm:text-lg text-gray-700 leading-relaxed">
-          <p>
-            On <strong>12 January 2026</strong>, the birth anniversary of Swami
-            Vivekananda, Chandur will witness something truly special—an
-            awakening of hope, unity, and responsibility. ChangeSpark Foundation
-            proudly brings its first-ever <strong>Green Walkathon 2026</strong>,
-            a movement that invites every heart to step forward for a greener,
-            healthier tomorrow.
-          </p>
-          <p>
-            This Walkathon is more than an event—it is a story of people coming
-            together. Students, youth groups, families, corporates, schools,
-            NGOs, and community leaders will walk side by side, carrying one
-            shared message: <strong>Green Living, Healthy Living</strong>. With
-            over <strong>400+</strong> participants expected, the day will echo
-            with energy, inspiration, and the spirit of collective action.
-          </p>
-        </div>
-      </motion.div>
+          <div className="space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed">
+            <p>
+              A total of <strong>284 walkers</strong> came forward to be part of
+              this landmark initiative, each step symbolizing dignity of labour
+              and the power of community solidarity. The significance of the
+              event deepened with regional participation — workers and
+              supporters travelled from{" "}
+              <strong>Kolkata, Howrah, and across Hooghly</strong>, standing
+              shoulder-to-shoulder with local participants to strengthen the
+              spirit of unity.
+            </p>
+            <p>
+              For Arambagh, this was unprecedented. Never before had an
+              organized platform been created to visibly bring together workers
+              as one community — to celebrate their contribution, amplify their
+              identity, and foster a shared sense of belonging.
+            </p>
+          </div>
+        </motion.div>
+      </div>
     </div>
   </section>
 );
 
 // --- Story Section ---
 const StorySection = () => (
-  <section className="section-padding bg-gradient-to-br from-green-50 via-emerald-50 to-green-50 relative overflow-hidden">
-    {/* Decorative background elements */}
+  <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-green-50 via-emerald-50/50 to-white relative overflow-hidden">
     <div className="absolute top-0 right-0 w-96 h-96 bg-green-200/20 rounded-full filter blur-3xl"></div>
     <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-200/20 rounded-full filter blur-3xl"></div>
 
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7 }}
-      >
-        {/* Enhanced heading with icon */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-          <div className="p-3 sm:p-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl sm:rounded-2xl shadow-xl">
-            <Sparkles className="w-6 sm:w-8 h-6 sm:h-8 text-white" />
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900">
-            The Story Behind
-            <br />
-            <span className="text-green-600">Green Walkathon 2026</span>
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-          {/* Story content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="space-y-4 sm:space-y-6 text-base sm:text-lg text-gray-700 leading-relaxed bg-white/60 backdrop-blur-sm p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-green-100"
-          >
-            <p>
-              Every movement begins with a small spark. For ChangeSpark
-              Foundation, that spark comes from the belief that real change
-              grows when people stand together with purpose. Chandur, a place
-              filled with vibrancy and youth strength, deserves a platform where
-              community voices rise, connect, and inspire one another.
-            </p>
-            <p>
-              Choosing <strong className="text-green-700">12 January</strong>
-              —Swami Vivekananda's birth anniversary—adds deeper meaning to this
-              mission. His teachings on youth power, unity, and fearlessness
-              guide the very soul of this Walkathon. It is a tribute to his
-              vision of a nation where young people lead with awareness,
-              compassion, and courage.
-            </p>
-          </motion.div>
-
-          {/* Swami Vivekananda Quote Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="relative"
-          >
-            <div className="bg-gradient-to-br from-green-600 to-emerald-700 p-6 sm:p-8 rounded-xl sm:rounded-2xl shadow-2xl text-white h-full flex flex-col justify-center">
-              <div className="text-4xl sm:text-6xl mb-3 sm:mb-4 opacity-50">
-                "
-              </div>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 sm:mb-6 leading-relaxed italic">
-                Arise, awake, and stop not until the goal is reached.
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="h-1 w-12 bg-yellow-400 rounded-full"></div>
-                <p className="text-green-100 font-medium">Swami Vivekananda</p>
-              </div>
-
-              {/* Decorative spark */}
-              <div className="absolute top-4 right-4">
-                <Sparkles className="w-8 h-8 text-yellow-300 animate-pulse" />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </motion.div>
-    </div>
-  </section>
-);
-
-// --- Why This Matters ---
-const WhyItMattersSection = () => (
-  <section className="section-padding bg-white relative overflow-hidden">
-    {/* Decorative elements */}
-    <div className="absolute top-10 left-10 w-72 h-72 bg-green-100 rounded-full filter blur-3xl opacity-40"></div>
-    <div className="absolute bottom-10 right-10 w-72 h-72 bg-emerald-100 rounded-full filter blur-3xl opacity-40"></div>
-
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+      <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+        {/* Text */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}
+          className="order-2 lg:order-1"
         >
-          <div className="mb-6">
-            <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-green-100 text-green-700 rounded-full text-xs sm:text-sm font-bold mb-3 sm:mb-4">
-              OUR PURPOSE
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 sm:mb-6">
-              Why This Initiative
-              <span className="block text-green-600">Matters</span>
-            </h2>
-          </div>
+          <span className="inline-block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-xs sm:text-sm font-bold mb-4 uppercase tracking-wider">
+            Unprecedented
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-6 leading-tight">
+            More Than Just <span className="text-green-600">Participation</span>
+          </h2>
 
-          <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-gray-700 leading-relaxed">
-            <p className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 sm:p-6 rounded-xl sm:rounded-2xl border-l-4 border-green-500 shadow-md">
-              Green Walkathon 2026 is a step towards a healthier community and a
-              cleaner planet. At a time when pollution, lifestyle disorders, and
-              environmental degradation challenge our future, this initiative
-              reminds us that solutions begin with small, mindful actions.
+          <div className="space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed">
+            <p>
+              The Walkathon transformed public space into a canvas of worker
+              pride — filled with conversations, encouragement, and a renewed
+              recognition that behind every system of progress stands an
+              empowered workforce.
             </p>
-            <div className="grid grid-cols-1 gap-3 sm:gap-4">
-              <div className="flex items-start gap-3 p-3 sm:p-4 bg-white rounded-xl shadow-md border border-green-100 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex-shrink-0 w-8 sm:w-10 h-8 sm:h-10 bg-green-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm sm:text-base">
-                    ✓
-                  </span>
-                </div>
-                <p className="pt-1 sm:pt-2 text-sm sm:text-base">
-                  <strong>Walking together</strong> encourages fitness
+
+            {/* Poetic Impact Lines */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-green-100 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0"></div>
+                <p className="text-gray-800 font-semibold">
+                  More than participation, the event seeded{" "}
+                  <span className="text-green-600">connection</span>.
                 </p>
               </div>
-              <div className="flex items-start gap-3 p-3 sm:p-4 bg-white rounded-xl shadow-md border border-emerald-100 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex-shrink-0 w-8 sm:w-10 h-8 sm:h-10 bg-emerald-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm sm:text-base">
-                    ✓
-                  </span>
-                </div>
-                <p className="pt-1 sm:pt-2 text-sm sm:text-base">
-                  <strong>Caring for nature</strong> strengthens our commitment
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-emerald-500 rounded-full flex-shrink-0"></div>
+                <p className="text-gray-800 font-semibold">
+                  More than mobilization, it built{" "}
+                  <span className="text-green-600">ownership</span>.
                 </p>
               </div>
-              <div className="flex items-start gap-3 p-3 sm:p-4 bg-white rounded-xl shadow-md border border-green-100 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex-shrink-0 w-8 sm:w-10 h-8 sm:h-10 bg-green-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm sm:text-base">
-                    ✓
-                  </span>
-                </div>
-                <p className="pt-1 sm:pt-2 text-sm sm:text-base">
-                  <strong>Collective responsibility</strong> helps communities
-                  grow
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-teal-500 rounded-full flex-shrink-0"></div>
+                <p className="text-gray-800 font-semibold">
+                  More than a one-day gathering, it established a{" "}
+                  <span className="text-green-600">sustained collective</span>.
                 </p>
               </div>
             </div>
           </div>
         </motion.div>
 
+        {/* Image */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7 }}
-          className="grid grid-cols-2 gap-4 sm:gap-6"
+          className="order-1 lg:order-2"
         >
-          {[
-            {
-              icon: Heart,
-              title: "Health",
-              desc: "Promoting fitness and well-being",
-              color: "from-red-400 to-pink-500",
-              textColor: "text-red-600",
-            },
-            {
-              icon: Leaf,
-              title: "Environment",
-              desc: "Caring for our planet",
-              color: "from-green-400 to-emerald-500",
-              textColor: "text-green-600",
-            },
-            {
-              icon: Users,
-              title: "Community",
-              desc: "Building unity and harmony",
-              color: "from-blue-400 to-cyan-500",
-              textColor: "text-blue-600",
-            },
-            {
-              icon: Target,
-              title: "Purpose",
-              desc: "Walking with responsibility",
-              color: "from-purple-400 to-indigo-500",
-              textColor: "text-purple-600",
-            },
-          ].map((item, index) => (
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src="/pages/walkathon/road-walk.jpeg"
+              alt="Long line of participants walking through Arambagh"
+              width={800}
+              height={600}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  </section>
+);
+
+// --- Recognition Section ---
+const RecognitionSection = () => (
+  <section className="py-16 sm:py-20 lg:py-24 bg-white">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={staggerContainer}
+      >
+        <motion.div variants={fadeInUp} className="text-center mb-12">
+          <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-xs sm:text-sm font-bold mb-4 uppercase tracking-wider">
+            A Landmark Moment
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4">
+            Not Just an Event —{" "}
+            <span className="text-green-600">Recognition</span>
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-12">
+          <motion.div
+            variants={fadeInUp}
+            className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-lg border border-green-100"
+          >
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+              It was the first time any organization had stepped beyond
+              conventional engagement and invested in building a visible,
+              unified workers&apos; community in Arambagh. The Walkathon created
+              a space where workers were not seen merely as contributors to
+              labour, but as contributors to{" "}
+              <strong>identity, dignity, and social progress</strong>.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={fadeInUp}
+            className="bg-gradient-to-br from-emerald-50 to-green-50 p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-lg border border-emerald-100"
+          >
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+              The energy on the ground reflected this emotional shift. From
+              early morning mobilization to coordinated participation throughout
+              the day, the Walkathon evolved into a celebration of{" "}
+              <strong>resilience and collective strength</strong>. Stories were
+              exchanged, networks were built, and a renewed sense of belonging
+              was forged among workers who often remain invisible within formal
+              development narratives.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Quote Highlight */}
+        <motion.div variants={fadeInUp} className="relative">
+          <div className="bg-gradient-to-br from-green-600 to-emerald-700 p-8 sm:p-12 rounded-2xl sm:rounded-3xl shadow-2xl text-white text-center">
+            <Quote className="w-10 h-10 sm:w-12 sm:h-12 text-green-300/40 mx-auto mb-4" />
+            <p className="text-lg sm:text-xl md:text-2xl font-semibold leading-relaxed max-w-3xl mx-auto">
+              12th January will now be remembered in Arambagh not just as the
+              day of a Walkathon — but as the day a community walked together,
+              visibly and confidently, towards recognition and unity.
+            </p>
+            <div className="mt-6 flex justify-center">
+              <div className="h-1 w-16 bg-yellow-400 rounded-full"></div>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </div>
+  </section>
+);
+
+// --- Photo Gallery ---
+const GallerySection = ({ onImageClick }) => (
+  <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={staggerContainer}
+      >
+        <motion.div variants={fadeInUp} className="text-center mb-12 sm:mb-16">
+          <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-xs sm:text-sm font-bold mb-4 uppercase tracking-wider">
+            Event Gallery
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4">
+            Moments That <span className="text-green-600">Defined the Day</span>
+          </h2>
+          <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+            Relive the energy, unity, and spirit of Green Walkathon 2026 through
+            these captured moments.
+          </p>
+        </motion.div>
+
+        {/* Masonry-style Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+          {galleryImages.map((img, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              variants={fadeInUp}
+              className={`relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg group cursor-pointer ${
+                index === 0 || index === 5
+                  ? "col-span-2 md:col-span-1 row-span-1 md:row-span-2"
+                  : ""
+              }`}
+              onClick={() => onImageClick(index)}
+            >
+              <div
+                className={`relative ${
+                  index === 0 || index === 5
+                    ? "h-52 sm:h-64 md:h-full md:min-h-[400px]"
+                    : "h-44 sm:h-52 md:h-64"
+                }`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <p className="text-xs sm:text-sm font-medium drop-shadow-lg">
+                    {img.caption}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);
+
+// --- Legacy Section ---
+const LegacySection = () => (
+  <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-green-50 via-white to-emerald-50 relative overflow-hidden">
+    <div className="absolute top-10 left-10 w-72 h-72 bg-green-100/40 rounded-full filter blur-3xl"></div>
+    <div className="absolute bottom-10 right-10 w-72 h-72 bg-emerald-100/40 rounded-full filter blur-3xl"></div>
+
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={staggerContainer}
+      >
+        <motion.div variants={fadeInUp} className="text-center mb-12">
+          <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-xs sm:text-sm font-bold mb-4 uppercase tracking-wider">
+            The Legacy
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4">
+            A Living <span className="text-green-600">Legacy</span>
+          </h2>
+          <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
+            The event&apos;s success was made possible through the committed
+            support of institutional partners, local leaders, and community
+            champions who believed in the vision of worker unity and
+            empowerment.
+          </p>
+        </motion.div>
+
+        {/* Legacy Cards */}
+        <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 mb-12">
+          {[
+            {
+              icon: <Users className="w-7 h-7 sm:w-8 sm:h-8" />,
+              title: "Connected Worker Base",
+              description:
+                "A network of 284 workers and supporters, united across districts and ready to grow.",
+              gradient: "from-blue-500 to-cyan-500",
+            },
+            {
+              icon: <TrendingUp className="w-7 h-7 sm:w-8 sm:h-8" />,
+              title: "Community-Led Mobilization",
+              description:
+                "A precedent set for worker-driven engagement and community action in the region.",
+              gradient: "from-green-500 to-emerald-500",
+            },
+            {
+              icon: <Globe className="w-7 h-7 sm:w-8 sm:h-8" />,
+              title: "Replicable Model",
+              description:
+                "A framework for participatory workforce engagement in underserved geographies across India.",
+              gradient: "from-purple-500 to-indigo-500",
+            },
+          ].map((card, index) => (
+            <motion.div
+              key={index}
+              variants={fadeInUp}
               className="group relative"
             >
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${item.color} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur`}
+                className={`absolute inset-0 bg-gradient-to-br ${card.gradient} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-xl`}
               ></div>
-              <div className="relative bg-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col">
+              <div className="relative bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
                 <div
-                  className={`w-10 sm:w-14 h-10 sm:h-14 bg-gradient-to-br ${item.color} rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br ${card.gradient} rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-5 text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}
                 >
-                  <item.icon className="w-5 sm:w-8 h-5 sm:h-8 text-white" />
+                  {card.icon}
                 </div>
-                <h3
-                  className={`text-lg sm:text-xl font-black ${item.textColor} mb-2 text-center`}
-                >
-                  {item.title}
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
+                  {card.title}
                 </h3>
-                <p className="text-gray-600 text-xs sm:text-sm text-center leading-relaxed flex-grow">
-                  {item.desc}
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-grow">
+                  {card.description}
                 </p>
               </div>
             </motion.div>
           ))}
-        </motion.div>
-      </div>
-    </div>
-  </section>
-);
-
-// --- Mission & Objectives ---
-const MissionObjectivesSection = () => (
-  <section className="section-padding bg-gradient-to-br from-gray-50 to-green-50">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Mission */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="bg-white p-8 rounded-2xl shadow-xl"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
-              <Sparkles className="w-8 h-8 text-white" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Mission
-            </h2>
-          </div>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            The mission of Green Walkathon 2026 is to weave together health,
-            environment, and community spirit. It aims to inspire people of all
-            ages to embrace a healthy lifestyle, adopt eco-friendly habits, and
-            take active responsibility for the world around them. It is a
-            mission to celebrate togetherness, promote environmental
-            consciousness, and ignite the powerful message that each step we
-            take can lead to a better, greener future.
-          </p>
-        </motion.div>
-
-        {/* Objectives */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="bg-white p-8 rounded-2xl shadow-xl"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg">
-              <Target className="w-8 h-8 text-white" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Objectives
-            </h2>
-          </div>
-          <ul className="space-y-4">
-            {[
-              "Create a culture where fitness is celebrated",
-              "Promote environmental awareness in daily practices",
-              "Build community harmony as a shared value",
-              "Spark curiosity about pollution and its effects",
-              "Encourage families to adopt greener choices",
-              "Motivate corporates to strengthen social commitment",
-              "Unite diverse groups in the spirit of transformation",
-            ].map((objective, index) => (
-              <li key={index} className="flex items-start text-gray-700">
-                <CheckIcon />
-                <span className="text-lg">{objective}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      </div>
-    </div>
-  </section>
-);
-
-// --- Expected Impact ---
-const ImpactSection = () => (
-  <section className="section-padding bg-gradient-to-br from-gray-50 via-white to-green-50/30 relative overflow-hidden">
-    {/* Decorative background elements */}
-    <div className="absolute top-0 right-0 w-96 h-96 bg-green-100/40 rounded-full filter blur-3xl"></div>
-    <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-100/40 rounded-full filter blur-3xl"></div>
-
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7 }}
-        className="text-center mb-8 sm:mb-12"
-      >
-        <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-green-100 text-green-700 rounded-full text-xs sm:text-sm font-bold mb-3 sm:mb-4">
-          THE IMPACT
-        </span>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-3 sm:mb-4 px-4">
-          Expected Impact
-        </h2>
-        <div className="flex justify-center">
-          <div className="h-1.5 w-16 sm:w-24 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
         </div>
-      </motion.div>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
-        {[
-          {
-            icon: "💪",
-            title: "Daily Fitness",
-            description:
-              "Inspire people to choose walking as a daily fitness routine",
-          },
-          {
-            icon: "🌍",
-            title: "Environmental Awareness",
-            description:
-              "Raise awareness on pollution and encourage greener practices",
-          },
-          {
-            icon: "🤝",
-            title: "Community Bonding",
-            description:
-              "Strengthen unity and shared ownership for a cleaner future",
-          },
-        ].map((impact, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-green-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-          >
-            <div className="text-4xl sm:text-5xl mb-3 sm:mb-4 text-center">
-              {impact.icon}
-            </div>
-            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 text-center">
-              {impact.title}
-            </h3>
-            <p className="text-gray-600 text-sm sm:text-base text-center leading-relaxed">
-              {impact.description}
-            </p>
-          </motion.div>
-        ))}
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-        className="relative"
-      >
-        <div className="bg-gradient-to-br from-green-500 to-emerald-600 p-6 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl text-white">
-          <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
-            <div className="flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-white/20 rounded-xl flex items-center justify-center">
-              <Sparkles className="w-5 sm:w-6 h-5 sm:h-6 text-yellow-300" />
-            </div>
-            <div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4">
-                A Lasting Legacy
-              </h3>
+        {/* Flag-off + Award Images */}
+        <motion.div
+          variants={fadeInUp}
+          className="grid md:grid-cols-2 gap-4 sm:gap-6"
+        >
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl group">
+            <Image
+              src="/pages/walkathon/flag-ceremony.jpeg"
+              alt="Flag-off ceremony"
+              width={700}
+              height={500}
+              className="w-full h-64 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6">
+              <p className="text-white font-bold text-sm sm:text-base">
+                The ceremonial flag-off
+              </p>
             </div>
           </div>
-
-          <div className="space-y-3 sm:space-y-4 text-base sm:text-lg leading-relaxed text-green-50">
-            <p>
-              Green Walkathon 2026 is expected to influence both hearts and
-              habits. It will inspire more people to choose walking as a daily
-              fitness routine. It will raise awareness on environmental
-              pollution and encourage greener practices in schools, homes, and
-              workplaces.
-            </p>
-            <p>
-              Most importantly, it will strengthen community bonding and create
-              a shared sense of ownership for a cleaner, healthier Arambagh.
-              Long after the event ends, its message will continue to ripple
-              through conversations, choices, and actions.
-            </p>
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl group">
+            <Image
+              src="/pages/walkathon/award-ceremony.jpeg"
+              alt="Award distribution at Green Walkathon 2026"
+              width={700}
+              height={500}
+              className="w-full h-64 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6">
+              <p className="text-white font-bold text-sm sm:text-base">
+                Recognizing community champions
+              </p>
+            </div>
           </div>
-
-          {/* Decorative elements */}
-          <div className="absolute top-4 right-4 opacity-10 sm:opacity-20">
-            <Leaf className="w-16 sm:w-24 h-16 sm:h-24 text-white" />
-          </div>
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   </section>
 );
 
-// --- Call to Action ---
-const CallToActionSection = ({ onOpenModal }) => (
-  <section className="section-padding bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 text-white relative overflow-hidden">
-    {/* Animated background elements */}
-    <div className="absolute inset-0 overflow-hidden">
+// --- Closing Section ---
+const ClosingSection = () => (
+  <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 text-white relative overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full filter blur-3xl animate-pulse"></div>
       <div
         className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full filter blur-3xl animate-pulse"
@@ -758,153 +829,7 @@ const CallToActionSection = ({ onOpenModal }) => (
       ></div>
     </div>
 
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7 }}
-        className="text-center mb-10 sm:mb-16"
-      >
-        {/* Enhanced heading */}
-        <div className="inline-block mb-4 sm:mb-6">
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-            <div className="h-1 w-8 sm:w-12 bg-yellow-400 rounded-full"></div>
-            <Sparkles className="w-6 sm:w-8 h-6 sm:h-8 text-yellow-300 animate-pulse" />
-            <div className="h-1 w-8 sm:w-12 bg-yellow-400 rounded-full"></div>
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-4 drop-shadow-lg px-4">
-            Join the Movement
-          </h2>
-          <div className="h-1.5 w-24 sm:w-32 bg-gradient-to-r from-transparent via-yellow-400 to-transparent rounded-full mx-auto"></div>
-        </div>
-
-        <p className="text-lg sm:text-xl md:text-2xl text-green-50 mb-3 sm:mb-4 max-w-3xl mx-auto leading-relaxed font-medium px-4">
-          Your single step can inspire a hundred more.
-        </p>
-        <p className="text-base sm:text-lg text-green-100 max-w-2xl mx-auto px-4">
-          Come, be part of this beautiful journey toward a greener tomorrow.
-        </p>
-      </motion.div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-16">
-        {[
-          {
-            title: "Students",
-            description:
-              "Step forward with energy and courage—your enthusiasm can light up this movement.",
-            icon: Users,
-            emoji: "🎓",
-          },
-          {
-            title: "Schools",
-            description:
-              "Join us in shaping young minds with awareness and responsibility.",
-            icon: Target,
-            emoji: "🏫",
-          },
-          {
-            title: "Corporates",
-            description:
-              "Walk with us to show your commitment to sustainability and community well-being.",
-            icon: Heart,
-            emoji: "🏢",
-          },
-          {
-            title: "Residents & Youth",
-            description:
-              "Bring your families, friends, and neighbours. Let Chandur rise as one.",
-            icon: Sparkles,
-            emoji: "🤝",
-          },
-        ].map((group, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group relative"
-          >
-            <div className="absolute inset-0 bg-white/20 rounded-2xl sm:rounded-3xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="relative bg-white/10 backdrop-blur-md p-5 sm:p-6 rounded-2xl sm:rounded-3xl border-2 border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105 hover:-translate-y-2 h-full flex flex-col shadow-xl">
-              {/* Icon and emoji */}
-              <div className="flex items-center justify-between mb-3 sm:mb-4">
-                <div className="text-3xl sm:text-4xl">{group.emoji}</div>
-                <group.icon className="w-8 sm:w-10 h-8 sm:h-10 text-yellow-300 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-
-              {/* Title */}
-              <h3 className="text-lg sm:text-xl md:text-2xl font-black mb-2 sm:mb-3 text-white">
-                {group.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-green-50 leading-relaxed flex-grow text-sm sm:text-base">
-                {group.description}
-              </p>
-
-              {/* Hover indicator */}
-              <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-white/20">
-                <div className="flex items-center gap-2 text-yellow-300 font-semibold text-xs sm:text-sm">
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">
-                    Be Part of It
-                  </span>
-                  <ArrowRight className="w-3 sm:w-4 h-3 sm:h-4 group-hover:translate-x-2 transition-transform duration-300" />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Enhanced Registration CTA */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, delay: 0.4 }}
-        className="text-center"
-      >
-        <div className="relative inline-block group w-full sm:w-auto px-4">
-          {/* Glowing effect */}
-          <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-white to-yellow-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
-
-          {/* Button */}
-          <button
-            onClick={onOpenModal}
-            className="relative w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 bg-white text-green-700 font-black text-lg sm:text-xl md:text-2xl rounded-full shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 sm:gap-4"
-          >
-            <span className="text-2xl sm:text-3xl animate-bounce">🌟</span>
-            <span>Register Now</span>
-            <span
-              className="text-2xl sm:text-3xl animate-bounce"
-              style={{ animationDelay: "0.2s" }}
-            >
-              🌟
-            </span>
-          </button>
-        </div>
-
-        {/* Additional info */}
-        <p className="mt-4 sm:mt-6 text-green-100 text-sm sm:text-base font-semibold flex flex-wrap items-center justify-center gap-2 px-4">
-          <span className="animate-pulse">🎉</span>
-          <span className="text-center">
-            Limited spots available - Register today!
-          </span>
-          <span className="animate-pulse" style={{ animationDelay: "0.5s" }}>
-            🎉
-          </span>
-        </p>
-      </motion.div>
-    </div>
-  </section>
-);
-
-// --- Closing Message ---
-const ClosingSection = () => (
-  <section className="section-padding bg-white">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -912,27 +837,23 @@ const ClosingSection = () => (
         transition={{ duration: 0.7 }}
         className="text-center"
       >
-        <div className="mb-8">
-          <Leaf className="w-16 h-16 text-green-600 mx-auto mb-6" />
-        </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-          Walk the Change. Walk Together.
+        <Leaf className="w-12 h-12 sm:w-16 sm:h-16 text-green-200 mx-auto mb-6 sm:mb-8" />
+
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6 sm:mb-8 drop-shadow-lg leading-tight">
+          The Day a Fragmented Workforce Discovered Its{" "}
+          <span className="text-yellow-300">Collective Voice</span>
         </h2>
-        <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
-          <p>
-            At ChangeSpark Foundation, we believe that every change begins with
-            a spark—an idea, a hope, a decision to care. Green Walkathon 2026 is
-            our heartfelt invitation to you to walk with purpose, walk with
-            pride, and walk for the earth we all call home.
-          </p>
-          <p>
-            Together, we can shape a future that reflects the values Swami
-            Vivekananda dreamed of—strong youth, united communities, and a world
-            filled with harmony and compassion.
-          </p>
-          <p className="text-2xl font-semibold text-green-700 mt-8">
-            Let's walk the change. Let's walk together.
-          </p>
+
+        <p className="text-base sm:text-lg md:text-xl text-green-50 max-w-3xl mx-auto leading-relaxed mb-8">
+          For Arambagh, 12th January will now be remembered not as a one-day
+          gathering, but as the day a fragmented workforce discovered its
+          collective voice. This is only the beginning.
+        </p>
+
+        <div className="flex justify-center gap-3">
+          <div className="h-1 w-8 bg-yellow-400 rounded-full"></div>
+          <div className="h-1 w-8 bg-green-300 rounded-full"></div>
+          <div className="h-1 w-8 bg-emerald-300 rounded-full"></div>
         </div>
       </motion.div>
     </div>
@@ -941,22 +862,27 @@ const ClosingSection = () => (
 
 // --- Main Page Export ---
 export default function GreenWalkathon2026Page() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
   return (
-    <main className="bg-background-100">
-      <EventHeader onOpenModal={() => setIsModalOpen(true)} />
-      <IntroductionSection />
+    <main className="bg-white overflow-hidden">
+      <HeroSection />
+      <OpeningSection />
+      <ImpactNumbersSection />
+      <FeaturedSection />
       <StorySection />
-      <WhyItMattersSection />
-      <MissionObjectivesSection />
-      <ImpactSection />
-      <CallToActionSection onOpenModal={() => setIsModalOpen(true)} />
+      <RecognitionSection />
+      <GallerySection onImageClick={(index) => setSelectedImageIndex(index)} />
+      <LegacySection />
       <ClosingSection />
-      <RegistrationModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+
+      {selectedImageIndex !== null && (
+        <ImageModal
+          images={galleryImages}
+          initialIndex={selectedImageIndex}
+          onClose={() => setSelectedImageIndex(null)}
+        />
+      )}
     </main>
   );
 }

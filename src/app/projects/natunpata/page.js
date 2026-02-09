@@ -2,13 +2,13 @@ import React from "react";
 import Image from "next/image";
 
 const projectData = {
-  headerImage: "/goghat-header.jpeg",
+  headerImage: "/projects/natunpata/goghat-header.jpeg",
   galleryImages: [
-    "/goghat1.jpeg",
-    "/goghat2.jpeg",
-    "/goghat3.jpeg",
-    "/goghat4.jpeg",
-    "/goghat5.jpeg",
+    "/projects/natunpata/goghat1.jpeg",
+    "/projects/natunpata/goghat2.jpeg",
+    "/projects/natunpata/goghat3.jpeg",
+    "/projects/natunpata/goghat4.jpeg",
+    "/projects/natunpata/goghat5.jpeg",
   ],
 };
 

@@ -9,11 +9,11 @@ import { motion, AnimatePresence } from "framer-motion";
 const projectData = {
   title: "Green Gyan",
   subtitle: "Sustainability for Everyday Life",
-  headerImage: "/PGGBG.jpg",
+  headerImage: "/projects/greengyan/PGGBG.jpg",
   description: [
     "What if the path to saving the planet began at home—with a compost bin, a glass bottle, or a planted tree? Green Gyan was born from this belief. It is our grassroots environmental education program, grounded in everyday actions that build towards a better tomorrow.",
     "It's more than theory—it’s transformation in action. We’ve seen students lead school-wide clean-up drives, mothers become champions of waste segregation, and entire families switch to sustainable living because they learned how and, more importantly, believed they could.",
-    "With Green Gyan, sustainability becomes not just possible—it becomes personal."
+    "With Green Gyan, sustainability becomes not just possible—it becomes personal.",
   ],
   keyActivities: [
     "Waste Segregation & Composting Workshops",
@@ -22,16 +22,29 @@ const projectData = {
     "Tree Plantation & Community Clean-ups",
   ],
   galleryImages: [
-    "/pgs1.jpg",
-    "/pgs2.jpg",
-    "/pgs3.jpg",
-    "/pgs4.jpg",
+    "/projects/greengyan/pgs1.jpg",
+    "/projects/greengyan/pgs2.jpg",
+    "/projects/greengyan/pgs3.jpg",
+    "/projects/greengyan/pgs4.jpg",
   ],
 };
 
 // --- Reusable Icon Component ---
 const CheckIcon = () => (
-    <svg className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+  <svg
+    className="w-6 h-6 text-primary-600 mr-3 flex-shrink-0"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M5 13l4 4L19 7"
+    ></path>
+  </svg>
 );
 
 // --- Page Components ---
@@ -43,7 +56,10 @@ const ProjectHeader = ({ title, subtitle, image }) => (
       fill
       className="object-cover"
       priority
-      onError={(e) => { e.target.src = 'https://placehold.co/1920x1080/145237/FFF?text=Image+Not+Found'; }}
+      onError={(e) => {
+        e.target.src =
+          "https://placehold.co/1920x1080/145237/FFF?text=Image+Not+Found";
+      }}
     />
     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent"></div>
     <div className="relative z-10 text-center container-custom">
@@ -70,7 +86,7 @@ const ProjectHeader = ({ title, subtitle, image }) => (
 const ProjectDetails = ({ description, activities }) => (
   <article className="section-padding bg-white">
     <div className="container-custom grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-      <motion.div 
+      <motion.div
         className="lg:col-span-3"
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -86,7 +102,7 @@ const ProjectDetails = ({ description, activities }) => (
           ))}
         </div>
       </motion.div>
-      <motion.div 
+      <motion.div
         className="lg:col-span-2"
         initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -94,17 +110,20 @@ const ProjectDetails = ({ description, activities }) => (
         transition={{ duration: 0.7 }}
       >
         <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 h-full shadow-sm">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 font-heading">
-              Key Activities
-            </h3>
-            <ul className="space-y-4">
-              {activities.map((activity) => (
-                <li key={activity} className="flex items-start text-lg text-gray-700 font-paragraph">
-                  <CheckIcon />
-                  <span>{activity}</span>
-                </li>
-              ))}
-            </ul>
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 font-heading">
+            Key Activities
+          </h3>
+          <ul className="space-y-4">
+            {activities.map((activity) => (
+              <li
+                key={activity}
+                className="flex items-start text-lg text-gray-700 font-paragraph"
+              >
+                <CheckIcon />
+                <span>{activity}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </motion.div>
     </div>
@@ -136,7 +155,10 @@ const ProjectGallery = ({ images, onImageClick }) => (
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"
               sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-              onError={(e) => { e.target.src = 'https://placehold.co/400x400/EAF9F2/145237?text=Image'; }}
+              onError={(e) => {
+                e.target.src =
+                  "https://placehold.co/400x400/EAF9F2/145237?text=Image";
+              }}
             />
             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </motion.div>
@@ -147,44 +169,55 @@ const ProjectGallery = ({ images, onImageClick }) => (
 );
 
 const ImageModal = ({ imageUrl, onClose }) => {
-    if (!imageUrl) return null;
+  if (!imageUrl) return null;
 
-    return (
-        <AnimatePresence>
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }} 
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-                onClick={onClose}
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.8, y: 50 }}
+          animate={{ scale: 1, y: 0 }}
+          exit={{ scale: 0.8, y: 50 }}
+          className="relative max-w-3xl w-full mx-4"
+          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the image
+        >
+          <Image
+            src={imageUrl}
+            alt="Enlarged gallery view"
+            width={1200}
+            height={800}
+            className="rounded-xl shadow-2xl object-contain max-h-[80vh]"
+          />
+          <button
+            onClick={onClose}
+            className="absolute -top-4 -right-4 bg-white text-gray-800 rounded-full p-2 shadow-lg hover:bg-gray-200 transition"
+            aria-label="Close image view"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-                <motion.div
-                    initial={{ scale: 0.8, y: 50 }}
-                    animate={{ scale: 1, y: 0 }}
-                    exit={{ scale: 0.8, y: 50 }}
-                    className="relative max-w-3xl w-full mx-4"
-                    onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the image
-                >
-                    <Image
-                        src={imageUrl}
-                        alt="Enlarged gallery view"
-                        width={1200}
-                        height={800}
-                        className="rounded-xl shadow-2xl object-contain max-h-[80vh]"
-                    />
-                    <button
-                        onClick={onClose}
-                        className="absolute -top-4 -right-4 bg-white text-gray-800 rounded-full p-2 shadow-lg hover:bg-gray-200 transition"
-                        aria-label="Close image view"
-                    >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    </button>
-                </motion.div>
-            </motion.div>
-        </AnimatePresence>
-    );
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
 };
-
 
 // --- Main Page Export ---
 export default function GreenGyanPage() {
@@ -192,20 +225,20 @@ export default function GreenGyanPage() {
 
   return (
     <main className="bg-background-100">
-      <ProjectHeader 
+      <ProjectHeader
         title={projectData.title}
         subtitle={projectData.subtitle}
         image={projectData.headerImage}
       />
-      <ProjectDetails 
+      <ProjectDetails
         description={projectData.description}
         activities={projectData.keyActivities}
       />
-      <ProjectGallery 
+      <ProjectGallery
         images={projectData.galleryImages}
         onImageClick={setSelectedImage}
       />
-      <ImageModal 
+      <ImageModal
         imageUrl={selectedImage}
         onClose={() => setSelectedImage(null)}
       />
