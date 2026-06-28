@@ -94,7 +94,7 @@ const HeroSection = () => {
           {/* CTA Buttons - Primary and Tertiary are now identical */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
             {/* Primary Button */}
-            <Link href="/donate">
+            <a href="https://rzp.io/rzp/changespark-donate" target="_blank" rel="noopener noreferrer">
               <button className="group relative w-full sm:w-auto px-8 py-3 overflow-hidden rounded-full font-semibold text-sm shadow-xl transform hover:scale-105 hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700">
                 <span className="relative z-10 text-white flex items-center justify-center gap-2">
                   Support a Cause
@@ -113,7 +113,7 @@ const HeroSection = () => {
                   </svg>
                 </span>
               </button>
-            </Link>
+            </a>
 
             {/* Secondary Button */}
             <Link href="/join-us">

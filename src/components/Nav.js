@@ -11,7 +11,6 @@ const navItems = [
   { href: "/green-walkathon-2026", label: "GREEN WALKATHON 2026" },
   { href: "/projects", label: "PROJECTS" },
   { href: "/team", label: "TEAM" },
-  { href: "/blog", label: "BLOG" },
   { href: "/contact-us", label: "CONTACT US" },
 ];
 
@@ -81,7 +80,7 @@ export default function Nav() {
 
   const handleDonateClick = () => {
     setOpen(false);
-    window.location.href = "https://changespark.in/donate";
+    window.location.href = "https://rzp.io/rzp/changespark-donate";
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
