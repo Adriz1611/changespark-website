@@ -38,6 +38,18 @@ const projectsData = [
     ],
     href: "/projects/greengyan",
   },
+  {
+    title: "Mishan Yuva Vikas: Youth as Change Makers",
+    description:
+      "An independent youth-centric journey inspired by Viksit Bharat @2047. Mishan Yuva Vikas empowers young minds with the awareness, skills, opportunities, confidence and leadership to contribute meaningfully to India's development journey.",
+    topics: [
+      "Leadership & Future-ready Skills",
+      "Community Projects & Changemaking",
+      "Campus Ambassador Programme",
+      "Opportunity Navigation & Mentorship",
+    ],
+    href: "/projects/yuva-vikas",
+  },
 ];
 
 const CheckIcon = () => (
@@ -214,7 +226,11 @@ export default function ProjectsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6 }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+                className={
+                  project.images
+                    ? "grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+                    : "max-w-4xl mx-auto"
+                }
               >
                 <div
                   className={`lg:pr-8 ${index % 2 === 1 ? "lg:order-2" : ""}`}
@@ -270,9 +286,11 @@ export default function ProjectsPage() {
                   </Link>
                 </div>
 
-                <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                  <ImageSlider images={project.images} title={project.title} />
-                </div>
+                {project.images && (
+                  <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                    <ImageSlider images={project.images} title={project.title} />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
