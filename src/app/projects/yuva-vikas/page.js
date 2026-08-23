@@ -115,6 +115,11 @@ export default function YuvaVikasPage() {
             <p className="mt-5 text-2xl font-medium text-green-100 md:text-3xl">Building Viksit Bharat.</p>
             <p className="mt-8 max-w-3xl text-lg leading-relaxed text-white/85 md:text-xl">We don&apos;t just want to talk about the future. We want to prepare our youth to build it.</p>
             <p className="mt-5 max-w-3xl text-lg leading-relaxed text-white/75">An independent youth-centric journey inspired by the vision of Viksit Bharat @2047, empowering young minds with the awareness, skills, opportunities, confidence and leadership to contribute meaningfully to our development journey.</p>
+            <div className="mt-8 max-w-2xl border-l-4 border-green-300 bg-black/10 px-5 py-4 sm:px-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-green-200">Conceived and led by</p>
+              <p className="mt-1 text-2xl font-bold font-heading text-white sm:text-3xl">Jayakumar S.</p>
+              <p className="mt-2 text-sm leading-relaxed text-green-50 sm:text-base">A youth development initiative created with a clear belief: India&apos;s young people can shape the nation&apos;s next chapter.</p>
+            </div>
             <motion.a whileTap={{ scale: 0.96 }} whileHover={{ scale: 1.03 }} href="#journey" className="yuva-cta btn-primary mt-10 inline-flex items-center gap-2">Start your journey <ArrowRight className="h-5 w-5" /></motion.a>
             <motion.div initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.45 } } }} className="mt-10 flex flex-wrap gap-2">
               {["Discover", "Develop", "Participate", "Lead", "Impact"].map((item) => <motion.span key={item} variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }} className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-medium text-green-50 backdrop-blur-sm">{item}</motion.span>)}
