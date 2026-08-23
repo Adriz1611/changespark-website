@@ -722,3 +722,109 @@
 .animate-bounce-slow {
   animation: bounce-slow 2.5s ease-in-out infinite;
 }
+
+/* Mishan Yuva Vikas: image-free, motion-led visual details */
+@keyframes yuva-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes yuva-grid {
+  from { background-position: 0 0; }
+  to { background-position: 48px 48px; }
+}
+
+@keyframes yuva-cta {
+  0%, 100% { box-shadow: 0 10px 25px rgba(22, 163, 74, 0.28); }
+  50% { box-shadow: 0 14px 34px rgba(74, 222, 128, 0.52); }
+}
+
+@keyframes yuva-scroll {
+  0%, 100% { transform: translateY(3px); opacity: 0.45; }
+  50% { transform: translateY(13px); opacity: 1; }
+}
+
+.yuva-orbit { animation: yuva-orbit 28s linear infinite; }
+.yuva-orbit-reverse { animation: yuva-orbit 19s linear infinite reverse; }
+.yuva-grid { animation: yuva-grid 18s linear infinite; }
+.yuva-cta { animation: yuva-cta 2.8s ease-in-out infinite; }
+.yuva-scroll-indicator span { display: block; width: 3px; height: 7px; margin: 4px auto 0; border-radius: 9999px; background: currentColor; animation: yuva-scroll 1.5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .yuva-orbit,
+  .yuva-orbit-reverse,
+  .yuva-grid,
+  .yuva-cta,
+  .yuva-scroll-indicator span {
+    animation: none;
+  }
+}
+
+/* Mishan Yuva Vikas: long-form reading comfort */
+.yuva-page {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.yuva-page h1,
+.yuva-page h2,
+.yuva-page h3,
+.yuva-page h4 {
+  text-wrap: balance;
+  line-height: 1.16;
+}
+
+.yuva-page p,
+.yuva-page li {
+  text-wrap: pretty;
+}
+
+.yuva-section-title::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 0.2rem;
+  margin: 1.5rem auto 0;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #16a34a, #6ee7b7);
+}
+
+@media (max-width: 640px) {
+  .yuva-page .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .yuva-page h1 {
+    letter-spacing: -0.035em;
+    line-height: 1.06;
+  }
+
+  .yuva-page h2 {
+    font-size: clamp(1.9rem, 8vw, 2.35rem);
+  }
+
+  .yuva-page h3,
+  .yuva-page h4 {
+    line-height: 1.25;
+  }
+
+  .yuva-page p,
+  .yuva-page li {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .yuva-page blockquote {
+    font-size: 1.1rem;
+    line-height: 1.65;
+  }
+
+  .yuva-page .yuva-section-title {
+    margin-bottom: 2.5rem;
+  }
+
+  .yuva-page .yuva-section-title::after {
+    margin-top: 1.15rem;
+  }
+}
