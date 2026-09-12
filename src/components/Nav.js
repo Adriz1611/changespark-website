@@ -80,8 +80,7 @@ export default function Nav() {
 
   const handleDonateClick = () => {
     setOpen(false);
-    window.location.href = "https://rzp.io/rzp/changespark-donate";
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    router.push("/donate");
   };
 
   const handleNavClick = (href) => {
